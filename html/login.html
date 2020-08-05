@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+<style>
+
+
+.logo{
+	display: block;
+  float: left;
+	width: 40%;
+}
+
+.box{
+  display:block;
+ margin-left: auto;
+  margin-right: auto;
+}
+
+.text {
+  font-size: 18px;
+  color: #2968AA;
+  font-family: 'Pacifico', cursive;
+  letter-spacing: 1px;
+  float: left;
+  text-align: justify;
+}
+  
+label {
+  font-size: 18px;
+  display: block;
+  width: 30%;
+  color: #2968AA;
+  font-family: 'Pacifico', cursive;
+  letter-spacing: 1px;
+
+}
+
+.col {
+  float: left;
+  width: 50%;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+input[type=text], input[type=password] {
+  width: 60%;
+  padding: 10px 20px;
+  margin-top: 1%;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+
+}
+
+button{
+  font-family: 'Pacifico', cursive;
+  color: white;
+  background-color: #2968AA;
+  padding: 10px 20px;
+  margin-top: 3%;
+  display: block;
+  border: none;
+  cursor: pointer;
+  width: 60%;
+}
+
+.remember{
+display: block; 
+float: left;
+margin-left: auto;
+margin-right: auto;
+}
+
+</style>
+</head>
+<body>
+
+
+<div class="row">
+
+  <div class="col">
+    <br>
+    <img class="logo" src="avatar.png" alt="SuperTrouper Inc, login screen.">
+    <br>
+    <br>
+      <div class="box">
+      <label for="username"><b>Username</b></label>
+      <input type="text" placeholder="Enter username" name="username" required>
+      <br>
+      <label for="password"><b>Password</b></label>
+      <input type="password" placeholder="Enter password" name="password" required>
+      <br>
+      <button type="submit">Login</button>
+      <br>
+      <label>
+      <input type="checkbox" checked="checked" name="remember">Remember me 
+      </label>
+      </div>
+  </div>
+
+  <div class="col">
+    <div class="text">
+      <br>
+      <br>
+      <p>We are here to inform you that all your privat data may not be secured.Just be sured that not only is NSA watching us, but are teachers too. </p>
+    </div>
+  </div>
+</div>
+
+
+
+</body>
+</html>
