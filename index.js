@@ -113,7 +113,7 @@
 
 			console.log(JSON.stringify(locations_arr));
 
-			$.post("demo_test_post.php",
+			$.post("new_file_to_db.php",
 				JSON.stringify(locations_arr),
 				function(data, status){
 					alert("Status: " + status);

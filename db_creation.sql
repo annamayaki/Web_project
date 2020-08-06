@@ -22,12 +22,12 @@ CREATE TABLE IF NOT EXISTS users (
 CREATE TYPE detected_activity_type AS ENUM('IN_VEHICLE', 'ON_BICYCLE',
 'ON_FOOT', 'RUNNING', 'STILL', 'TILTING', 'UNKNOWN', 'WALKING');
 
+DROP TABLE IF EXISTS events;
 CREATE TABLE IF NOT EXISTS events (
     username TEXT NOT NULL,
     activity_type TEXT,
-    actvity_confidence INT,
-    accuracy INT,
-    coordinates GEOGRAPHY(POINT, 4326),
+    longitude FLOAT,
+    latitude FLOAT,
     timestampMs TIMESTAMP,
     PRIMARY KEY (username, timestampMs),
     CONSTRAINT ACTIVE_USER FOREIGN KEY (username) REFERENCES users(username)
@@ -37,3 +37,21 @@ CREATE TABLE IF NOT EXISTS events (
 insert into users (username,password,user_type) 
 values ('anna','anna1234','user'),
 ('klelia','klelia1998','admin');
+
+
+insert into events values ('anna','STILL',ST_GeometryFromText('POINT(-118.4 33.94)'),to_timestamp(1574988562));
+
+---My precious-----
+
+DROP TABLE IF EXISTS events;
+CREATE TABLE IF NOT EXISTS events (
+    username TEXT NOT NULL,
+    activity_type TEXT,
+    coordinates GEOGRAPHY(POINT),
+    timestampMs TIMESTAMP,
+    PRIMARY KEY (username, timestampMs),
+    CONSTRAINT ACTIVE_USER FOREIGN KEY (username) REFERENCES users(username)
+);
+
+select username, ST_X(coordinates::geometry) as longtidute,ST_Y(coordinates::geometry) as latt from events;
+------end my precious-------
