@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
 <style>
 
 
@@ -79,7 +80,7 @@ margin-right: auto;
 </style>
 </head>
 <body>
-
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
 
 <div class="row">
 
@@ -89,12 +90,12 @@ margin-right: auto;
         <br>
         <br>
         <div class="box">
-        <form id="login_form" action="form_handler.php" method="POST">    
+        <form id="login_form" action="../login.php" method="POST">    
             <label for="username"><b>Username</b></label>
-            <input type="text" placeholder="Enter username" name="username" id="username" required>
+            <input type="text" placeholder="Enter username" name="username" id="username" required/>
             <br>
             <label for="password"><b>Password</b></label>
-            <input type="password" placeholder="Enter password" name="password" id="password" required>
+            <input type="password" placeholder="Enter password" name="password" id="password" required/>
             <br>
             <label for="remember">Remember me </label>
             <input type="checkbox" checked="checked" name="remember" id="remember">
@@ -116,33 +117,75 @@ margin-right: auto;
 
 <script>
     $(function() {
-        $('#submit').on('click', function () {
-            if($('#username').val() == null)
-            $('#login_form').submit();
-        //     let form = $('#login_form');
-    	// 	$.ajax({
-		// 	url    : form.attr('action'),
-		// 	type   : form.attr('method'),
-		// 	contentType:'application/json; charset=utf-8',
-		// 	data   : JSON.stringify(locations_arr),
-		// 	success: function(data, status){
-		// 		//On ajax success do this
-		// 		alert("Status: " + status);
-		// 		console.log(data);
-		// 	},
-		// 	error: function(xhr, ajaxOptions, thrownError) {
-		// 		//On error do this
-		// 			if (xhr.status == 200) {
-			
-		// 				alert(ajaxOptions);
-		// 			}
-		// 			else {
-		// 				alert(xhr.status);
-		// 				alert(thrownError);
-		// 			}
-		// 	}
-		// 	});
-        // });
+        $('#login_form input[type=text]').on('change invalid', function() {
+    var textfield = $(this).get(0);
+    
+    // 'setCustomValidity not only sets the message, but also marks
+    // the field as invalid. In order to see whether the field really is
+    // invalid, we have to remove the message first
+    textfield.setCustomValidity('');
+    
+    if (!textfield.validity.valid) {
+      textfield.setCustomValidity('Υποχρεωτικό πεδίο');  
+    }
+    });
+    $('#login_form input[type=password]').on('change invalid', function() {
+        var textfield = $(this).get(0);
+        
+        // 'setCustomValidity not only sets the message, but also marks
+        // the field as invalid. In order to see whether the field really is
+        // invalid, we have to remove the message first
+        textfield.setCustomValidity('');
+        
+        if (!textfield.validity.valid) {
+        textfield.setCustomValidity('Υποχρεωτικό πεδίο');  
+        }
+    });
+    $('#submit').on('click', function (event) {
+            if ($('#username').val() == "") {
+                console.log("Please give a valid username");
+                event.preventDefault();
+            }
+            else if ($('#password').val() == ""){
+                console.log("Please give a valid password");
+                event.preventDefault();
+            }
+            else {
+                console.log("OK");
+                event.preventDefault();
+                $.ajax({
+                url    : $('#login_form').attr('action'),
+                type   : $('#login_form').attr('method'),
+                data   : $('#login_form').serialize(),
+                success: function(data, status){
+                	//On ajax success do this
+                	alert("Status: " + status);
+                    console.log(data);
+                    if (data == "Redirect to user profile"){
+                        window.location.href = "profile.html";
+                    }
+                    else if (data == "Redirect to admin dashboard") {
+                        console.log("admin");
+                    }
+                    else {
+                        console.log("Λανθασμένα στοιχεία. Προσπαθήστε ξανά.");
+                    }
+                },
+                error: function(xhr, ajaxOptions, thrownError) {
+                	//On error do this
+                		if (xhr.status == 200) {
+                
+                			alert(ajaxOptions);
+                		}
+                		else {
+                			alert(xhr.status);
+                			alert(thrownError);
+                		}
+                }
+                });
+            }
+        
+        });
     });
 </script>
 

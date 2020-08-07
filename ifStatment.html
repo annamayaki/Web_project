@@ -1,0 +1,19 @@
+<script>
+ 
+if (document.getElementById("username")==null) {
+	console.log("Please give a valid username");
+}
+else if (document.getElementById("password")==null){
+	console.log("Please give a valid password");
+}
+
+select user_type from users 
+where username=? and password=?;
+
+while($row = pg_fetch_row($----)) {
+	if $row[0]==null
+		echo "unvalid name/password";
+}
+
+
+</script>>

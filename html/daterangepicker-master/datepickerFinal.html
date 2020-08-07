@@ -16,10 +16,14 @@
 <input type="text" name="daterange" id="daterange" value="01/01/2020 01/15/2020" />
 
 <h2>Ώρες</h2>
+<<<<<<< HEAD:datepickerFinal.html
  <p><label for="timeStart">Από</label></p>
  <input type="text" name="timepicker" id="timeStart"/> 
  <!-- <p><label for="timeEnd"></label>Μέχρι</label></p> 
  <input type="time"  class="timepicker" id="timeEnd"/> -->
+=======
+ <p>Από</p><input type="time"  name ="timepicker" id ="timepicker1" /> <p>Μέχρι</p> <input type="time"  name ="timepicker" />
+>>>>>>> 2a46be7115a8b50ccbe559ce2ae0cc9a9e95f1bb:html/daterangepicker-master/datepickerFinal.html
 
 <script>
     moment.locale('el')
@@ -34,6 +38,15 @@
 </script>
 
 <script>
+<<<<<<< HEAD:datepickerFinal.html
+=======
+$('#timepicker1').timepicker({
+    timeFormat: 'h:mm p',
+    dynamic: false,
+    dropdown: true,
+    scrollbar: true
+});
+>>>>>>> 2a46be7115a8b50ccbe559ce2ae0cc9a9e95f1bb:html/daterangepicker-master/datepickerFinal.html
 
 // $(document).ready(function(){
 //     $('.timepicker').timepicker({
@@ -49,6 +62,7 @@
 //     });
 // });
 
+<<<<<<< HEAD:datepickerFinal.html
 $(document).ready(function(){
     $('#timeStart').timepicker({
         timeFormat: 'g:i a',
@@ -61,5 +75,9 @@ $(document).ready(function(){
 $('#timeStart').on('changeTime', function() {
 	console.log($(this).val());
 });
+=======
+
+
+>>>>>>> 2a46be7115a8b50ccbe559ce2ae0cc9a9e95f1bb:html/daterangepicker-master/datepickerFinal.html
 </script>
 </body>
