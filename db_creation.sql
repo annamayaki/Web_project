@@ -39,7 +39,6 @@ values ('anna','anna1234','user'),
 ('klelia','klelia1998','admin');
 
 
-insert into events values ('anna','STILL',ST_GeometryFromText('POINT(-118.4 33.94)'),to_timestamp(1574988562));
 
 ---My precious-----
 

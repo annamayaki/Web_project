@@ -67,11 +67,9 @@
 			if ( longitude > 180 ) longitude = longitude - (2 ** 32) * SCALAR_E7;
 
 			latlngs.push( [ latitude, longitude ] );
-			console.log(k+"\n");
-			k++;
 
 			var tmp_obj = new Object();
-			// timestamp (outer), lat, lon, type, acc/conf???
+			// timestamp (outer), type, lat, lon
 			tmp_obj.timestamp = location.timestampMs;
 			tmp_obj.latitude = latitude;
 			tmp_obj.longitude = longitude;
@@ -82,7 +80,6 @@
 				let i=0;
 				
 				for (const elem of location.activity[0].activity){
-					// console.log(elem.confidence+" vs "+max_conf+"\n");
 					if (elem.confidence > max_conf){
 						max_conf = elem.confidence;
 						max_conf_ind = i;
@@ -91,14 +88,13 @@
 				}
 
 				tmp_obj.activity_type = location.activity[0].activity[max_conf_ind].type;
-				console.log("Activity = " + location.activity[0].activity[max_conf_ind].type + " at index " + max_conf_ind);
+				// console.log("Activity = " + location.activity[0].activity[max_conf_ind].type + " at index " + max_conf_ind);
 			}
 			else {
 				tmp_obj.activity_type = null;
-				console.log("No activity detected.");
+				// console.log("No activity detected.");
 			}
 			
-			console.log(tmp_obj);
 			locations_arr.push(tmp_obj);
 
 			return oboe.drop;
@@ -111,7 +107,7 @@
 
 			// stringify arr + post
 
-			console.log(JSON.stringify(locations_arr));
+			// console.log(JSON.stringify(locations_arr));
 
 			$.post("new_file_to_db.php",
 				JSON.stringify(locations_arr),

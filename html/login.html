@@ -83,23 +83,25 @@ margin-right: auto;
 
 <div class="row">
 
-  <div class="col">
-    <br>
-    <img class="logo" src="avatar.png" alt="SuperTrouper Inc, login screen.">
-    <br>
-    <br>
-      <div class="box">
-      <label for="username"><b>Username</b></label>
-      <input type="text" placeholder="Enter username" name="username" required>
-      <br>
-      <label for="password"><b>Password</b></label>
-      <input type="password" placeholder="Enter password" name="password" required>
-      <br>
-      <button type="submit">Login</button>
-      <br>
-      <label>
-      <input type="checkbox" checked="checked" name="remember">Remember me 
-      </label>
+    <div class="col">
+        <br>
+        <img class="logo" src="avatar.png" alt="SuperTrouper Inc, login screen.">
+        <br>
+        <br>
+        <div class="box">
+        <form id="login_form" action="form_handler.php" method="POST">    
+            <label for="username"><b>Username</b></label>
+            <input type="text" placeholder="Enter username" name="username" id="username" required>
+            <br>
+            <label for="password"><b>Password</b></label>
+            <input type="password" placeholder="Enter password" name="password" id="password" required>
+            <br>
+            <label for="remember">Remember me </label>
+            <input type="checkbox" checked="checked" name="remember" id="remember">
+            <br>
+            <button type="submit" id="submit">Login</button>
+            <span id="wrong"></span>
+        </form>
       </div>
   </div>
 
@@ -112,7 +114,37 @@ margin-right: auto;
   </div>
 </div>
 
-
+<script>
+    $(function() {
+        $('#submit').on('click', function () {
+            if($('#username').val() == null)
+            $('#login_form').submit();
+        //     let form = $('#login_form');
+    	// 	$.ajax({
+		// 	url    : form.attr('action'),
+		// 	type   : form.attr('method'),
+		// 	contentType:'application/json; charset=utf-8',
+		// 	data   : JSON.stringify(locations_arr),
+		// 	success: function(data, status){
+		// 		//On ajax success do this
+		// 		alert("Status: " + status);
+		// 		console.log(data);
+		// 	},
+		// 	error: function(xhr, ajaxOptions, thrownError) {
+		// 		//On error do this
+		// 			if (xhr.status == 200) {
+			
+		// 				alert(ajaxOptions);
+		// 			}
+		// 			else {
+		// 				alert(xhr.status);
+		// 				alert(thrownError);
+		// 			}
+		// 	}
+		// 	});
+        // });
+    });
+</script>
 
 </body>
 </html>
