@@ -1,0 +1,43 @@
+<head>
+  <meta charset="utf-8">
+
+</head>
+
+<body>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="./moment-with-locales.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+<script type="text/javascript" src="./jquery.timepicker.js"></script>
+
+<h2>Ημερμηνία </h2>
+<input type="text" name="daterange" value="01/01/2020 01/15/2020" />
+
+<h2>Ώρες</h2>
+ <p>Από</p><input type="time"  name ="timepicker" id ="timepicker1" /> <p>Μέχρι</p> <input type="time"  name ="timepicker" />
+
+<script>
+	moment.locale('el')
+$(function() {
+  $('input[name="daterange"]').daterangepicker({
+    opens: 'left'
+  }, function(start, end, label) {
+    console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+  });
+});
+</script>
+
+<script>
+$('#timepicker1').timepicker({
+    timeFormat: 'h:mm p',
+    dynamic: false,
+    dropdown: true,
+    scrollbar: true
+});
+
+
+
+
+</script>
+</body>
