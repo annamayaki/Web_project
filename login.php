@@ -13,10 +13,10 @@ if (!$db_connection) {
     exit;
 }
 
-$prep_stmt = "SELECT user_type From users WHERE 
+$prep_stmt = "SELECT user_type FROM users WHERE 
     username=$1 AND password=$2";
 $result = pg_prepare($db_connection, "login_query", $prep_stmt);
-if (! $result) {
+if (!$result) {
     echo "Houston, we have a problem...";
 }
 

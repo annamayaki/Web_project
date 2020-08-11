@@ -1,0 +1,36 @@
+{
+  "events": [
+    {
+      "heading": 12345,
+      "activity": {
+        "type": "STILL",
+        "confidence": 50,
+        "timestampMs": 1234567890
+      },
+      "verticalAccuracy": 12345,
+      "velocity": 12345,
+      "accuracy": 12345,
+      "longitudeE7": 1234567,
+      "latitudeE7": 1234567,
+      "altitude": 1234,
+      "timestampMs": 1234567890,
+      "userId": 1234567890
+    },
+    {
+      "heading": 12345,
+      "activity": {
+        "type": "WALKING",
+        "confidence": 50,
+        "timestampMs": 1234567890
+      },
+      "verticalAccuracy": 12345,
+      "velocity": 12345,
+      "accuracy": 12345,
+      "longitudeE7": 1234567,
+      "latitudeE7": 1234567,
+      "altitude": 1234,
+      "timestampMs": 1234567890,
+      "userId": 1234567890
+    }
+  ]
+}

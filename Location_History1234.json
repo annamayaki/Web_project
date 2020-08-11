@@ -7,7 +7,7 @@
 			"accuracy":16
 		},
 		{
-			"timestampMs":"1574988562379",
+			"timestampMs":"154983562379",
 			"latitudeE7":382631028,
 			"longitudeE7":218482839,
 			"accuracy":16,
@@ -24,7 +24,7 @@
 			]
 		},
 		{
-			"timestampMs" : "1581178624771",
+			"timestampMs" : "1581175324771",
 			"latitudeE7" : 382584864,
 			"longitudeE7" : 217379652,
 			"accuracy" : 708,

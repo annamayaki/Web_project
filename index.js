@@ -69,11 +69,13 @@
 			latlngs.push( [ latitude, longitude ] );
 
 			var tmp_obj = new Object();
-			// timestamp (outer), type, lat, lon
+			// attributes present in every object
 			tmp_obj.timestamp = location.timestampMs;
 			tmp_obj.latitude = latitude;
 			tmp_obj.longitude = longitude;
+			tmp_obj.accuracy = location.accuracy;
 
+			// optional attributes
 			if (location.hasOwnProperty("activity")){
 				let max_conf= -1;
 				let max_conf_ind = -1;
@@ -87,12 +89,43 @@
 					i++;
 				}
 
+				tmp_obj.activity_timestampMs = location.activity[0].timestampMs;
 				tmp_obj.activity_type = location.activity[0].activity[max_conf_ind].type;
-				// console.log("Activity = " + location.activity[0].activity[max_conf_ind].type + " at index " + max_conf_ind);
+				tmp_obj.activity_confidence = location.activity[0].activity[max_conf_ind].confidence;
 			}
 			else {
+				tmp_obj.activity_timestampMs = null;
 				tmp_obj.activity_type = null;
+				tmp_obj.activity_confidence = null;
 				// console.log("No activity detected.");
+			}
+
+			if (location.hasOwnProperty("heading")){
+				tmp_obj.heading = location.heading;
+			}
+			else {
+				tmp_obj.heading = null;
+			}
+
+			if (location.hasOwnProperty("verticalAccuracy")){
+				tmp_obj.verticalAccuracy = location.verticalAccuracy;
+			}
+			else {
+				tmp_obj.verticalAccuracy = null;
+			}
+
+			if (location.hasOwnProperty("velocity")){
+				tmp_obj.velocity = location.velocity;
+			}
+			else {
+				tmp_obj.velocity = null;
+			}
+
+			if (location.hasOwnProperty("altitude")){
+				tmp_obj.altitude = location.altitude;
+			}
+			else {
+				tmp_obj.altitude = null;
 			}
 			
 			locations_arr.push(tmp_obj);
@@ -108,12 +141,11 @@
 			// stringify arr + post
 
 			// console.log(JSON.stringify(locations_arr));
+			// console.log(locations_arr);
 
-			$.post("new_file_to_db.php",
-				JSON.stringify(locations_arr),
-				function(data, status){
-					alert("Status: " + status);
-					console.log(data);
+			const jqXHR = $.post("new-file-to-db.php", JSON.stringify(locations_arr));
+			jqXHR.done(function(data) {
+					// console.log(data);
 				}
 			);
 

@@ -19,15 +19,23 @@ CREATE TABLE IF NOT EXISTS users (
     user_type site_user_type DEFAULT 'user' NOT NULL
 );
 
-CREATE TYPE detected_activity_type AS ENUM('IN_VEHICLE', 'ON_BICYCLE',
-'ON_FOOT', 'RUNNING', 'STILL', 'TILTING', 'UNKNOWN', 'WALKING');
+-- CREATE TYPE detected_activity_type AS ENUM('IN_VEHICLE', 'ON_BICYCLE',
+-- 'ON_FOOT', 'RUNNING', 'STILL', 'TILTING', 'UNKNOWN', 'WALKING');
 
 DROP TABLE IF EXISTS events;
 CREATE TABLE IF NOT EXISTS events (
+    -- userId VARCHAR,
     username TEXT NOT NULL,
+    heading INT,
     activity_type TEXT,
+    activity_confidence INT,
+    activity_timestampMs TIMESTAMP,
+    verticalAccuracy INT,
+    velocity INT,
+    accuracy INT,
     longitude FLOAT,
     latitude FLOAT,
+    altitude INT,
     timestampMs TIMESTAMP,
     PRIMARY KEY (username, timestampMs),
     CONSTRAINT ACTIVE_USER FOREIGN KEY (username) REFERENCES users(username)

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>Collapsible sidebar using Bootstrap 4</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css"
+    />
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="admin-style.css" />
+
+    <!-- Font Awesome JS -->
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
+      integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
+      integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.css"
+    />
+  </head>
+
+  <body>
+    <script type="text/javascript" src="./moment-with-locales.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Popper.JS -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+      integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js"></script>
+
+    <!-- <div class="wrapper"> -->
+    <div class="container-fluid">
+      <div class="row" id="navbar-row">
+        <nav class="navbar">
+          <h2 class="navbar-brand">SuperTrouper.co</h2>
+          <button type="button" id="sidebarCollapse" class="btn btn-info">
+            <i class="fas fa-align-left"></i>
+          </button>
+        </nav>
+      </div>
+      <div class="row">
+        <aside>
+          <!-- Sidebar -->
+          <nav id="sidebar">
+            <ul class="list-unstyled components">
+              <h3 id="sidebar-title">Admin Dashboard</h3>
+              <li>
+                <a
+                  href="#homeSubmenu"
+                  data-toggle="collapse"
+                  aria-expanded="false"
+                  class="dropdown-toggle"
+                  >Διαγράμματα</a
+                >
+                <ul class="collapse list-unstyled" id="homeSubmenu">
+                  <li>
+                    <a href="activity-chart.html"
+                      >Ποσοστό εγγραφών ανά δραστηριότητα</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#">Πλήθος εγγραφών ανά χρήστη</a>
+                  </li>
+                  <li>
+                    <a href="year-chart.html">Πλήθος εγγραφών ανά έτος</a>
+                  </li>
+                  <li>
+                    <a href="month-chart.html">Πλήθος εγγραφών ανά μήνα</a>
+                  </li>
+                  <li>
+                    <a href="day-chart.html">Πλήθος εγγραφών ανά ημέρα</a>
+                  </li>
+                  <li>
+                    <a href="hour-chart.html">Πλήθος εγγραφών ανά ώρα</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="admin-locations.html">Τοποθεσίες</a>
+              </li>
+              <li>
+                <a href="#">Εξαγωγή δεδομένων</a>
+              </li>
+
+              <li>
+                <a href="delete-data.html">Διαγραφή δεδομένων</a>
+              </li>
+            </ul>
+          </nav>
+        </aside>
+
+        <main class="pre-scrollable">
+          <h2 id="page-header">Dashboard</h2>
+          <div class="container" id="content">
+            <div class="row">
+              <div id="piechart">
+                <script
+                  type="text/javascript"
+                  src="https://www.gstatic.com/charts/loader.js"
+                ></script>
+
+                <script type="text/javascript">
+                  // Load google charts
+                  google.charts.load("current", { packages: ["corechart"] });
+                  google.charts.setOnLoadCallback(drawChart);
+
+                  // Draw the chart and set the chart values
+                  function drawChart() {
+                    var data = google.visualization.arrayToDataTable([
+                      ["Task", "Hours per Day"],
+                      ["Work", 8],
+                      ["Eat", 2],
+                      ["TV", 4],
+                      ["Gym", 2],
+                      ["Sleep", 8],
+                    ]);
+
+                    // Optional; add a title and set the width and height of the chart
+                    var options = {
+                      title: "My Average Day",
+                      width: 550,
+                      height: 400,
+                      pieHole: 0.4,
+                    };
+
+                    // Display the chart inside the <div> element with id="piechart"
+                    var chart = new google.visualization.PieChart(
+                      document.getElementById("piechart")
+                    );
+                    chart.draw(data, options);
+                  }
+                </script>
+              </div>
+            </div>
+            <form>
+              <div class="row">
+                <div class="col-md-3">
+                  <label for="startYear">Από </label>
+                  <select class="custom-select form-group" id="startYear">
+                    <option value="" disabled selected>Έτος</option>
+                    <option value="1">2019</option>
+                    <option value="2">2020</option>
+                  </select>
+                </div>
+                <div class="col-md-3">
+                  <label for="endYear">Μέχρι </label>
+                  <select class="custom-select form-group" id="endYear">
+                    <option value="" disabled selected>Έτος</option>
+                    <option value="1">2019</option>
+                    <option value="2">2020</option>
+                  </select>
+                </div>
+                <div class="col-md-3">
+                  <label for="startMonth">Από </label>
+                  <select class="custom-select form-group" id="startMonth">
+                    <option value="" disabled selected>Μήνας</option>
+                    <option value="1">Ιαν</option>
+                    <option value="2">Φεβ</option>
+                    <option value="3">Μαρ</option>
+                    <option value="4">Απρ</option>
+                    <option value="5">Μαι</option>
+                    <option value="6">Ιουν</option>
+                    <option value="7">Ιουλ</option>
+                    <option value="8">Αυγ</option>
+                    <option value="9">Σεπ</option>
+                    <option value="10">Οκτ</option>
+                    <option value="11">Νοε</option>
+                    <option value="12">Δεκ</option>
+                  </select>
+                </div>
+                <div class="col-md-3">
+                  <label for="endMonth">Μέχρι </label>
+                  <select class="custom-select form-group" id="endMonth">
+                    <option value="" disabled selected>Μήνας</option>
+                    <option value="1">Ιαν</option>
+                    <option value="2">Φεβ</option>
+                    <option value="3">Μαρ</option>
+                    <option value="4">Απρ</option>
+                    <option value="5">Μαι</option>
+                    <option value="6">Ιουν</option>
+                    <option value="7">Ιουλ</option>
+                    <option value="8">Αυγ</option>
+                    <option value="9">Σεπ</option>
+                    <option value="10">Οκτ</option>
+                    <option value="11">Νοε</option>
+                    <option value="12">Δεκ</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-3">
+                  <label for="startDate">Από </label>
+                  <select class="custom-select form-group" id="startDate">
+                    <option value="" disabled selected>Ημέρα</option>
+                    <option value="1">Δευτέρα</option>
+                    <option value="2">Τρίτη</option>
+                    <option value="3">Τετάρτη</option>
+                    <option value="4">Πέμπτη</option>
+                    <option value="5">Παρασκευή</option>
+                    <option value="6">Σάββατο</option>
+                    <option value="7">Κυριακή</option>
+                  </select>
+                </div>
+                <div class="col-md-3">
+                  <label for="endDate">Μέχρι </label>
+                  <select class="custom-select form-group" id="endDate">
+                    <option value="" disabled selected>Ημέρα</option>
+                    <option value="1">Δευτέρα</option>
+                    <option value="2">Τρίτη</option>
+                    <option value="3">Τετάρτη</option>
+                    <option value="4">Πέμπτη</option>
+                    <option value="5">Παρασκευή</option>
+                    <option value="6">Σάββατο</option>
+                    <option value="7">Κυριακή</option>
+                  </select>
+                </div>
+                <div class="col-md-3">
+                  <label for="startHour">Από </label>
+                  <select class="custom-select form-group" id="startHour">
+                    <option value="" disabled selected>Ώρα</option>
+                    <option value="0">00</option>
+                    <option value="1">01</option>
+                    <option value="2">02</option>
+                    <option value="3">03</option>
+                    <option value="4">04</option>
+                    <option value="5">05</option>
+                    <option value="6">06</option>
+                    <option value="7">07</option>
+                    <option value="8">08</option>
+                    <option value="9">09</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="21">22</option>
+                    <option value="23">23</option>
+                  </select>
+                </div>
+                <div class="col-md-3">
+                  <label for="endHour">Μέχρι </label>
+                  <select class="custom-select form-group" id="endHour">
+                    <option value="" disabled selected>Ώρα</option>
+                    <option value="0">00</option>
+                    <option value="1">01</option>
+                    <option value="2">02</option>
+                    <option value="3">03</option>
+                    <option value="4">04</option>
+                    <option value="5">05</option>
+                    <option value="6">06</option>
+                    <option value="7">07</option>
+                    <option value="8">08</option>
+                    <option value="9">09</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="21">22</option>
+                    <option value="23">23</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-check form-check-inline form-group" style="padding-left: 20px;">
+                  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="all">
+                  <label class="form-check-label" for="inlineCheckbox1">Όλες</label>
+                </div>
+                <div class="form-check form-check-inline form-group">
+                  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="IN_VEHICLE">
+                  <label class="form-check-label" for="inlineCheckbox2">IN_VEHICLE</label>
+                </div>
+                <!-- <div class="col-md-3">
+                  <label for="act_type"> </label>
+                  <select class="custom-select form-group" id="act_type">
+                    <option value="" disabled selected>Δραστηριότητα</option>
+                    <option value="all">Όλες</option>
+                    <option value="IN_VEHICLE">IN_VEHICLE</option>
+                    <option value="ON_BICYCLE">ON_BICYCLE</option>
+                    <option value="ON_FOOT">ON_FOOT</option>
+                    <option value="RUNNING">RUNNING</option>
+                    <option value="STILL">STILL</option>
+                    <option value="TILTING">TILTING</option>
+                    <option value="WALKING">WALKING</option>
+                  </select>
+                </div> -->
+              </div>
+              <div class="row"></div>
+                <button type="submit" class="btn btn-primary">Εφαρμογή Κριτηρίων</button>
+              </div>
+            </form>
+          </div>
+
+          <script type="text/javascript" src="admin-locations.js"></script>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
