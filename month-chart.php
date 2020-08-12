@@ -22,7 +22,7 @@ if (!$result) {
     echo "Houston, we have a problem...\n";
 }
 
-$i = 0;
+$i = 1;
 $count = array();
 foreach ($months as $mon){
     $result = pg_execute($db_connection, "month_query", array($i));

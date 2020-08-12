@@ -1,0 +1,48 @@
+#endYear {
+    visibility: hidden;
+}
+
+.yearLabels {
+    visibility: hidden;
+}
+
+#endMonth {
+    visibility: hidden;
+}
+
+.monthLabels {
+    visibility: hidden;
+}
+
+#endDow {
+    visibility: hidden;
+}
+
+.dowLabels {
+    visibility: hidden;
+}
+
+#endHour {
+    visibility: hidden;
+}
+
+.hourLabels {
+    visibility: hidden;
+}
+
+.checkCustom {
+    margin-top: 2.7rem !important;
+}
+
+.labelCustom {
+    margin-top: 2.4rem !important;
+}
+
+#rogueRow {
+    padding-left: 1rem !important;
+    padding-top: 1rem !important;
+}
+
+#btnRow {
+    padding-top: 1rem !important;
+}

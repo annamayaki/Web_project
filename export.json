@@ -32,5 +32,9 @@
       "timestampMs": 1234567890,
       "userId": 1234567890
     }
+  ],
+  "test": [
+    "lalala",
+    "lalala"
   ]
 }
