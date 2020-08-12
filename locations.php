@@ -130,10 +130,6 @@ if (!$result) {
     exit;
 }
 
-// $row = pg_fetch_row($result);
-// var_dump($row);
-// echo "PHP done.\n";
-
 $locations_arr = array();
 while ($row = pg_fetch_row($result)) {
     $locations_arr[] = array((float) $row[0], (float) $row[1]);
