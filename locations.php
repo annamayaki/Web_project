@@ -8,21 +8,17 @@ $user = "anna";
 
 // print_r($_GET);
 
-// // Create connection
-// $db_connection = pg_connect("host=localhost dbname=supertrouper user=postgres password=anna1234");
-// // Check connection
-// if (!$db_connection) {
-//     echo "A connection error occurred.\n";
-//     exit;
-// }
-
-// Spit activity types in request string and store in array
-$actTypes = preg_split("/[,]+/", $_GET["actType"]);
+// Create connection
+$db_connection = pg_connect("host=localhost dbname=supertrouper user=postgres password=anna1234");
+// Check connection
+if (!$db_connection) {
+    echo "A connection error occurred.\n";
+    exit;
+}
 
 // Build query string
 $stmt = "SELECT latitude, longitude FROM events";
 $addWhere = true;   // where clause inclusion between attributes
-$addOr = false;     // or clause inclusion between activity types
 
 if ($_GET["yearRange"] == "single"){
     $stmt = $stmt." WHERE EXTRACT(YEAR FROM timestampms) = ".$_GET["startYear"];
@@ -100,36 +96,49 @@ elseif ($_GET["hourRange"] == "multiple") {
     $stmt = $stmt." AND ".$_GET["endHour"];
 }
 
+if ($_GET["activities"] == "single"){
+    if (!$addWhere){
+        $stmt = $stmt." AND";
+    }
+    else {
+        $stmt = $stmt." WHERE";
+        $addWhere = false;
+    }
+    $stmt = $stmt." activity_type LIKE ".$_GET["actTypes"];
+}
+elseif ($_GET["activities"] == "multiple") {
+    // Spit activity types in request string and store in array
+    $actTypes = preg_split("/[,]+/", $_GET["actType"]);
+    if (!$addWhere){
+        $stmt = $stmt." AND";
+    }
+    else {
+        $stmt = $stmt." WHERE";
+    }
+    $stmt = $stmt." (activity_type LIKE '".$actTypes[0]."'";
+    for ($i = 1; $i < count($actTypes); $i++) {
+        $stmt = $stmt." OR activity_type LIKE '".$actTypes[$i]."'";
+    }
+    $stmt = $stmt.")";
+}
 
+// echo $stmt."\n";
 
-echo $stmt;
+$result = pg_query($db_connection, $stmt);
+if (!$result) {
+    echo "Houston, we have a problem...\n";
+    exit;
+}
 
-// $result = pg_prepare($db_connection, "new_file_query", $prep_stmt);
-// if ($result) {
-//     echo "OK\n";
-// }
-// else {
-//     echo "Houston, we have a problem...\n";
-// }
+// $row = pg_fetch_row($result);
+// var_dump($row);
+// echo "PHP done.\n";
 
-// foreach ($_POST as $row){
-//     $arr = array($user, $row["heading"], $row["activity_type"], 
-//         $row["activity_confidence"], $row["activity_timestampMs"]/1000,
-//         $row["verticalAccuracy"], $row["velocity"], $row["accuracy"],
-//         $row["longitude"], $row["latitude"], $row["altitude"],
-//         $row["timestamp"]/1000);
-//     $result = pg_execute($db_connection, "new_file_query", $arr);
-//     if (!$result) {
-//         echo "An error occurred.\n";
-//         exit;
-//     }
-// }
+$locations_arr = array();
+while ($row = pg_fetch_row($result)) {
+    $locations_arr[] = array((float) $row[0], (float) $row[1]);
+}
 
-// echo "OK\n";
-
-// while ($row = pg_fetch_row($result)) {
-//     echo "username: $row[0]  password: $row[1] user_type: $row[2]";
-//     echo "<br />\n";
-// }
+echo json_encode($locations_arr);
 
 ?>

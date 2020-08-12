@@ -260,7 +260,10 @@ $('#submit').on('click', function (event) {
     // get data from server
     const jqXHR = $.get(requestStr);
     jqXHR.done(function(data) {
-        console.log(data);
+        console.log("OK data");
+        locations_arr = JSON.parse(data);
+        console.log(locations_arr);
+        requestStr = "";
         // render map
     });
 });
