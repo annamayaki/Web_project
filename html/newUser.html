@@ -85,27 +85,27 @@ input[type=submit] {
         <form action="/action_page.php">
           <div class="form-group">
             <label for="uname">Όνομα </label>
-            <input class="form-control" id="name" aria-describedby="usernameInfo" placeholder="">
+            <input class="form-control" id="name" aria-describedby="usernameInfo" placeholder="" required>
           </div>
           <div class="form-group">
             <label for="uname">Επίθετο </label>
-            <input class="form-control" id="name" aria-describedby="usernameInfo" placeholder="">
+            <input class="form-control" id="name" aria-describedby="usernameInfo" placeholder="" required>
           </div>
   				<div class="form-group">
     				<label for="uname">Όνομα χρήστη</label>
-   					<input class="form-control" id="uname" placeholder="Εισαγωγή όνομα χρήστη">
+   					<input class="form-control" id="uname" placeholder="Εισαγωγή όνομα χρήστη" required>
  				 </div>
  			   <div class="form-group">
-          <label for="InputEmail1">Διεύθυνση email</label>
-          <input type="email" class="form-control" id="InputEmail1" placeholder="name@example.com">
+          <label for="InputEmail">Διεύθυνση email</label>
+          <input type="email" class="form-control" id="InputEmail" placeholder="name@example.com" title = "Μη συμβατή μορφή email" required>
         </div>
         <div class="form-group">
           <label for="InputPassword">Κωδικός χρήστη</label>
-          <input type="password" class="form-control" id="InputPassword" placeholder="Κωδικός" pattern="(?=.*\W+)(?![.\n])(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Ο κωδικός πρέπει να αποτελείται απο 8 χαρακτηρές, τουλάχιστον ένα κεφαλαίο γράμμα και σύμβολο." required >
+          <input type="password" class="form-control" id="InputPassword" placeholder="Κωδικός" pattern="(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Ο κωδικός πρέπει να αποτελείται απο 8 χαρακτηρές, τουλάχιστον ένα κεφαλαίο γράμμα και σύμβολο." required >
         </div>
         <!-- i think the pattern above is for char too.Yet i have not found a js function that can easily regognize one. 
-        the initial pattern is (?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,} -->
-        <button type="submit" class="btn btn-primary">Δημιουργεία χρήστη</button>
+        the initial pattern is  (?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}-->
+        <button type="submit" class="btn btn-primary" id="button">Δημιουργεία χρήστη</button>
       </form>
     </div>
   </div>
@@ -117,7 +117,7 @@ input[type=submit] {
   <p id="capital" class="invalid">Τουλάχιστον ένα <b>κεφαλάιο</b> γράμμα</p>
   <p id="number" class="invalid">Έναν <b>αριθμό</b></p>
   <p id="length" class="invalid">Τουλάχιστον <b>8 χαρακτήρες</b></p>
-  <!-- <p id="char" class="invalid">Έναν <b>χαρακτήρα</b></p> -->
+  <p id="char" class="invalid">Έναν <b>χαρακτήρα</b></p>
 </div>
 
 
@@ -128,7 +128,7 @@ var letter = document.getElementById("letter");
 var capital = document.getElementById("capital");
 var number = document.getElementById("number");
 var length = document.getElementById("length");
-// var char = document.getElementById("char");
+var char = document.getElementById("char");
 
 
 // When the user clicks on the password field, show the message box
@@ -182,7 +182,45 @@ myInput.onkeyup = function() {
     length.classList.remove("valid");
     length.classList.add("invalid");
   }
+
+  //Validate special chars
+  var chars = /[!@#$%^&*]/g
+  if(myInput.value.match(chars)) {
+    console.log(myInput.value);
+    console.log("yehh")
+    char.classList.remove("invalid");
+    char.classList.add("valid");
+  } else {
+    char.classList.remove("valid");
+    char.classList.add("invalid");
+  }
 }
 </script>
+
+<script>
+  document.getElementById("button").addEventListener("click", ValidateEmail);
+  // document.getElementById("button").addEventListener("click", function(){ filled( document.getElementById("name"))});
+
+  function ValidateEmail(mail) {
+            if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($("#InputEmail").val()))
+          {
+            return (true)
+          }
+            return (false)
+          }
+          console.log("i think we did it")
+
+  // function filled(input) {
+  //    console.log(input.value)
+  //   if (input.value.length==0) {
+  //     alert("message");    
+  //        return false; 
+  //        console.log("oops i think we did it")
+  //     }   
+  //     return true; 
+  //   }       
+</script>
+
+
 </body>
 </html>
