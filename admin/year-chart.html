@@ -11,7 +11,7 @@
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" >
     <!-- Our Custom CSS -->
-    <link rel="stylesheet" href="admin-style.css">
+    <link rel="stylesheet" href="../css/admin-style.css">
 
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
@@ -108,35 +108,32 @@ $(document).ready(function () {
 var chart_data;
 
 // Fetch data from server
-$.get("activity-chart.php", function (data, status) {
+$.get("../php/year-chart.php", function (data, status) {
     console.log(status);
     chart_data = JSON.parse(data);
+    console.log(chart_data);
+    // Load google charts
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    // Draw the chart and set the chart values
+    function drawChart() {
+        let data = new google.visualization.DataTable();
+        data.addColumn('string', 'Έτος');
+        data.addColumn('number', '#Εγγραφών');
+        data.addRows([
+        ['2019', chart_data['2019']],
+        ['2020', chart_data['2020']]
+      ]);
+
+        // Optional; add a title and set the width and height of the chart
+        var options = {'title':'Κατανομή Εγγραφών ανά Έτος', 'width':1200, 'height':600, pieHole: 0.4};
+
+        // Display the chart inside the <div> element with id="chart"
+        var chart = new google.visualization.PieChart(document.getElementById('chart'));
+        chart.draw(data, options);
+    }
 });
-
-// Load google charts
-google.charts.load('current', {'packages':['corechart']});
-google.charts.setOnLoadCallback(drawChart);
-
-// Draw the chart and set the chart values
-function drawChart() {
-    let data = new google.visualization.DataTable();
-    data.addColumn('string', 'Detected Activity Type');
-    data.addColumn('number', '#Entries');
-    data.addRow(['IN_VEHICLE', chart_data['IN_VEHICLE']]);
-    data.addRow(['ON_BICYCLE', chart_data['ON_BICYCLE']]);
-    data.addRow(['ON_FOOT', chart_data['ON_FOOT']]);
-    data.addRow(['RUNNING', chart_data['RUNNING']]);
-    data.addRow(['STILL', chart_data['STILL']]);
-    data.addRow(['TILTING', chart_data['TILTING']]);
-    data.addRow(['UNKNOWN', chart_data['UNKNOWN']]);
-
-  // Optional; add a title and set the width and height of the chart
-  var options = {'title':'Κατανομή Δραστηριότητας Χρηστών', 'width':1200, 'height':600, pieHole: 0.4};
-
-  // Display the chart inside the <div> element with id="chart"
-  var chart = new google.visualization.PieChart(document.getElementById('chart'));
-  chart.draw(data, options);
-}
 </script>
 
 </main>

@@ -1,0 +1,36 @@
+<nav id="sidebar">
+    <ul class="list-unstyled components">
+        <h3 id="sidebar-title">Admin Dashboard</h3>
+        <li>
+            <a href="statistics.html">Επισκόπηση Στατιστικών</a>
+        </li>
+        <li>
+        <a
+            href="#homeSubmenu"
+            data-toggle="collapse"
+            aria-expanded="false"
+            class="dropdown-toggle">
+            Ανάλυση Στοιχείων Τοποθεσίας 
+            </a>
+        <ul class="collapse list-unstyled" id="homeSubmenu">
+            <li>
+            <a href="locations.html#">
+                Ποσοστό εγγραφών ανά δραστηριότητα
+                </a>
+            </li>
+            <li>
+            <a href="locations.html#">Εγγραφές ώρα</a>
+            </li>
+            <li>
+            <a href="locations.html#">Εγγραφές ημέρα</a>
+            </li>
+            <li>
+            <a href="locations.html#">Χάρτης Τοποθεσιών</a>
+            </li>
+        </ul>
+        </li>
+        <li>
+        <a href="upload.html">Μεταφόρτωση δεδομένων</a>
+        </li>
+    </ul>
+</nav>

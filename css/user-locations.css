@@ -1,0 +1,136 @@
+body {
+    will-change: auto !important;
+}
+
+#map {
+    position: relative;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+    #map {
+        height: 60vh;
+        width: 90vw;
+        padding-right: 5vw;
+        padding-left: 5vw;
+    }
+
+    #btnRow .col-sm-3 {
+        padding-top: 1vh !important;
+        padding-bottom: 1vh !important;
+    }
+    
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+    #map {
+        height: 60vh;
+        width: 90vw;
+        padding-right: 5vw;
+        padding-left: 5vw;
+    }
+
+    #btnRow .col-sm-3 {
+        padding-top: 1vh !important;
+        padding-bottom: 1vh !important;
+    }
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+    #map {
+        height: 60vh;
+        width: 90vw;
+        padding-right: 5vw;
+        padding-left: 5vw;
+    }
+
+    #btnRow .col-sm-3 {
+        padding-top: 1vh !important;
+        padding-bottom: 1vh !important;
+    }
+    
+}
+ 
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+    #map {
+        height: 60vh;
+        width: 80vw;
+        /* padding-right: 5vw;
+        padding-left: 5vw; */
+    }
+
+    #map.active {
+        width: 70vw;
+        /* padding-right: 5vw;
+        padding-left: 5vw; */
+    }
+
+    main.active #refine-opts {
+        margin-right: 0;
+        width: 80vw;
+        max-width: 80vw ;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+    #map {
+        height: 60vh;
+        width: 75vw !important;
+        /* padding-right: 5vw;
+        padding-left: 5vw; */
+    }
+
+    #map.active {
+        width: 80vw !important;
+        /* padding-right: 5vw;
+        padding-left: 5vw; */
+    }
+
+} 
+
+.map-active {
+	/* so that clicks go through to the map! */
+	pointer-events: none;
+}
+
+#endYear {
+    visibility: hidden;
+}
+
+
+/* #endYear {
+    display: none;
+} */
+
+.yearLabels {
+    visibility: hidden;
+}
+
+#endMonth {
+    visibility: hidden;
+}
+
+.monthLabels {
+    visibility: hidden;
+}
+
+.labelCustom {
+    margin-top: 2.4rem !important;
+}
+
+/* #btnRow {
+    padding-top: 1rem !important;
+} */

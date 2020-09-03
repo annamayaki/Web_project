@@ -4,60 +4,6 @@ body {
 
 #map {
     position: relative;
-    /* left: 5vw; */
-    /* height: 60vh;
-    width: 75vw; */
-}
-
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
-
-    #map {
-        height: 60vh;
-        width: 90vw;
-        padding-right: 5vw;
-        padding-left: 5vw;
-    }
-
-    #btnRow .col-sm-3 {
-        padding-top: 1vh !important;
-        padding-bottom: 1vh !important;
-    }
-    
-}
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
-
-    #map {
-        height: 60vh;
-        width: 90vw;
-        padding-right: 5vw;
-        padding-left: 5vw;
-    }
-
-    #btnRow .col-sm-3 {
-        padding-top: 1vh !important;
-        padding-bottom: 1vh !important;
-    }
-
-}
-
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-
-    #map {
-        height: 60vh;
-        width: 90vw;
-        padding-right: 5vw;
-        padding-left: 5vw;
-    }
-
-    #btnRow .col-sm-3 {
-        padding-top: 1vh !important;
-        padding-bottom: 1vh !important;
-    }
-    
 }
  
 /* Large devices (laptops/desktops, 992px and up) */

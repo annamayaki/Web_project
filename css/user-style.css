@@ -1,0 +1,740 @@
+.btn:focus,.btn:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* .pre-scrollable {
+    max-height: 92.5vh !important;
+} */
+
+ #sidebar {
+    /* position: fixed;
+    width: 15vw;
+    height: 100vh; */
+    background: #7386D5;
+    color: #fff;
+    transition: all 0.3s ease-in-out;
+}
+
+/* #sidebar.active {
+    margin-left: -15vw;
+} */
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle {
+    display: inline;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 0.8em;
+    transform: translateY(-50%);
+}
+/* @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"; */
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fafafa;
+    max-height: 200vh !important;
+}
+
+/* p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
+} */
+
+a, a:hover, a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+#sidebar ul li a {
+    color: #fff;
+    /* padding: 1em;
+    font-size: 1.1em; */
+    display: block;
+}
+
+#sidebar ul li a:hover {
+    color: #7386D5;
+    background: #fff;
+}
+
+#sidebar ul li.active > a, a[aria-expanded="true"] {
+    color: #fff;
+    background: #6d7fcc;
+}
+ul ul a {
+    font-size: 0.9em;
+    padding-left: 1.5em;
+    background: #6d7fcc;
+}
+
+#sidebar-title {
+    color: #fff;
+    /* padding: 1.5em;
+    font-size: 1.5em; */
+}
+
+#sidebarCollapse {
+    background-color: #233476;
+    border-color: #233476;
+    /* margin-left: 2rem; */
+}
+
+#navbar-row {
+    padding-top: 0 !important;
+    background-color: #233476;
+    /* height: 7.5vh !important; */
+}
+
+/* #page-header {
+    padding-left: 1em;
+    padding-top: 0.5em;
+} */
+
+.navbar-brand {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin: 0;
+    color: #fff;
+}
+
+main {
+    /* position: fixed; */
+    /* margin-left: 15vw; */
+    /* width: 85vw;
+    max-width: 100vw !important; */
+    /* padding-left: 7.5vw !important;
+    padding-right: 7.5vw !important; */
+    /* align-items: stretch; */
+    /* padding-left: 5rem; */
+    transition: all 0.3s ease-in-out;
+}
+
+/* main.active {
+    margin-left: 0;
+    width: 100vw !important;
+    padding-left: 14vw !important;
+    padding-right: 12.5vw !important;
+} */
+
+/* aside {
+    font-size: 1.2vw;
+} */
+
+ /* Extra small devices (phones, 600px and down) */
+ @media only screen and (max-width: 600px) {
+
+    .container-fluid {
+        padding-right: 0px !important;
+        padding-left: 0px !important;
+    }
+    
+    .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
+    .pre-scrollable {
+        max-height: 90vh !important;
+        max-width: 100vw !important;
+        padding-right: 5vw !important;
+        padding-left: 5vw !important;
+    }
+
+    #sidebarCollapseIcon { 
+        font-size: 18px;
+    }
+
+    #navbar-row {
+        height: 10vh !important;
+    }
+    
+    .navbar-brand {
+        font-size: 4vh;
+        padding-top: 3.5vh;
+    }
+
+    aside {
+        font-size: 1.2vw;
+    }
+
+    #sidebar {
+        display: none;
+        position: fixed;
+        top: 10vh;
+        left: 0;
+        z-index: 9999;
+        width: 100vw;
+        height: 55vh;
+    }
+
+    #sidebar-title {
+        padding: 0.75em;
+        font-size: 6em;
+        text-align: center;
+    }
+    
+    #sidebar ul li a {
+        padding: 0.75em;
+        font-size: 4.5em;
+        display: block;
+    }
+    
+    #sidebar ul ul a {
+        font-size: 4em;
+        padding-top: 0.75em;
+        padding-left: 1.5em;
+    }
+    
+    #sidebarCollapse {
+        position: fixed;
+        left: 85vw;
+        height: 4vh;
+        width: 4vh;
+        padding: 3;
+    }
+
+    #sidebar.active {
+        display: block;
+        overflow-y: auto;
+    }
+
+    .overlay {
+        display: none;
+        position: fixed;
+        left: 0;
+        top: 10vh;
+        width: 100vw;
+        height: 90vh;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 998;
+        opacity: 0;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .overlay.active {
+        display: block;
+        opacity: 1;
+    }
+    
+    #page-header {
+        padding-left: 1em;
+        padding-top: 0.5em;
+    }
+
+    main {
+        position: fixed;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100vw !important;
+        max-width: 100vw  !important;
+        height: 90vh !important;
+        max-height: 90vh !important;
+        align-items: stretch;
+        /* transition: all 0.3s; */
+    }
+    
+ }
+
+ /* Small devices (portrait tablets and large phones, 600px and up) */
+ @media only screen and (min-width: 600px) {
+
+    .container-fluid {
+        padding-right: 0px !important;
+        padding-left: 0px !important;
+    }
+    
+    .row {
+        margin-left: 5vw;
+        margin-right: 5vw;
+    }
+    
+    .pre-scrollable {
+        max-height: 90vh !important;
+        max-width: 100vw !important;
+        padding-right: 5vw;
+        padding-left: 5vw;
+    }
+
+    #sidebarCollapseIcon { 
+        font-size: 24px;
+    }
+
+    #navbar-row {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        height: 12vh !important;
+    }
+    
+    .navbar-brand {
+        font-size: 5vh;
+    }
+
+    aside {
+        font-size: 1vw;
+    }
+
+    #sidebar {
+        position: fixed;
+        left: 0;
+        margin-left: -40vw;
+        top: 12vh;
+        z-index: 9999;
+        width: 40vw;
+        height: 88vh;
+    }
+
+    #sidebar-title {
+        padding: 0.75em;
+        font-size: 4em;
+        /* text-align: center; */
+    }
+    
+    #sidebar ul li a {
+        padding: 0.75em;
+        font-size: 3em;
+        display: block;
+    }
+    
+    #sidebar ul ul a {
+        font-size: 2em;
+        padding-top: 0.75em;
+        padding-left: 1.5em;
+    }
+    
+    #sidebarCollapse {
+        position: fixed;
+        right: 5vw;
+        top: 0;
+        height: 6vh !important;
+        width: 6vh !important;
+        padding: 3vh;
+    }
+
+    #sidebar.active {
+        /* display: block; */
+        overflow-y: auto;
+        margin-left: 0;
+    }
+
+    .overlay {
+        display: none;
+        position: fixed;
+        left: 0;
+        top: 12vh;
+        width: 100vw;
+        height: 88vh;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 998;
+        opacity: 0;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .overlay.active {
+        display: block;
+        opacity: 1;
+    }
+    
+    #page-header {
+        padding-left: 1em;
+        padding-top: 0.5em;
+    }
+
+    main {
+        position: fixed;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100vw !important;
+        max-width: 100vw !important;
+        height: 88vh !important;
+        max-height: 88vh !important;
+        align-items: stretch;
+        /* transition: all 0.3s; */
+    }
+
+ }
+ 
+ /* Medium devices (landscape tablets, 768px and up) */
+ @media only screen and (min-width: 768px) {
+
+    .container-fluid {
+        padding-right: 0px !important;
+        padding-left: 0px !important;
+    }
+    
+    .row {
+        margin-left: 5vw;
+        margin-right: 5vw;
+    }
+    
+    .pre-scrollable {
+        max-height: 94vh !important;
+        max-width: 100vw !important;
+    }
+
+    #sidebarCollapseIcon { 
+        font-size: 36px;
+    }
+
+    #navbar-row {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        height: 6vh !important;
+    }
+    
+    .navbar-brand {
+        font-size: 3vh;
+    }
+
+    aside {
+        font-size: 1vw;
+    }
+
+    #sidebar {
+        position: fixed;
+        left: 0;
+        margin-left: -25vw;
+        top: 6vh;
+        z-index: 9999;
+        width: 25vw;
+        height: 94vh;
+    }
+
+    #sidebar-title {
+        padding: 0.75em;
+        font-size: 3em;
+        /* text-align: center; */
+    }
+    
+    #sidebar ul li a {
+        padding: 0.75em;
+        font-size: 2.5em;
+        display: block;
+    }
+    
+    #sidebar ul ul a {
+        font-size: 2em;
+        padding-top: 0.75em;
+        padding-left: 1.5em;
+    }
+    
+    #sidebarCollapse {
+        position: fixed;
+        right: 2.5vw;
+        /* top: 3vh; */
+        height: 3vh;
+        width: 3vh;
+        padding: 0;
+    }
+
+    #sidebar.active {
+        /* display: block; */
+        overflow-y: auto;
+        margin-left: 0;
+    }
+
+    .overlay {
+        display: none;
+        position: fixed;
+        left: 0;
+        top: 6vh;
+        width: 100vw;
+        height: 94vh;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 998;
+        opacity: 0;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .overlay.active {
+        display: block;
+        opacity: 1;
+    }
+    
+    #page-header {
+        padding-left: 1em;
+        padding-top: 0.5em;
+    }
+
+    main {
+        position: fixed;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100vw !important;
+        max-width: 100vw ;
+        height: 94vh;
+        max-height: 94vh;
+        align-items: stretch;
+        /* transition: all 0.3s; */
+    }
+
+ }
+ 
+ /* Large devices (laptops/desktops, 992px and up) */
+ @media only screen and (min-width: 992px) {
+
+    .container-fluid {
+        padding-right: 0px !important;
+        padding-left: 0px !important;
+    }
+    
+    .row {
+        margin-left: 5vw;
+        margin-right: 5vw;
+    }
+    
+    .pre-scrollable {
+        max-height: 92.5vh !important;
+        max-width: 100vw !important;
+    }
+
+    #sidebarCollapseIcon { 
+        font-size: 36px;
+    }
+
+    #navbar-row {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        height: 7.5vh !important;
+    }
+    
+    .navbar-brand {
+        font-size: 4vh;
+    }
+
+    aside {
+        font-size: 1vw;
+    }
+
+    #sidebar {
+        position: fixed;
+        left: 0;
+        margin-left: -20vw;
+        top: 7.5vh;
+        z-index: 9999;
+        width: 20vw;
+        height: 90vh;
+        /* transition: all 0.3s ease-in-out; */
+    }
+
+    #sidebar-title {
+        padding: 0.75em;
+        font-size: 2.75em;
+        /* text-align: center; */
+    }
+    
+    #sidebar ul li a {
+        padding: 0.75em;
+        font-size: 2em;
+        display: block;
+    }
+    
+    #sidebar ul ul a {
+        font-size: 1.5em;
+        padding-top: 0.75em;
+        padding-left: 1.5em;
+    }
+    
+    #sidebarCollapse {
+        position: fixed;
+        left: 25vw;
+        top: 0 !important;
+        height: 3vh;
+        width: 3vh;
+        padding: 1.75vh !important;
+    }
+
+    #sidebar.active {
+        /* display: block; */
+        overflow-y: auto;
+        margin-left: 0;
+    }
+
+    .overlay {
+        display: none;
+        position: fixed;
+        left: 0;
+        top: 10vh;
+        width: 100vw;
+        height: 90vh;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 998;
+        opacity: 0;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .overlay.active {
+        display: none;
+        /* display: block;
+        opacity: 1; */
+    }
+    
+    #page-header {
+        padding-left: 1em;
+        padding-top: 0.5em;
+    }
+
+    main {
+        position: fixed;
+        left: 0 !important;
+        top: 7.5vh;
+        /* right: 20 !important; */
+        width: 100vw !important;
+        max-width: 100vw ;
+        height: 92.5vh;
+        max-height: 92.5vh;
+        /* align-items: stretch; */
+        /* transition: all 0.3s  ease-in-out; */
+    }
+
+    main.active {
+        margin-left: 20vw;
+        width: 80vw;
+        max-width: 80vw ;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+ }
+ 
+ /* Extra large devices (large laptops and desktops, 1200px and up) */
+ @media only screen and (min-width: 1200px) {
+
+    .container-fluid {
+        padding-right: 0px !important;
+        padding-left: 0px !important;
+    }
+    
+    .row {
+        margin-left: 0;
+        margin-right: 0;
+        padding-right: 0;
+        padding-left: 0;
+    }
+    
+    .pre-scrollable {
+        max-height: 92.5vh !important;
+        max-width: 100vw !important;
+    }
+
+    #sidebarCollapseIcon { 
+        font-size: 36px;
+    }
+
+    #navbar-row {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        height: 7.5vh !important;
+    }
+    
+    .navbar-brand {
+        font-size: 4vh;
+    }
+
+    aside {
+        font-size: 1vw;
+    }
+
+    #sidebar {
+        position: fixed;
+        margin-left: 0;
+        top: 7.5vh;
+        z-index: 9999;
+        width: 15vw;
+        height: 92.5vh;
+        /* transition: all 0.3s ease-in-out; */
+    }
+
+    #sidebar-title {
+        padding: 0.75em;
+        font-size: 1.5em;
+        /* text-align: center; */
+    }
+    
+    #sidebar ul li a {
+        padding: 0.75em;
+        font-size: 1.25em;
+        display: block;
+    }
+    
+    #sidebar ul ul a {
+        font-size: 1em;
+        padding-top: 0.75em;
+        padding-left: 1.5em;
+    }
+    
+    #sidebarCollapse {
+        position: fixed;
+        left: 17vw;
+        top: 0 !important;
+        height: 3vh;
+        width: 3vh;
+        padding: 1.5vh !important;
+    }
+
+    #sidebar.active {
+        margin-left: -15vw;
+        /* display: block; */
+        overflow-y: auto;
+    }
+
+    .overlay {
+        display: none;
+        /* position: fixed;
+        left: 0;
+        top: 10vh;
+        width: 100vw;
+        height: 90vh;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 998;
+        opacity: 0;
+        transition: all 0.5s ease-in-out; */
+    }
+
+    .overlay.active {
+        display: none;
+        /* display: block;
+        opacity: 1; */
+    }
+    
+    #page-header {
+        padding-left: 1em;
+        padding-top: 0.5em;
+    }
+
+    main {
+        position: fixed;
+        left: 15vw !important;
+        top: 7.5vh;
+        /* right: 20 !important; */
+        width: 85vw !important;
+        /* max-width: 100vw ; */
+        height: 92.5vh;
+        max-height: 92.5vh;
+        /* align-items: stretch; */
+        /* transition: all 0.3s  ease-in-out; */
+    }
+
+    main.active {
+        left: 0 !important;
+        width: 100vw !important;
+        margin-left: 0 !important;
+        padding-right: 10vw;
+        padding-left: 10vw;
+        /* padding-left: 5vw;
+        padding-right: 5vw; */
+    }
+
+ } 

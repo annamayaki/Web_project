@@ -23,7 +23,8 @@
 
     <script type="text/javascript" src="./moment-with-locales.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <!-- Popper.JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <!-- Bootstrap JS -->
@@ -74,7 +75,7 @@
                 </ul>
             </li>
             <li>
-                <a href="#">Τοποθεσίες</a>
+                <a href="admin-locations.html">Τοποθεσίες</a>
             </li>
             <li>
                 <a href="#">Εξαγωγή δεδομένων</a>
@@ -89,55 +90,42 @@
 
 <main>
 <h1 id="page-header">Dashboard</h1>
-<div id="chart"></div>
+<div id="piechart"></div>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 <script type="text/javascript">
 $(document).ready(function () {
 
-    $('#sidebarCollapse').on('click', function () {
-        $('#sidebar').toggleClass('active');
-        $('main').toggleClass('active');
-    });
+$('#sidebarCollapse').on('click', function () {
+    $('#sidebar').toggleClass('active');
+    $('main').toggleClass('active');
+});
 
 });
-</script>
 
-<script type="text/javascript">
-var chart_data;
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
 
-// Fetch data from server
-const jqXHR = $.get("day-chart.php"); 
-jqXHR.done(function (data) {
-    console.log(status);
-    chart_data = JSON.parse(data);
-    console.log(chart_data);
-    // Load google charts
-    google.charts.load('current', {'packages':['corechart']});
-    google.charts.setOnLoadCallback(drawChart);
+// Draw the chart and set the chart values
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Task', 'Hours per Day'],
+  ['Work', 8],
+  ['Eat', 2],
+  ['TV', 4],
+  ['Gym', 2],
+  ['Sleep', 8]
+]);
 
-    // Draw the chart and set the chart values
-    function drawChart() {
-        let data = new google.visualization.DataTable();
-        data.addColumn('string', 'Μήνας');
-        data.addColumn('number', '#Εγγραφών');
-        data.addRow(['Δευτέρα', chart_data['Mon']]);
-        data.addRow(['Τρίτη', chart_data['Tue']]);
-        data.addRow(['Τετάρτη', chart_data['Wed']]);
-        data.addRow(['Πέμπτη', chart_data['Thu']]);
-        data.addRow(['Παρασκευή', chart_data['Fri']]);
-        data.addRow(['Σάββατο', chart_data['Sat']]);
-        data.addRow(['Κυριακή', chart_data['Sun']]);
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'My Average Day', 'width':550, 'height':400, pieHole: 0.4};
 
-        // Optional; add a title and set the width and height of the chart
-        var options = {'title':'Κατανομή Εγγραφών ανά Ημέρα της Εβδομάδας', 'width': 1200, 'height':600};
-
-        // Display the chart inside the <div> element with id="chart"
-        var chart = new google.visualization.BarChart(document.getElementById('chart'));
-        chart.draw(data, options);
-    }
-});
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+  chart.draw(data, options);
+}
 </script>
 
 </main>

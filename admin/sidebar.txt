@@ -1,0 +1,46 @@
+<nav id="sidebar">
+    <ul class="list-unstyled components">
+        <h3 id="sidebar-title">Admin Dashboard</h3>
+        <li>
+        <a
+            href="#homeSubmenu"
+            data-toggle="collapse"
+            aria-expanded="false"
+            class="dropdown-toggle">
+            Διαγράμματα
+            </a>
+        <ul class="collapse list-unstyled" id="homeSubmenu">
+            <li>
+            <a href="activity-chart.html">
+                Ποσοστό εγγραφών ανά δραστηριότητα
+                </a>
+            </li>
+            <li>
+            <a href="#">Πλήθος εγγραφών ανά χρήστη</a>
+            </li>
+            <li>
+            <a href="year-chart.html">Πλήθος εγγραφών ανά έτος</a>
+            </li>
+            <li>
+            <a href="month-chart.html">Πλήθος εγγραφών ανά μήνα</a>
+            </li>
+            <li>
+            <a href="day-chart.html">Πλήθος εγγραφών ανά ημέρα</a>
+            </li>
+            <li>
+            <a href="hour-chart.html">Πλήθος εγγραφών ανά ώρα</a>
+            </li>
+        </ul>
+        </li>
+        <li>
+        <a href="admin-locations.html">Τοποθεσίες</a>
+        </li>
+        <li>
+        <a href="#">Εξαγωγή δεδομένων</a>
+        </li>
+
+        <li>
+        <a href="delete-data.html">Διαγραφή δεδομένων</a>
+        </li>
+    </ul>
+</nav>

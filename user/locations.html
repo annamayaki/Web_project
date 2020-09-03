@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>Collapsible sidebar using Bootstrap 4</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css"
+    />
+    <!-- Leaflet CSS CDN -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+      integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+      crossorigin=""/>
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="../css/user-style.css">
+    <link rel="stylesheet" href="../css/admin-locations.css">
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+  </head>
+
+  <body>
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- Popper.JS -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+      integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js"></script>
+
+    <!-- <div class="wrapper"> -->
+    <div class="container-fluid" id="content">
+      <div class="row" id="navbar-row">
+        <nav class="navbar">
+          <h2 class="navbar-brand">SuperTrouper.co</h2>
+          <button type="button" id="sidebarCollapse" class="btn btn-info btn-sm">
+            <i class="material-icons" id="sidebarCollapseIcon">menu</i>
+          </button>
+        </nav>
+      </div>
+      <div class="row">
+        <aside>
+          <!-- Sidebar (JQuery -> load) -->
+        </aside>
+
+        <main class="pre-scrollable">
+          <h2 id="page-header">Dashboard</h2>
+            <div class="row">
+              <div id="map"></div>
+            </div>
+            <!-- <div class="row"> -->
+              <form id="refine-opts">
+                <div class="row justify-content-sm-center">
+                  <div class="col-sm-4">
+                    <label for="startYear" class="yearLabels">Από</label>
+                    <select class="custom-select form-group" id="startYear">
+                      <option value="" disabled selected>Έτος</option>
+                      <option value="all">Όλα</option>
+                      <option value="2019">2019</option>
+                      <option value="2020">2020</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-4">
+                    <label for="endYear" class="yearLabels">Μέχρι </label>
+                    <select class="custom-select form-group" id="endYear">
+                      <option value="" disabled selected>Έτος</option>
+                      <option value="2019">2019</option>
+                      <option value="2020">2020</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-check form-group">
+                      <input class="form-check-input checkCustom" type="checkbox" id="yearRange" value="range">
+                      <label class="form-check-label labelCustom" for="yearRange">Εύρος</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row justify-content-sm-center">
+                  <div class="col-sm-4">
+                    <label for="startMonth" class="monthLabels">Από </label>
+                    <select class="custom-select form-group" id="startMonth">
+                      <option value="" disabled selected>Μήνας</option>
+                      <option value="all">Όλοι</option>
+                      <option value="1">Ιαν</option>
+                      <option value="2">Φεβ</option>
+                      <option value="3">Μαρ</option>
+                      <option value="4">Απρ</option>
+                      <option value="5">Μαι</option>
+                      <option value="6">Ιουν</option>
+                      <option value="7">Ιουλ</option>
+                      <option value="8">Αυγ</option>
+                      <option value="9">Σεπ</option>
+                      <option value="10">Οκτ</option>
+                      <option value="11">Νοε</option>
+                      <option value="12">Δεκ</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-4">
+                    <label for="endMonth" class="monthLabels">Μέχρι</label>
+                    <select class="custom-select form-group" id="endMonth">
+                      <option value="" disabled selected>Μήνας</option>
+                      <option value="1">Ιαν</option>
+                      <option value="2">Φεβ</option>
+                      <option value="3">Μαρ</option>
+                      <option value="4">Απρ</option>
+                      <option value="5">Μαι</option>
+                      <option value="6">Ιουν</option>
+                      <option value="7">Ιουλ</option>
+                      <option value="8">Αυγ</option>
+                      <option value="9">Σεπ</option>
+                      <option value="10">Οκτ</option>
+                      <option value="11">Νοε</option>
+                      <option value="12">Δεκ</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-check form-group">
+                      <input class="form-check-input checkCustom" type="checkbox" id="monthRange" value="range">
+                      <label class="form-check-label labelCustom" for="monthRange">Εύρος</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row justify-content-sm-center">
+                  <div class="col-sm-4">
+                    <label for="startDow" class="dowLabels">Από</label>
+                    <select class="custom-select form-group" id="startDow">
+                      <option value="" disabled selected>Ημέρα</option>
+                      <option value="all">Όλες</option>
+                      <option value="1">Δευτέρα</option>
+                      <option value="2">Τρίτη</option>
+                      <option value="3">Τετάρτη</option>
+                      <option value="4">Πέμπτη</option>
+                      <option value="5">Παρασκευή</option>
+                      <option value="6">Σάββατο</option>
+                      <option value="0">Κυριακή</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-4">
+                    <label for="endDow" class="dowLabels">Μέχρι</label>
+                    <select class="custom-select form-group" id="endDow">
+                      <option value="" disabled selected>Ημέρα</option>
+                      <option value="1">Δευτέρα</option>
+                      <option value="2">Τρίτη</option>
+                      <option value="3">Τετάρτη</option>
+                      <option value="4">Πέμπτη</option>
+                      <option value="5">Παρασκευή</option>
+                      <option value="6">Σάββατο</option>
+                      <option value="0">Κυριακή</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-check form-group">
+                      <input class="form-check-input checkCustom" type="checkbox" id="dowRange" value="range">
+                      <label class="form-check-label labelCustom" for="dowRange">Εύρος</label>
+                    </div>
+                  </div>
+                </div>
+                  <div class="row justify-content-sm-center">
+                  <div class="col-sm-4">
+                    <label for="startHour" class="hourLabels">Από </label>
+                    <select class="custom-select form-group" id="startHour">
+                      <option value="" disabled selected>Ώρα</option>
+                      <option value="all">Όλες</option>
+                      <option value="0">00</option>
+                      <option value="1">01</option>
+                      <option value="2">02</option>
+                      <option value="3">03</option>
+                      <option value="4">04</option>
+                      <option value="5">05</option>
+                      <option value="6">06</option>
+                      <option value="7">07</option>
+                      <option value="8">08</option>
+                      <option value="9">09</option>
+                      <option value="10">10</option>
+                      <option value="11">11</option>
+                      <option value="12">12</option>
+                      <option value="13">13</option>
+                      <option value="14">14</option>
+                      <option value="15">15</option>
+                      <option value="16">16</option>
+                      <option value="17">17</option>
+                      <option value="18">18</option>
+                      <option value="19">19</option>
+                      <option value="20">20</option>
+                      <option value="21">21</option>
+                      <option value="21">22</option>
+                      <option value="23">23</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-4">
+                    <label for="endHour" class="hourLabels">Μέχρι</label>
+                    <select class="custom-select form-group" id="endHour">
+                      <option value="" disabled selected>Ώρα</option>
+                      <option value="0">00</option>
+                      <option value="1">01</option>
+                      <option value="2">02</option>
+                      <option value="3">03</option>
+                      <option value="4">04</option>
+                      <option value="5">05</option>
+                      <option value="6">06</option>
+                      <option value="7">07</option>
+                      <option value="8">08</option>
+                      <option value="9">09</option>
+                      <option value="10">10</option>
+                      <option value="11">11</option>
+                      <option value="12">12</option>
+                      <option value="13">13</option>
+                      <option value="14">14</option>
+                      <option value="15">15</option>
+                      <option value="16">16</option>
+                      <option value="17">17</option>
+                      <option value="18">18</option>
+                      <option value="19">19</option>
+                      <option value="20">20</option>
+                      <option value="21">21</option>
+                      <option value="21">22</option>
+                      <option value="23">23</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-check form-group">
+                      <input class="form-check-input checkCustom" type="checkbox" id="hourRange" value="range">
+                      <label class="form-check-label labelCustom" for="hourRange">Εύρος</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row justify-content-sm-center" id="rogueRow">
+                  <div class="form-check form-check-inline form-group">
+                    <input class="form-check-input" type="checkbox" id="activAll" value="all">
+                    <label class="form-check-label" for="activAll">Όλες οι Δραστηριότητες</label>
+                  </div>
+                  <div class="form-check form-check-inline form-group">
+                    <input class="form-check-input indivActBoxes" type="checkbox" id="vehicle" value="IN_VEHICLE">
+                    <label class="form-check-label" for="vehicle">IN_VEHICLE</label>
+                  </div>
+                  <div class="form-check form-check-inline form-group">
+                    <input class="form-check-input indivActBoxes" type="checkbox" id="bicycle" value="ON_BICYCLE">
+                    <label class="form-check-label" for="bicycle">ON_BICYCLE</label>
+                  </div>
+                  <div class="form-check form-check-inline form-group">
+                    <input class="form-check-input indivActBoxes" type="checkbox" id="foot" value="ON_FOOT">
+                    <label class="form-check-label" for="foot">ON_FOOT</label>
+                  </div>
+                  <div class="form-check form-check-inline form-group">
+                    <input class="form-check-input indivActBoxes" type="checkbox" id="running" value="RUNNING">
+                    <label class="form-check-label" for="running">RUNNING</label>
+                  </div>
+                  <div class="form-check form-check-inline form-group">
+                    <input class="form-check-input indivActBoxes" type="checkbox" id="still" value="STILL">
+                    <label class="form-check-label" for="still">STILL</label>
+                  </div>
+                  <div class="form-check form-check-inline form-group">
+                    <input class="form-check-input indivActBoxes" type="checkbox" id="tilting" value="TILTING">
+                    <label class="form-check-label" for="tilting">TILTING</label>
+                  </div>
+                  <div class="form-check form-check-inline form-group">
+                    <input class="form-check-input indivActBoxes" type="checkbox" id="walking" value="WALKING">
+                    <label class="form-check-label" for="walking">WALKING</label>
+                  </div>
+                </div>
+                <div class="row justify-content-sm-center" id="btnRow">
+                  <div class="col-sm-3">
+                    <button type="submit" class="btn btn-primary" id="submit">Εφαρμογή Κριτηρίων</button>
+                  </div>
+                  <div class="col-sm-3">
+                    <button class="btn btn-success" id="exportJSON">Εξαγωγή σε JSON</button>
+                  </div>
+                  <div class="col-sm-3">
+                    <button class="btn btn-danger" id="clearDB">Διαγραφή Δεδομένων</button>
+                  </div>
+                </div>
+              </form>
+            <!-- </div> -->
+            <div class="row"><h3>hello</h3></div>
+            <div class="overlay"></div>
+        </main>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+    <script src="../lib/leaflet.heat.min.js"></script>
+    <script src="../js/admin-locations.js"></script>
+
+  </body>
+</html>
