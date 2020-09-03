@@ -1,8 +1,60 @@
-// $(document).ready(function () {
-    $("#sidebarCollapse").on("click", function () {
-        $("#sidebar").toggleClass("active");
-        $("main").toggleClass("active");
+// var enabledScrollbar = false;
+// var addSidebarScroll = false;
+// var screenSizeQ = window.matchMedia("(max-width: 600px)")
+
+// function sidebarScroll(x) {
+//     if (x.matches) { // If media query matches
+//         addSidebarScroll = true;
+//         $("#sidebar").mCustomScrollbar({
+//             theme: "minimal",
+//             documentTouchScroll: true,
+//             axis:"y",
+//             disable: true
+//         });
+//     }
+//     else {
+//         addSidebarScroll = false;
+//     }
+// }
+  
+// sidebarScroll(x) // Call listener function at run time
+// screenSizeQ.addListener(myFunction) // Attach listener function on state changes
+
+var heatOptions = {
+    tileOpacity: 1,
+    heatOpacity: 2,
+    radius: 20,
+    blur: 20
+};
+
+$(document).ready(function () { 
+
+    map = L.map('map').setView([38.230462, 21.753150], 10);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+        maxZoom: 18,
+        minZoom: 10
+    }).addTo(map);
+
+    $('.overlay').on('click', function () {
+        $('#sidebar').toggleClass('active');
+        $('main').toggleClass('active');
+        $('.overlay').toggleClass('active');
+        $('#map').toggleClass('active');
     });
+    
+    $('#sidebarCollapse').on('click', function () {
+        $('#sidebar').toggleClass('active');
+        $('main').toggleClass('active');
+        $('.overlay').toggleClass('active');
+        $('#map').toggleClass('active');
+    });
+
+});
+
+// $("#sidebarCollapse").on("click", function () {
+//     $("#sidebar").toggleClass("active");
+//     $("main").toggleClass("active");
 // });
 
 $("#yearRange").on('click', function () {
@@ -261,33 +313,17 @@ $('#submit').on('click', function (event) {
     const jqXHR = $.get(requestStr);
     jqXHR.done(function(data) {
         console.log("OK data");
+        $('main').animate({
+            scrollTop: $("#map").offset().top
+        }, 700);
         locations_arr = JSON.parse(data);
-        console.log(locations_arr);
+        // console.log(locations_arr);
         requestStr = "";
-        // render map
+        // render heat layer
+        heat = L.heatLayer(locations_arr, heatOptions).addTo(map);
+        heat.redraw();
     });
 });
-
-// export data (get)
-// $('#exportJSON').on('click', function (event) {
-//     if ($('#username').val() == "") {
-//         console.log("Please give a valid username");
-//         event.preventDefault();
-//     }
-//     else if ($('#password').val() == ""){
-//         console.log("Please give a valid password");
-//         event.preventDefault();
-//     }
-//     else {
-//         console.log("OK");
-//         event.preventDefault();
-//         const jqXHR = $.get("new-file-to-db.php", JSON.stringify(locations_arr));
-//         jqXHR.done(function(data) {
-//                 // render map
-//         });
-        
-//     }
-// });
 
 // $("#startMonth").each(function(){
 //     console.log($(this).val());
@@ -307,3 +343,5 @@ $('#submit').on('click', function (event) {
 // for (let i=k-1; i>0; i--) {
 //     myOpts[i].disabled = true;
 // }
+
+// $("#startMonth option[value='all']").prop("disabled", false);
