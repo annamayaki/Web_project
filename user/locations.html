@@ -19,7 +19,7 @@
       crossorigin=""/>
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="../css/user-style.css">
-    <link rel="stylesheet" href="../css/admin-locations.css">
+    <link rel="stylesheet" href="../css/user-locations.css">
     
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
@@ -130,153 +130,9 @@
                     </div>
                   </div>
                 </div>
-                <div class="row justify-content-sm-center">
-                  <div class="col-sm-4">
-                    <label for="startDow" class="dowLabels">Από</label>
-                    <select class="custom-select form-group" id="startDow">
-                      <option value="" disabled selected>Ημέρα</option>
-                      <option value="all">Όλες</option>
-                      <option value="1">Δευτέρα</option>
-                      <option value="2">Τρίτη</option>
-                      <option value="3">Τετάρτη</option>
-                      <option value="4">Πέμπτη</option>
-                      <option value="5">Παρασκευή</option>
-                      <option value="6">Σάββατο</option>
-                      <option value="0">Κυριακή</option>
-                    </select>
-                  </div>
-                  <div class="col-sm-4">
-                    <label for="endDow" class="dowLabels">Μέχρι</label>
-                    <select class="custom-select form-group" id="endDow">
-                      <option value="" disabled selected>Ημέρα</option>
-                      <option value="1">Δευτέρα</option>
-                      <option value="2">Τρίτη</option>
-                      <option value="3">Τετάρτη</option>
-                      <option value="4">Πέμπτη</option>
-                      <option value="5">Παρασκευή</option>
-                      <option value="6">Σάββατο</option>
-                      <option value="0">Κυριακή</option>
-                    </select>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="form-check form-group">
-                      <input class="form-check-input checkCustom" type="checkbox" id="dowRange" value="range">
-                      <label class="form-check-label labelCustom" for="dowRange">Εύρος</label>
-                    </div>
-                  </div>
-                </div>
-                  <div class="row justify-content-sm-center">
-                  <div class="col-sm-4">
-                    <label for="startHour" class="hourLabels">Από </label>
-                    <select class="custom-select form-group" id="startHour">
-                      <option value="" disabled selected>Ώρα</option>
-                      <option value="all">Όλες</option>
-                      <option value="0">00</option>
-                      <option value="1">01</option>
-                      <option value="2">02</option>
-                      <option value="3">03</option>
-                      <option value="4">04</option>
-                      <option value="5">05</option>
-                      <option value="6">06</option>
-                      <option value="7">07</option>
-                      <option value="8">08</option>
-                      <option value="9">09</option>
-                      <option value="10">10</option>
-                      <option value="11">11</option>
-                      <option value="12">12</option>
-                      <option value="13">13</option>
-                      <option value="14">14</option>
-                      <option value="15">15</option>
-                      <option value="16">16</option>
-                      <option value="17">17</option>
-                      <option value="18">18</option>
-                      <option value="19">19</option>
-                      <option value="20">20</option>
-                      <option value="21">21</option>
-                      <option value="21">22</option>
-                      <option value="23">23</option>
-                    </select>
-                  </div>
-                  <div class="col-sm-4">
-                    <label for="endHour" class="hourLabels">Μέχρι</label>
-                    <select class="custom-select form-group" id="endHour">
-                      <option value="" disabled selected>Ώρα</option>
-                      <option value="0">00</option>
-                      <option value="1">01</option>
-                      <option value="2">02</option>
-                      <option value="3">03</option>
-                      <option value="4">04</option>
-                      <option value="5">05</option>
-                      <option value="6">06</option>
-                      <option value="7">07</option>
-                      <option value="8">08</option>
-                      <option value="9">09</option>
-                      <option value="10">10</option>
-                      <option value="11">11</option>
-                      <option value="12">12</option>
-                      <option value="13">13</option>
-                      <option value="14">14</option>
-                      <option value="15">15</option>
-                      <option value="16">16</option>
-                      <option value="17">17</option>
-                      <option value="18">18</option>
-                      <option value="19">19</option>
-                      <option value="20">20</option>
-                      <option value="21">21</option>
-                      <option value="21">22</option>
-                      <option value="23">23</option>
-                    </select>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="form-check form-group">
-                      <input class="form-check-input checkCustom" type="checkbox" id="hourRange" value="range">
-                      <label class="form-check-label labelCustom" for="hourRange">Εύρος</label>
-                    </div>
-                  </div>
-                </div>
-                <div class="row justify-content-sm-center" id="rogueRow">
-                  <div class="form-check form-check-inline form-group">
-                    <input class="form-check-input" type="checkbox" id="activAll" value="all">
-                    <label class="form-check-label" for="activAll">Όλες οι Δραστηριότητες</label>
-                  </div>
-                  <div class="form-check form-check-inline form-group">
-                    <input class="form-check-input indivActBoxes" type="checkbox" id="vehicle" value="IN_VEHICLE">
-                    <label class="form-check-label" for="vehicle">IN_VEHICLE</label>
-                  </div>
-                  <div class="form-check form-check-inline form-group">
-                    <input class="form-check-input indivActBoxes" type="checkbox" id="bicycle" value="ON_BICYCLE">
-                    <label class="form-check-label" for="bicycle">ON_BICYCLE</label>
-                  </div>
-                  <div class="form-check form-check-inline form-group">
-                    <input class="form-check-input indivActBoxes" type="checkbox" id="foot" value="ON_FOOT">
-                    <label class="form-check-label" for="foot">ON_FOOT</label>
-                  </div>
-                  <div class="form-check form-check-inline form-group">
-                    <input class="form-check-input indivActBoxes" type="checkbox" id="running" value="RUNNING">
-                    <label class="form-check-label" for="running">RUNNING</label>
-                  </div>
-                  <div class="form-check form-check-inline form-group">
-                    <input class="form-check-input indivActBoxes" type="checkbox" id="still" value="STILL">
-                    <label class="form-check-label" for="still">STILL</label>
-                  </div>
-                  <div class="form-check form-check-inline form-group">
-                    <input class="form-check-input indivActBoxes" type="checkbox" id="tilting" value="TILTING">
-                    <label class="form-check-label" for="tilting">TILTING</label>
-                  </div>
-                  <div class="form-check form-check-inline form-group">
-                    <input class="form-check-input indivActBoxes" type="checkbox" id="walking" value="WALKING">
-                    <label class="form-check-label" for="walking">WALKING</label>
-                  </div>
-                </div>
                 <div class="row justify-content-sm-center" id="btnRow">
-                  <div class="col-sm-3">
+                  <div class="col-sm-4">
                     <button type="submit" class="btn btn-primary" id="submit">Εφαρμογή Κριτηρίων</button>
-                  </div>
-                  <div class="col-sm-3">
-                    <button class="btn btn-success" id="exportJSON">Εξαγωγή σε JSON</button>
-                  </div>
-                  <div class="col-sm-3">
-                    <button class="btn btn-danger" id="clearDB">Διαγραφή Δεδομένων</button>
                   </div>
                 </div>
               </form>
@@ -289,7 +145,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
     <script src="../lib/leaflet.heat.min.js"></script>
-    <script src="../js/admin-locations.js"></script>
+    <script src="../js/user-locations.js"></script>
 
   </body>
 </html>

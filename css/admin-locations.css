@@ -92,12 +92,12 @@ body {
     visibility: hidden;
 }
 
-.checkCustom {
-    margin-top: 2.7rem !important;
+.labelCustom {
+    margin-top: 2.2rem;
 }
 
-.labelCustom {
-    margin-top: 2.4rem !important;
+.checkCustom {
+    margin-top: 2.5rem;
 }
 
 #rogueRow {

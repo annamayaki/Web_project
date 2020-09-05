@@ -3,10 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet">
+
 <style>
 /* Style all input fields */
 input {
-  width: 100%;
+  /* width: 100%; */
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -21,25 +25,37 @@ input[type=submit] {
   color: white;
 }
 
+#btnRow {
+  margin-bottom: 0 !important;
+}
+
 /* Style the container for inputs */
 .container {
-  background-color: #f1f1f1;
   padding: 20px;
+}
+
+#constraints {
+  display: none;
+  background-color: #f1f1f1;
+  border-color: #f1f1f1 !important;
+  padding-bottom: 3vh;
+}
+
+.col-sm-4 {
+  background-color: #f1f1f1;
+  padding: 1vw;
+  border: 0.1vw solid #f1f1f1;
+  border-radius: 0.4vw;
 }
 
 /* The message box is shown when the user clicks on the password field */
 #message {
+  /* position: relative; */
   display:none;
   background: #f1f1f1;
   color: #000;
-  position: relative;
-  padding: 20px;
-  margin-top: 10px;
-}
-
-#message p {
-  padding: 10px 35px;
-  font-size: 18px;
+  padding: 0 !important;
+  font-size: 0.75em !important;
 }
 
 /* Add a green text color and a checkmark when the requirements are right */
@@ -47,159 +63,174 @@ input[type=submit] {
   color: green;
 }
 
-.valid:before {
-  position: relative;
-  left: -35px;
-  content: "✔";
-}
-
-/* Add a red text color and an "x" when the requirements are wrong */
 .invalid {
   color: red;
 }
 
-.invalid:before {
+.material-icons {
+  font-size: 18px;
   position: relative;
-  left: -35px;
-  content: "✖";
+  top: 4px;
 }
+
 </style>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment-with-locales.min.js"></script>
-
-
-
-<link rel="stylesheet" type="text-css" href="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/d004434a5ff76e7b97c8b07c01f34ca69e635d97/build/css/bootstrap-datetimepicker.css">
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment-with-locales.min.js"></script> -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" >
-<script type="text/javascript" src="./js/bootstrap.bundle.js"></script>
-<script type="text/javascript" src="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/d004434a5ff76e7b97c8b07c01f34ca69e635d97/src/js/bootstrap-datetimepicker.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" ></script>
+<script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+      integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js"></script>
+
 </head>
 
 <body>
   
 <div class="container">
-	<h2>Δημιουργία νέου χρήστη</h2>
-	 <div class="row">
-			<div class="col-md-5">
+	 <div class="row justify-content-sm-center">
+			<div class="col-sm-4">
+        <h3>Δημιουργία νέου χρήστη</h3>
         <form action="/action_page.php">
           <div class="form-group">
             <label for="uname">Όνομα </label>
-            <input class="form-control" id="name" aria-describedby="usernameInfo" placeholder="" required>
+            <input class="form-control" id="name" aria-describedby="usernameInfo" placeholder="Ιωάννης" required>
           </div>
           <div class="form-group">
             <label for="uname">Επίθετο </label>
-            <input class="form-control" id="name" aria-describedby="usernameInfo" placeholder="" required>
+            <input class="form-control" id="name" aria-describedby="usernameInfo" placeholder="Μηλόσπορος" required>
           </div>
   				<div class="form-group">
     				<label for="uname">Όνομα χρήστη</label>
-   					<input class="form-control" id="uname" placeholder="Εισαγωγή όνομα χρήστη" required>
+   					<input class="form-control" id="uname" placeholder="jAppleseed" required>
  				 </div>
  			   <div class="form-group">
           <label for="InputEmail">Διεύθυνση email</label>
-          <input type="email" class="form-control" id="InputEmail" placeholder="name@example.com" title = "Μη συμβατή μορφή email" required>
+          <input type="email" class="form-control" id="InputEmail" placeholder="name@example.com" 
+            title = "Μη συμβατή μορφή email" required>
         </div>
         <div class="form-group">
           <label for="InputPassword">Κωδικός χρήστη</label>
-          <input type="password" class="form-control" id="InputPassword" placeholder="Κωδικός" pattern="(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Ο κωδικός πρέπει να αποτελείται απο 8 χαρακτηρές, τουλάχιστον ένα κεφαλαίο γράμμα και σύμβολο." required >
+          <input type="password" class="form-control" id="InputPassword" placeholder="Κωδικός" 
+            pattern="(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+            data-toggle="tooltip" data-placement="right" required >
+            <!-- title="Ο κωδικός πρέπει να αποτελείται απο 8 χαρακτηρές, τουλάχιστον ένα κεφαλαίο γράμμα και σύμβολο." -->
+        </div>
+        <div class="card" id="constraints">
+          <div class="card-body" id="message">
+            <div id="capital" class="invalid"><i class="material-icons">close</i> Ένα <b>κεφαλαίο</b> γράμμα</div>
+            <div id="number" class="invalid"><i class="material-icons">close</i> Ένας <b>αριθμός</b></div>
+            <div id="char" class="invalid"><i class="material-icons">close</i> Ένας ειδικός <b>χαρακτήρας</b> (!@#$%^&*)</div>
+            <div id="length" class="invalid"><i class="material-icons">close</i> Τουλάχιστον <b>8 χαρακτήρες</b></div>
+          </div>
         </div>
         <!-- i think the pattern above is for char too.Yet i have not found a js function that can easily regognize one. 
         the initial pattern is  (?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}-->
-        <button type="submit" class="btn btn-primary" id="button">Δημιουργεία χρήστη</button>
+        <div class="form-group  text-center" id="btnRow">
+          <button type="submit" class="btn btn-primary" id="submitButton">Εγγραφή</button>
+        </div>
       </form>
     </div>
   </div>
 </div>
-<!-- message -->
-<div id="message">
-  <h4>Ο κωδικός χρήστη πρέπει να αποτελείται απο:</h4>
-  <p id="letter" class="invalid"><b>Μικρά</b> γράμματα</p>
-  <p id="capital" class="invalid">Τουλάχιστον ένα <b>κεφαλάιο</b> γράμμα</p>
-  <p id="number" class="invalid">Έναν <b>αριθμό</b></p>
-  <p id="length" class="invalid">Τουλάχιστον <b>8 χαρακτήρες</b></p>
-  <p id="char" class="invalid">Έναν <b>χαρακτήρα</b></p>
-</div>
-
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/focusable/1.0.0/focus-element-overlay.js"></script>
 <script >
-var myInput = document.getElementById("InputPassword");
-var letter = document.getElementById("letter");
-var capital = document.getElementById("capital");
-var number = document.getElementById("number");
-var length = document.getElementById("length");
-var char = document.getElementById("char");
 
+$(document).ready(function () { 
 
-// When the user clicks on the password field, show the message box
-myInput.onfocus = function() {
-  console.log("on focus function is on")
-  document.getElementById("message").style.display = "block";
-}
+  $('#InputPassword').on('click', function () {
+    $('#message').css("display", "inline-block");
+    $('#constraints').css("display", "flex");
+  });
 
-// When the user clicks outside of the password field, hide the message box
-myInput.onblur = function() {
-  document.getElementById("message").style.display = "none";
-}
+  // var myInput = document.getElementById("InputPassword");
+  // var letter = document.getElementById("letter");
+  // var capital = document.getElementById("capital");
+  // var number = document.getElementById("number");
+  // var length = document.getElementById("length");
+  // var char = document.getElementById("char");
 
-// When the user starts to type something inside the password field
-myInput.onkeyup = function() {
-  // Validate lowercase letters
-  var lowerCaseLetters = /[a-z]/g;
-  if(myInput.value.match(lowerCaseLetters)) {
-    letter.classList.remove("invalid");
-    letter.classList.add("valid");
-  } else {
-    letter.classList.remove("valid");
-    letter.classList.add("invalid");
-}
+  // When the user starts to type something inside the password field
+  $('#InputPassword').on('keyup', function () {
+    // Validate lowercase letters
+  //   var lowerCaseLetters = /[a-z]/g;
+  //   if(myInput.value.match(lowerCaseLetters)) {
+  //     letter.classList.remove("invalid");
+  //     letter.classList.add("valid");
+  //     $('#InputPassword').tooltip({title: "Lowercase OK"});
+  //     $('#InputPassword').tooltip('update');
+  //   } else {
+  //     letter.classList.remove("valid");
+  //     letter.classList.add("invalid");
+  // }
 
-  // Validate capital letters
-  var upperCaseLetters = /[A-Z]/g;
-  if(myInput.value.match(upperCaseLetters)) {
-    capital.classList.remove("invalid");
-    capital.classList.add("valid");
-  } else {
-    capital.classList.remove("valid");
-    capital.classList.add("invalid");
-  }
+    // Validate capital letters
+    var upperCaseLetters = /[A-Z]/g;
+    if($('#InputPassword').val().match(upperCaseLetters)) {
+        $('#capital').removeClass("invalid");
+        $('#capital').addClass("valid");
+        $('#capital i').text("done");
+    } 
+    else {
+      $('#capital').removeClass("valid");
+      $('#capital').addClass("invalid");
+      $('#capital i').text("close");
+    }
 
-  // Validate numbers
-  var numbers = /[0-9]/g;
-  if(myInput.value.match(numbers)) {
-    number.classList.remove("invalid");
-    number.classList.add("valid");
-  } else {
-    number.classList.remove("valid");
-    number.classList.add("invalid");
-  }
+    // Validate numbers
+    var numbers = /[0-9]/g;
+    if($('#InputPassword').val().match(numbers)) {
+      $('#number').removeClass("invalid");
+      $('#number').addClass("valid");
+      $('#number i').text("done");
+    } 
+    else {
+      $('#number').removeClass("valid");
+      $('#number').addClass("invalid");
+      $('#number i').text("close");
+    }
 
-  // Validate length
-  if(myInput.value.length >= 8) {
-    length.classList.remove("invalid");
-    length.classList.add("valid");
-  } else {
-    length.classList.remove("valid");
-    length.classList.add("invalid");
-  }
+    // Validate length
+    if($('#InputPassword').val().length >= 8) {
+      $('#length').removeClass("invalid");
+      $('#length').addClass("valid");
+      $('#length i').text("done");
+    } 
+    else {
+      $('#length').removeClass("valid");
+      $('#length').addClass("invalid");
+      $('#length i').text("close");
+    }
 
-  //Validate special chars
-  var chars = /[!@#$%^&*]/g
-  if(myInput.value.match(chars)) {
-    console.log(myInput.value);
-    console.log("yehh")
-    char.classList.remove("invalid");
-    char.classList.add("valid");
-  } else {
-    char.classList.remove("valid");
-    char.classList.add("invalid");
-  }
-}
+    //Validate special chars
+    var chars = /[!@#$%^&*]/g
+    if($('#InputPassword').val().match(chars)) {
+      $('#char').removeClass("invalid");
+      $('#char').addClass("valid");
+      $('#char i').text("done");
+    } 
+    else {
+      $('#char').removeClass("valid");
+      $('#char').addClass("invalid");
+      $('#char i').text("close");
+    }
+  });
+
+  $('#submitButton').on('click', function () {
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($("#InputEmail").val())){
+      console.log("true");
+    }
+    console.log("false");
+  });
+});
 </script>
 
-<script>
-  document.getElementById("button").addEventListener("click", ValidateEmail);
-  // document.getElementById("button").addEventListener("click", function(){ filled( document.getElementById("name"))});
+<!-- <script>
+  document.getElementById("submitButton").addEventListener("click", ValidateEmail);
+  document.getElementById("submitButton").addEventListener("click", function(){ filled( document.getElementById("name"))});
 
   function ValidateEmail(mail) {
             if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($("#InputEmail").val()))
@@ -210,16 +241,16 @@ myInput.onkeyup = function() {
           }
           console.log("i think we did it")
 
-  // function filled(input) {
-  //    console.log(input.value)
-  //   if (input.value.length==0) {
-  //     alert("message");    
-  //        return false; 
-  //        console.log("oops i think we did it")
-  //     }   
-  //     return true; 
-  //   }       
-</script>
+  function filled(input) {
+     console.log(input.value)
+    if (input.value.length==0) {
+      alert("message");    
+         return false; 
+         console.log("oops i think we did it")
+      }   
+      return true; 
+    }       
+</script> -->
 
 
 </body>

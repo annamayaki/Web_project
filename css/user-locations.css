@@ -2,6 +2,10 @@ body {
     will-change: auto !important;
 }
 
+.row {
+    padding-bottom: 2vh;
+}
+
 #map {
     position: relative;
 }
@@ -110,11 +114,6 @@ body {
     visibility: hidden;
 }
 
-
-/* #endYear {
-    display: none;
-} */
-
 .yearLabels {
     visibility: hidden;
 }
@@ -128,7 +127,11 @@ body {
 }
 
 .labelCustom {
-    margin-top: 2.4rem !important;
+    margin-top: 2.2rem;
+}
+
+.checkCustom {
+    margin-top: 2.5rem;
 }
 
 /* #btnRow {
