@@ -16,7 +16,26 @@ $cipher_aliases = array_filter($cipher_aliases,function($c) { return stripos($c,
 $cipher_aliases = array_filter($cipher_aliases,function($c) { return stripos($c,"rc2")===FALSE; } );
 
 
-print_r(hash_algos());
-print_r($ciphers);
-print_r($cipher_aliases);
+// print_r(hash_algos());
+// print_r($ciphers);
+// print_r($cipher_aliases);
+
+// $hash = password_hash("rasmuslerdorf", PASSWORD_BCRYPT);
+// echo $hash.'\n';
+
+// if (password_verify('rasmuslerdorf', $hash)) {
+//     echo 'Password is valid!';
+// } 
+// else {
+//     echo 'Invalid password.';
+// }
+
+$plaintext = "jAppleseed@icloud.com";
+$key = "@ppleSeed20";
+$cipher = "aes-128-cbc";
+$ciphertext = openssl_encrypt($plaintext, $cipher, $key);
+print "ciphertext: ".$ciphertext."\n";
+$original_plaintext = openssl_decrypt($ciphertext, $cipher, $key);
+print "original plaintext: ".$original_plaintext."\n";
+
 ?>
