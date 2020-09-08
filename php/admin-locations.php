@@ -1,20 +1,10 @@
 <?php
 
-$username = "postgres";
-$servername ="localhost";
-$password = "anna1234";
-$dbname = "supertrouper";
-$user = "anna";
+require_once 'db_connect.php';
+
+$conn = dbConnect();
 
 // print_r($_GET);
-
-// Create connection
-$db_connection = pg_connect("host=localhost dbname=supertrouper user=postgres password=anna1234");
-// Check connection
-if (!$db_connection) {
-    echo "A connection error occurred.\n";
-    exit;
-}
 
 // Build query string
 $stmt = "SELECT latitude, longitude FROM events";
@@ -122,13 +112,7 @@ elseif ($_GET["activities"] == "multiple") {
     $stmt = $stmt.")";
 }
 
-// echo $stmt."\n";
-
-$result = pg_query($db_connection, $stmt);
-if (!$result) {
-    echo "Houston, we have a problem...\n";
-    exit;
-}
+$result = pg_query($conn, $stmt) or die('communication error');
 
 $locations_arr = array();
 while ($row = pg_fetch_row($result)) {
