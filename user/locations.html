@@ -37,8 +37,8 @@
     ></script>
     <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-    <!-- <div class="wrapper"> -->
     <div class="container-fluid" id="content">
       <div class="row" id="navbar-row">
         <nav class="navbar">
@@ -137,15 +137,32 @@
                 </div>
               </form>
             <!-- </div> -->
-            <div class="row"><h3>hello</h3></div>
+            <div class="row charts">
+              <h3>Κατανομή Εγγραφών Δραστηριοτήτων</h3>
+            </div>
+            <div class="row justify-content-sm-center charts">
+              <div id="activity-chart"></div>
+            </div>
+            <div class="row charts">
+              <h3>Κατανομή Δραστηριοτήτων</h3>
+            </div>
+            <div class="row justify-content-sm-center charts">
+              <div id="hour-table-div"></div>
+            </div>
+            <div class="row charts">
+              <h3>Κατανομή Δραστηριοτήτων</h3>
+            </div>
+            <div class="row justify-content-sm-center charts">
+              <div id="dow-table-div"></div>
+            </div>
             <div class="overlay"></div>
         </main>
       </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
-    <script src="../lib/leaflet.heat.min.js"></script>
-    <script src="../js/user-locations.js"></script>
+    <script src="/lib/leaflet.heat.min.js"></script>
+    <script src="/js/user-locations.js"></script>
 
   </body>
 </html>

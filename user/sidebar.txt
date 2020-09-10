@@ -10,7 +10,7 @@
             data-toggle="collapse"
             aria-expanded="false"
             class="dropdown-toggle">
-            Ανάλυση Στοιχείων Τοποθεσίας 
+            Ανάλυση Δεδομένων 
             </a>
         <ul class="collapse list-unstyled" id="homeSubmenu">
             <li>

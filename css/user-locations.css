@@ -10,6 +10,34 @@ body {
     position: relative;
 }
 
+.charts {
+    display: none;
+    padding-top: 2.5vh;
+}
+
+.google-visualization-table-table {
+    text-align: center !important;
+}
+
+.google-visualization-table-td {
+    text-align: center !important;
+}
+
+#activity-chart {
+    width: 70vw;
+    height: 60vh;
+}
+
+#hour-table-div {
+    width: 40vw;
+    height: 30vh;
+}
+
+#dow-table-div {
+    width: 40vw;
+    height: 30vh;
+}
+
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
 

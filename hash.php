@@ -21,7 +21,7 @@ $cipher_aliases = array_filter($cipher_aliases,function($c) { return stripos($c,
 // print_r($cipher_aliases);
 
 // $hash = password_hash("rasmuslerdorf", PASSWORD_BCRYPT);
-// echo $hash.'\n';
+// echo $hash."\n";
 
 // if (password_verify('rasmuslerdorf', $hash)) {
 //     echo 'Password is valid!';
@@ -30,12 +30,32 @@ $cipher_aliases = array_filter($cipher_aliases,function($c) { return stripos($c,
 //     echo 'Invalid password.';
 // }
 
-$plaintext = "jAppleseed@icloud.com";
-$key = "@ppleSeed20";
+// $plaintext = "jAppleseed@icloud.com";
+// $key = "@ppleSeed20";
+// $cipher = "aes-128-cbc";
+// $ciphertext = openssl_encrypt($plaintext, $cipher, $key);
+// print "ciphertext: ".$ciphertext."\n";
+// $original_plaintext = openssl_decrypt($ciphertext, $cipher, $key);
+// print "original plaintext: ".$original_plaintext."\n";
+
+// $plaintext = "anna@me.com";
+// $key = "anna1234";
+// $cipher = "aes-128-cbc";
+// $ciphertext = openssl_encrypt($plaintext, $cipher, $key);
+// print "ciphertext: ".$ciphertext."\n";
+// $original_plaintext = openssl_decrypt($ciphertext, $cipher, $key);
+// print "original plaintext: ".$original_plaintext."\n";
+// $hash = password_hash($key, PASSWORD_BCRYPT);
+// print $hash."\n";
+
+$plaintext = "klelia@icloud.com";
+$key = "klelia1998";
 $cipher = "aes-128-cbc";
 $ciphertext = openssl_encrypt($plaintext, $cipher, $key);
 print "ciphertext: ".$ciphertext."\n";
 $original_plaintext = openssl_decrypt($ciphertext, $cipher, $key);
 print "original plaintext: ".$original_plaintext."\n";
+$hash = password_hash($key, PASSWORD_BCRYPT);
+print $hash."\n";
 
 ?>

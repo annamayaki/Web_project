@@ -46,10 +46,10 @@
 
 		heat = L.heatLayer( [], heatOptions ).addTo( map );
 
+		var type = 'json';
+
 		// First, change tabs
-		$( 'body' ).addClass( 'working' );
 		$( '#intro' ).addClass( 'hidden' );
-		$( '#working' ).removeClass( 'hidden' );
 
 		var SCALAR_E7 = 0.0000001; // Since Google Takeout stores latlngs as integers
 		var latlngs = [];
@@ -138,16 +138,13 @@
 			heat.redraw();
 			stageThree(  /* numberProcessed */ latlngs.length );
 
-			// stringify arr + post
+			console.log(locations_arr);
 
-			// console.log(JSON.stringify(locations_arr));
-			// console.log(locations_arr);
-
-			const jqXHR = $.post("new-file-to-db.php", JSON.stringify(locations_arr));
-			jqXHR.done(function(data) {
-					// console.log(data);
-				}
-			);
+			// const jqXHR = $.post("new-file-to-db.php", JSON.stringify(locations_arr));
+			// jqXHR.done(function(data) {
+			// 		// console.log(data);
+			// 	}
+			// );
 
 
 			// var form = $('#data_hidden');
@@ -181,8 +178,7 @@
 		status( 'Preparing to import file ( ' + fileSize + ' )...' );
 
 		// Now start working!
-		parseJSONFile( file, os );
-
+		if ( type === 'json' ) parseJSONFile( file, os );
 	}
 
 	function stageThree ( numberProcessed ) {
@@ -190,59 +186,12 @@
 		var $done = $( '#done' );
 
 		// Change tabs :D
-		$( 'body' ).removeClass( 'working' );
-		$( '#working' ).addClass( 'hidden' );
-		$done.removeClass( 'hidden' );
 
 		// Update count
 		$( '#numberProcessed' ).text( numberProcessed.toLocaleString() );
-		console.log("Found " + numberProcessed + " data points.");
 
-        $( 'body' ).addClass( 'map-active' );
-        $done.fadeOut();
-        activateControls();
+		$( 'body' ).addClass( 'map-active' );
 
-		function activateControls () {
-			var $tileLayer = $( '.leaflet-tile-pane' ),
-				$heatmapLayer = $( '.leaflet-heatmap-layer' ),
-				originalHeatOptions = $.extend( {}, heatOptions ); // for reset
-
-			// Update values of the dom elements
-			function updateInputs () {
-				var option;
-				for ( option in heatOptions ) {
-					if ( heatOptions.hasOwnProperty( option ) ) {
-						document.getElementById( option ).value = heatOptions[option];
-					}
-				}
-			}
-
-			updateInputs();
-
-			$( '.control' ).change( function () {
-				switch ( this.id ) {
-					case 'tileOpacity':
-						$tileLayer.css( 'opacity', this.value );
-						break;
-					case 'heatOpacity':
-						$heatmapLayer.css( 'opacity', this.value );
-						break;
-					default:
-						heatOptions[ this.id ] = Number( this.value );
-						heat.setOptions( heatOptions );
-						break;
-				}
-			} );
-
-			$( '#reset' ).click( function () {
-				$.extend( heatOptions, originalHeatOptions );
-				updateInputs();
-				heat.setOptions( heatOptions );
-				// Reset opacity too
-				$heatmapLayer.css( 'opacity', originalHeatOptions.heatOpacity );
-				$tileLayer.css( 'opacity', originalHeatOptions.tileOpacity );
-			} );
-		}
 	}
 
 	/*
@@ -287,10 +236,5 @@
 		// now let's start the read with the first block
 		chunkReaderBlock( offset, chunkSize, file );
 	}
-
-	/*
-        Default behavior for file upload (no chunking)	
-	*/
-
 
 }( jQuery, L, prettySize ) );
