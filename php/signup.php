@@ -10,17 +10,14 @@ session_start();
 require_once 'db_connect.php';
 $conn = dbConnect();
 
-// $user_info = array("firstname"=>"Άννα", "lastname"=>"Μαγιάκη",
-// "username"=>"anna", "email"=>"anna@me.com", "password"=>"anna1234");
-// $_POST = $user_info;
-
 // $user_info = array("firstname"=>"Κλέλια", "lastname"=>"Λ",
 // "username"=>"klelia", "email"=>"klelia@icloud.com", "password"=>"klelia1998");
 // $_POST = $user_info;
 
 // Encryption & hashing
 $cipher = "aes-128-cbc";
-$ciphertext = openssl_encrypt($_POST["email"], $cipher, $_POST["password"]);
+// Silence empty IV warning
+$ciphertext = @openssl_encrypt($_POST["email"], $cipher, $_POST["password"]);
 $hash = password_hash($_POST["password"], PASSWORD_BCRYPT);
 
 $prep_stmt = "SELECT user_type FROM users WHERE userid = $1";

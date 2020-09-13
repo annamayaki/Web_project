@@ -48,8 +48,8 @@ $cipher_aliases = array_filter($cipher_aliases,function($c) { return stripos($c,
 // $hash = password_hash($key, PASSWORD_BCRYPT);
 // print $hash."\n";
 
-$plaintext = "klelia@icloud.com";
-$key = "klelia1998";
+$plaintext = "theBoss@supertrouper.co";
+$key = "1toRuleth3m@ll";
 $cipher = "aes-128-cbc";
 $ciphertext = openssl_encrypt($plaintext, $cipher, $key);
 print "ciphertext: ".$ciphertext."\n";

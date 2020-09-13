@@ -47,6 +47,10 @@ input {
     padding: 1vw;
 }
 
+.col-sm-4 h3 {
+    text-align: center;
+}
+
 #formCol {
     background-color: #dfdfdf;
     border: 0.1vw solid #dfdfdf;
@@ -79,12 +83,14 @@ input {
     color: red;
     display: none;
     margin-bottom: 0.5em;
+    text-align: center !important;
 }
 
 #idTaken {
     color: red;
     display: none;
     margin-bottom: 0.5em;
+    text-align: center !important;
 }
 
 #loginLink {

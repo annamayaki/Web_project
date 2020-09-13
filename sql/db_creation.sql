@@ -95,15 +95,12 @@ CREATE TRIGGER coords_in_radius
 BEFORE INSERT ON events
 FOR EACH ROW EXECUTE PROCEDURE geog_dist();
 
---------insert users------------
-INSERT INTO users 
-VALUES ('yHHFxIjbHDoylTLjMym6PA==', 'Anna', 'Mayaki', 'anna', 'anna@me.com', 
-    '$2y$10$yFzCY63mov8LZ0LQR70pyeEZOusLl.u/SoDMCcju7p9CuwrvU2v/q','user');
-INSERT INTO users 
-VALUES ('URwNCGmjCtbyhSedWzA/4Or0Giv00Mzx28aX1b+LHUk=', 'Κλέλια', 'Λ', 'klelia', 
-'klelia@icloud.com', 
-    '$2y$10$MtJUVehnX9uYN8Tp8VZ94.yUEhCxHhShLgxuJ50et6y2ES2KuRweK','admin');
--- ('klelia','klelia1998','admin');
+-------- Admin ------------
+INSERT INTO users VALUES 
+('gjWZqr6e331PZno/2X0Qsu4Lx3Iom6Bw/HMemS4ec+k=', 'Mr', 'Boss', 
+'theBoss', 'theBoss@supertrouper.co',
+'$2y$10$ThuqNCD6T6RzcEwqAsgzZuvYSZpZImz910aO5vtucrYrtfAq7PgsS','admin');
+
 
 
 -------- original supertrouper stuff ----------
