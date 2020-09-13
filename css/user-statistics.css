@@ -1,0 +1,146 @@
+#page-header {
+    font-size: 1.5em;
+}
+
+.stat-descr {
+    color: rgb(42, 77, 122);
+    font-size: 1em;
+    text-align: justify;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+    .stat-descr {
+        padding-top: 1.5vh;
+        padding-bottom: 1.5vh;
+    }
+
+    #eco-score-chart {
+        width: 90vw;
+        height: 45vh;
+    }
+
+    #eco-score-rankings {
+        width: 80vw;
+        height: 20vh;
+        margin-left: 10vw;
+        margin-right: 10vw;
+    }
+
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+    .stat-descr {
+        padding-top: 1.5vh;
+        padding-bottom: 1.5vh;
+    }
+
+    #eco-score-chart {
+        width: 80vw;
+        height: 45vh;
+    }
+
+    #eco-score-rankings {
+        width: 40vw;
+        height: 20vh;
+    }
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+    .stat-descr {
+        padding-top: 1.5vh;
+        padding-bottom: 1.5vh;
+    }
+
+    #eco-score-chart {
+        width: 80vw;
+        height: 45vh;
+    }
+
+    #eco-score-rankings {
+        width: 35vw;
+        height: 20vh;
+    }
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+    #page-header {
+        width: 70vw;
+    }
+
+    .stat-descr {
+        padding-top: 2.5vh;
+        padding-bottom: 2.5vh;
+    }
+    
+    .stat-descr.active {
+        width: 70vw;
+        margin-left: -20vw;
+    }
+
+    #eco-score-chart {
+        width: 60vw;
+        height: 40vh;
+    }
+
+    #eco-score-chart.active {
+        margin-left: -20vw;
+    }
+
+    #eco-score-rankings {
+        width: 30vw;
+        height: 20vh;
+    }
+
+    #eco-score-rankings.active {
+        margin-left: -20vw;
+    }
+
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+    .stat-descr {
+        padding-top: 2.5vh;
+        padding-bottom: 2.5vh;
+    }
+    
+    .stat-descr.active {
+        margin-left: 0;
+        width: 70vw;
+    }
+
+    #eco-score-chart {
+        width: 65vw;
+        height: 50vh;
+    }
+
+    #eco-score-chart.active {
+        margin-left: 0;
+    }
+
+    #eco-score-rankings {
+        width: 50vw;
+        height: 20vh;
+    }
+
+    #eco-score-rankings.active {
+        margin-left: 0;
+    }
+
+    #page-header.active {
+        padding-left: 5vw;
+    }
+
+}

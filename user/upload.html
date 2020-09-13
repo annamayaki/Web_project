@@ -17,7 +17,7 @@
     crossorigin="" />
   <!-- Our Custom CSS -->
   <link rel="stylesheet" href="/css/user-style.css">
-  <!-- <link rel="stylesheet" href="../css/user-upload.css"> -->
+  <link rel="stylesheet" href="../css/user-upload.css">
 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -49,25 +49,36 @@
         <!-- Sidebar (JQuery -> load) -->
       </aside>
       <main class="pre-scrollable">
-        <h2 id="page-header">Dashboard</h2>
-        <div class="row">
+        <div class="row justify-content-sm-start">
+          <div id="page-header">Μεταφόρτωση Αρχείου Δεδομένων Τοποθεσίας</div>
+        </div>
+        <div class="row justify-content-sm-center">
           <!-- <div id="map"></div> -->
           <img src="/img/fakeMap.png" alt="A map centered on Patras, GR">
         </div>
         <form>
-          <div class="rowform-group">
-            <label for="fileUpload">Παρακαλούμε επιλέξτε ή σύρετε ένα συμπιεσμένο αρχείο JSON που να περιέχει τα δεδομένα τοποθεσίας σας:</label>
-            <input type="file" class="form-control-file" id="file" aria-describedby="dataInfo">
+          <div class="row form-group">
+            <div id="dataLabel" class="form-text justify-content-sm-start">
+              Παρακαλούμε επιλέξτε ή σύρετε και εναποθέστε 
+              ένα συμπιεσμένο αρχείο JSON που να περιέχει τα δεδομένα τοποθεσίας σας:
+            </div>
+          </div>
+          <div class="row form-group justify-content-sm-center">
+            <input type="file" class="form-control-file" id="file" aria-describedby="dataInfo dataLabel">
             <div id="dataInfo" class="form-text text-muted">Δεδομένα που δεν αφορούν την πόλη της Πάτρας
               δεν θα εισάγονται στο σύστημα. Επιπλέον, για την προστασία της ιδιωτικότητάς σας, έχετε τη
               δυνατότητα να περιορίσετε τα δεδομένα τοποθεσίας πριν το ανέβασμα του αρχείου, σχηματίζοντας 
-              ένα πολύγωνο πάνω στον χάρτη.</div>
-          </div>
-          <!-- <div class="row justify-content-sm-center form-group" id="btnRow">
-            <div class="col-sm-4">
-              <button type="submit" class="btn btn-primary" id="submit">Μεταφόρτωση Αρχείου</button>
+              ένα πολύγωνο πάνω στον χάρτη.
             </div>
-          </div> -->
+          </div>
+          <div class="row justify-content-sm-center">
+            <div id="takeout">
+              [Google Takeout Stuff] Δεδομένα που δεν αφορούν την πόλη της Πάτρας
+              δεν θα εισάγονται στο σύστημα. Επιπλέον, για την προστασία της ιδιωτικότητάς σας, έχετε τη
+              δυνατότητα να περιορίσετε τα δεδομένα τοποθεσίας πριν το ανέβασμα του αρχείου, σχηματίζοντας 
+              ένα πολύγωνο πάνω στον χάρτη.
+            </div>
+          </div>
         </form>
         <div class="overlay"></div>
       </main>

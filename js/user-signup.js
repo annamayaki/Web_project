@@ -10,17 +10,6 @@ $(document).ready(function () {
     });
 
     $('#password').on('input', function () {
-        // Validate lowercase letters
-        //   var lowerCaseLetters = /[a-z]/g;
-        //   if(myInput.value.match(lowerCaseLetters)) {
-        //     letter.classList.remove("invalid");
-        //     letter.classList.add("valid");
-        //     $('#password').tooltip({title: "Lowercase OK"});
-        //     $('#password').tooltip('update');
-        //   } else {
-        //     letter.classList.remove("valid");
-        //     letter.classList.add("invalid");
-        // }
 
         countValid = 0;
 
@@ -101,7 +90,11 @@ $(document).ready(function () {
     // });
 
     $('#submitButton').on('click', function (event) {
+
         event.preventDefault();
+
+        $('#wrongInput').css("display", "none");
+        $('#idTaken').css("display", "none");
 
         var validForm = true;
 
@@ -115,19 +108,43 @@ $(document).ready(function () {
             && ($("#email").val().length > 0);
         validForm = validForm && $("#password")[0].checkValidity()
             && ($("#password").val().length > 0);
-
-        //   console.log($("#firstname").val());
-        //   console.log($("#lastname").val());
-        //   console.log($("#username").val());
-        //   console.log($("#email").val());
-        //   console.log($("#password").val());
-        //   console.log(validForm);
-
+        
         if (validForm) {
-            // AJAX
+            var user = {
+                firstname: $("#firstname").val(),
+                lastname: $("#lastname").val(),
+                username: $("#username").val(),
+                email: $("#email").val(),
+                password: $("#password").val()
+            }
+            $.ajax({
+                url    : "/php/signup.php",
+                type   : "POST",
+                data   : user,
+                success: function(data, status){
+                	//On ajax success do this
+                    if (data == "OK redirect"){
+                        window.location.href = "profile.html";
+                    }
+                    else {
+                        $('#idTaken').css("display", "block");
+                    }
+                },
+                error: function(xhr, ajaxOptions, thrownError) {
+                	//On error do this
+                		if (xhr.status == 200) {
+                
+                			alert(ajaxOptions);
+                		}
+                		else {
+                			alert(xhr.status);
+                			alert(thrownError);
+                		}
+                }
+                });
         }
         else {
-            // $('#wrongInput').css("display", "block");
+            $('#wrongInput').css("display", "block");
         }
 
     });

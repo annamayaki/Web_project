@@ -21,9 +21,14 @@
   <script src="/js/user-signup.js"></script>
 
   <div class="container">
+    <div class="row justify-content-sm-center" id="logoRow">
+      <div class="col-sm-4" id="logoCol">
+        <img class="justify-content-sm-center" id="logoImg" src="/img/logo_img.png" alt="SuperTrouper.co logo (icon only)">
+      </div>
+    </div>
     <div class="row justify-content-sm-center">
-      <div class="col-sm-4">
-        <h3>Δημιουργία νέου χρήστη</h3>
+      <div class="col-sm-4" id="formCol">
+        <h3>Δημιουργία Νέου Χρήστη</h3>
         <form>
           <div class="form-group">
             <label for="firstname">Όνομα</label>
@@ -57,40 +62,23 @@
               <div id="length" class="invalid"><i class="material-icons">close</i> Τουλάχιστον <b>8 χαρακτήρες</b></div>
             </div>
           </div>
-          <!-- i think the pattern above is for char too.Yet i have not found a js function that can easily regognize one. 
-        the initial pattern is  (?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}-->
           <div class="form-group  text-center" id="btnRow">
             <button type="submit" class="btn btn-primary" id="submitButton">Εγγραφή</button>
           </div>
+          <div class="form-group form-text" id="wrongInput">
+            Παρακαλούμε ελέγξτε τα στοιχεία που έχετε εισάγει και προσπαθήστε ξανά!
+          </div>
+          <div class="form-group form-text" id="idTaken">
+            Ουπς! Τα στοιχεία που δώσατε αντιστοιχούν σε ήδη υπάρχοντα λογαριασμό. Μήπως πρέπει να συνδεθείτε; Αν είστε σίγουροι
+            ότι δεν έχετε ήδη εγγραφεί, παρακαλούμε προσπαθήστε πάλι.
+          </div>
         </form>
+        <div id="loginLink">
+          Έχετε ήδη κάνει εγγραφή; Συνδεθείτε <a href="/login.html">εδώ</a>.
+        </div>
       </div>
     </div>
   </div>
-
-  <!-- <script>
-  document.getElementById("submitButton").addEventListener("click", ValidateEmail);
-  document.getElementById("submitButton").addEventListener("click", function(){ filled( document.getElementById("name"))});
-
-  function ValidateEmail(mail) {
-            if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($("#email").val()))
-          {
-            return (true)
-          }
-            return (false)
-          }
-          console.log("i think we did it")
-
-  function filled(input) {
-     console.log(input.value)
-    if (input.value.length==0) {
-      alert("message");    
-         return false; 
-         console.log("oops i think we did it")
-      }   
-      return true; 
-    }       
-</script> -->
-
 
 </body>
 

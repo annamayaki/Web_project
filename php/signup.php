@@ -10,11 +10,6 @@ session_start();
 require_once 'db_connect.php';
 $conn = dbConnect();
 
-// dummy post data
-// $user_info = array("firstname"=>"Ιωάννης", "lastname"=>"Μηλόσπορος",
-// "username"=>"jAppleseed", "email"=>"jAppleseed@icloud.com", "password"=>"@ppleSeed2");
-// $_POST = $user_info;
-
 // $user_info = array("firstname"=>"Άννα", "lastname"=>"Μαγιάκη",
 // "username"=>"anna", "email"=>"anna@me.com", "password"=>"anna1234");
 // $_POST = $user_info;
@@ -43,16 +38,9 @@ if (!$arr){
     $_SESSION["userId"] = $ciphertext;
     $_SESSION["type"] = "user";
     echo "OK redirect";
-    // echo "Registered Users:\n";
-    // $result = pg_query($conn, "SELECT * FROM users") or die('communication error');
-    // while ($row = pg_fetch_row($result)) {
-    //     print_r($row);
-    // }
 }
 else {
     echo "ID taken";
 }
-
-session_destroy();
 
 ?>
