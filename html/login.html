@@ -1,93 +1,179 @@
 <!DOCTYPE html>
 <html>
-<head>
 
+<head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- <link rel="stylesheet" href="/css/user-signup.css"> -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css">
-  
-  <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+  <style >
 
-<style>
-
-
-.logo{
-  text-align: center
-	/*display: block;*/
-  float: left;
-	width: 70%;
-}
-
-.text {
-  font-size: 18px;
-  color: #2968AA;
-  text-align: justify;
-}
-/*  
-.col-sm-6 {
-  text-align: center;
-*/}
-.col-sm-5 {
-  text-align: center !important;
-}
-
-.row {
- text-align: center !important;
-}
-
-button{
-  color: white !important;
-  background-color: #2968AA  !important;
-  padding: 10px 20px;
-  margin-top: 3%;
+   .logo{
   display: block;
-  border: none;
-  cursor: pointer;
-  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
+  .container {
+    padding: 1em;
+}
+#company_name h1{
+  color: White;
+  font-weight: bold;
 }
 
+#logoRow {
+    padding-top: 0 !important;
+}
 
+#logoCol {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+}
+
+#logoImg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    max-width: 150px;
+    /* width: 150px; */
+    /* position: relative;
+    left: calc(50em - 75px); */
+}
+
+input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+}
+
+#btnRow {
+    margin-top: 1em;
+    margin-bottom: 0.5em !important;
+}
+
+#constraints {
+    display: none;
+    background-color: #dfdfdf;
+    border-color: #dfdfdf !important;
+    padding-bottom: 3vh;
+}
+
+.col-sm-4 {
+    padding: 1vw;
+}
+
+#formCol {
+    background-color: #dfdfdf;
+    border: 0.1vw solid #dfdfdf;
+    border-radius: 0.4vw;
+}
+
+#message {
+    display:none;
+    background: #dfdfdf;
+    color: #000;
+    padding: 0 !important;
+    font-size: 0.75em !important;
+}
+
+.valid {
+    color: green;
+}
+
+.invalid {
+    color: red;
+}
+
+.material-icons {
+    font-size: 18px !important;
+    position: relative;
+    top: 4px;
+}
+.col-sm-4 h3{
+  text-align: center;
+}
+
+#wrongInput {
+    color: red;
+    display: none;
+    margin-bottom: 0.5em;
+    text-align: center !important
+}
+
+#idTaken {
+    color: red;
+    display: none;
+    margin-bottom: 0.5em;
+}
+
+#loginLink {
+    text-align: center;
+    color: rgb(100, 110, 126);
+}
 </style>
+
 </head>
+
 <body>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
     integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
     crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js"></script>
-  
-
-<div class="row">
-
-  <div class="col-sm-5"> 
-    <!-- <div class="row"> -->
-    <br>
-    <img class="logo" src="logo1.png" alt="SuperTruper Inc.">
-    <br>
-    <br>
-    <!-- </div> -->
-    <!-- <div class="row"> -->
-      <div class="box">
-        <button class="logIn_button btn"> Σύνδεση </button>
-      <br>
-      <button class="logIn_button btn">Εγραφή</button>
+  <script src="/js/user-signup.js"></script>
+  <div class="container">
+     <div class="row justify-content-sm-center" id ="company_name">
+     <img class="logo" src="logo1.png" alt="SuperTruper Inc.">
+     </div>
+    <!-- <div class="row justify-content-sm-center" id="logoRow">
+      <div class="col-sm-4" id="logoCol">
+        <img class="justify-content-sm-center" id="logoImg" src="logo1.png" alt="SuperTrouper.co logo (icon only)">
       </div>
-      <!-- </div> -->
-  </div>
-
-  <div class="col-sm-5">
-    <div class="text">
-      <br>
-      <br>
-      <p>Τα δεδομένα μέσω της υπηρεσίας Google Maps, έχουν ιδιαίτερη αξία τόσο στην κοινωνία όσο και για τον ίδιο το χρήστη. Μέσω της εφαρμογής <b>SuperTrouper</b>, ο χρήστης θα μπορεί να λάβει μια ανάλυση που περιγράφει πόσο φιλικές προς το περιβάλλον είναι οι μετακινήσεις τους (μετακίνηση με τα πόδια ή με το ποδήλατο) καθώς και να μπορεί να βλέπει τα μέροι που έχει πρόσφατα επισκευτεί στην περιοχή του. Κάθε χρήστης, έχει το δικό του σκορ οικολογικής μετακίνησης με κίνιτρο αυτό να βελτιωθεί. Επιπλέον οι περιοχές που συγκεντώνουν αρκετό κόσμο, θα είναι γνωστές εκ των προτέρων ώστε σε περίπτωση έκτατης ανάγκης διασωστικά συνεργία και πρωτοβοηθητικό πρωσοπικό να μπορεί να παρευρεθεί γρηγόρα χώρις να έχει πρίν πραγατοποιηθεί κάποια κλήση.</p>
+    </div> -->
+    <div class="row justify-content-sm-center">
+      <div class="col-sm-4" id="formCol">
+        <h3>Σύνδεση χρήστη</h3>
+        <form>
+          <div class="form-group">
+            <label for="email">Διεύθυνση email</label>
+            <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Κωδικός χρήστη</label>
+            <input type="password" class="form-control" id="password" placeholder="Κωδικός"
+          </div>
+          <div class="form-group  text-center" id="btnRow">
+            <button type="submit" class="btn btn-primary" id="submitButton">Σύνδεση</button>
+          </div>
+          <div class="form-group form-text" id="wrongInput">
+            Παρακαλούμε ελέγξτε τα στοιχεία που έχετε εισάγει και προσπαθήστε ξανά!
+          </div>
+          <div class="form-group form-text" id="idTaken">
+            Ουπς! Τα στοιχεία που δώσατε αντιστοιχούν σε ήδη υπάρχοντα λογαριασμό. Μήπως πρέπει να συνδεθείτε; Αν είστε σίγουροι
+            ότι δεν έχετε ήδη εγγραφεί, παρακαλούμε προσπαθήστε πάλι.
+          </div>
+        </form>
+        <div id="loginLink">
+          Έχετε ήδη κάνει εγγραφή; Συνδεθείτε <a href="/login.html">εδώ</a>.
+        </div>
+      </div>
     </div>
   </div>
-</div>
-
-
 
 </body>
+ <!-- body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+     background-image: url('paper_airplane.jpg'); 
+
+  } -->
 </html>
