@@ -1,67 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- <link rel="stylesheet" href="/css/user-signup.css"> -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+
 <style>
 
 
 .logo{
-	display: block;
+  text-align: center
+	/*display: block;*/
   float: left;
-	width: 40%;
-}
-
-.box{
-  display:block;
- margin-left: auto;
-  margin-right: auto;
+	width: 70%;
 }
 
 .text {
   font-size: 18px;
   color: #2968AA;
-  font-family: 'Pacifico', cursive;
-  letter-spacing: 1px;
-  float: left;
   text-align: justify;
 }
-  
-label {
-  font-size: 18px;
-  display: block;
-  width: 30%;
-  color: #2968AA;
-  font-family: 'Pacifico', cursive;
-  letter-spacing: 1px;
-
+/*  
+.col-sm-6 {
+  text-align: center;
+*/}
+.col-sm-5 {
+  text-align: center !important;
 }
 
-.col {
-  float: left;
-  width: 50%;
-}
-
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-
-input[type=text], input[type=password] {
-  width: 60%;
-  padding: 10px 20px;
-  margin-top: 1%;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-
+.row {
+ text-align: center !important;
 }
 
 button{
-  font-family: 'Pacifico', cursive;
-  color: white;
-  background-color: #2968AA;
+  color: white !important;
+  background-color: #2968AA  !important;
   padding: 10px 20px;
   margin-top: 3%;
   display: block;
@@ -70,124 +49,45 @@ button{
   width: 60%;
 }
 
-.remember{
-display: block; 
-float: left;
-margin-left: auto;
-margin-right: auto;
-}
 
 </style>
 </head>
 <body>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+    integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js"></script>
+  
 
 <div class="row">
 
-    <div class="col">
-        <br>
-        <img class="logo" src="avatar.png" alt="SuperTrouper Inc, login screen.">
-        <br>
-        <br>
-        <div class="box">
-        <form id="login_form" action="../login.php" method="POST">    
-            <label for="username"><b>Username</b></label>
-            <input type="text" placeholder="Enter username" name="username" id="username" required/>
-            <br>
-            <label for="password"><b>Password</b></label>
-            <input type="password" placeholder="Enter password" name="password" id="password" required/>
-            <br>
-            <label for="remember">Remember me </label>
-            <input type="checkbox" checked="checked" name="remember" id="remember">
-            <br>
-            <button type="submit" id="submit">Login</button>
-            <span id="wrong"></span>
-        </form>
+  <div class="col-sm-5"> 
+    <!-- <div class="row"> -->
+    <br>
+    <img class="logo" src="logo1.png" alt="SuperTruper Inc.">
+    <br>
+    <br>
+    <!-- </div> -->
+    <!-- <div class="row"> -->
+      <div class="box">
+        <button class="logIn_button btn"> Σύνδεση </button>
+      <br>
+      <button class="logIn_button btn">Εγραφή</button>
       </div>
+      <!-- </div> -->
   </div>
 
-  <div class="col">
+  <div class="col-sm-5">
     <div class="text">
       <br>
       <br>
-      <p>We are here to inform you that all your privat data may not be secured.Just be sured that not only is NSA watching us, but are teachers too. </p>
+      <p>Τα δεδομένα μέσω της υπηρεσίας Google Maps, έχουν ιδιαίτερη αξία τόσο στην κοινωνία όσο και για τον ίδιο το χρήστη. Μέσω της εφαρμογής <b>SuperTrouper</b>, ο χρήστης θα μπορεί να λάβει μια ανάλυση που περιγράφει πόσο φιλικές προς το περιβάλλον είναι οι μετακινήσεις τους (μετακίνηση με τα πόδια ή με το ποδήλατο) καθώς και να μπορεί να βλέπει τα μέροι που έχει πρόσφατα επισκευτεί στην περιοχή του. Κάθε χρήστης, έχει το δικό του σκορ οικολογικής μετακίνησης με κίνιτρο αυτό να βελτιωθεί. Επιπλέον οι περιοχές που συγκεντώνουν αρκετό κόσμο, θα είναι γνωστές εκ των προτέρων ώστε σε περίπτωση έκτατης ανάγκης διασωστικά συνεργία και πρωτοβοηθητικό πρωσοπικό να μπορεί να παρευρεθεί γρηγόρα χώρις να έχει πρίν πραγατοποιηθεί κάποια κλήση.</p>
     </div>
   </div>
 </div>
 
-<script>
-    $(function() {
-        $('#login_form input[type=text]').on('change invalid', function() {
-    var textfield = $(this).get(0);
-    
-    // 'setCustomValidity not only sets the message, but also marks
-    // the field as invalid. In order to see whether the field really is
-    // invalid, we have to remove the message first
-    textfield.setCustomValidity('');
-    
-    if (!textfield.validity.valid) {
-      textfield.setCustomValidity('Υποχρεωτικό πεδίο');  
-    }
-    });
-    $('#login_form input[type=password]').on('change invalid', function() {
-        var textfield = $(this).get(0);
-        
-        // 'setCustomValidity not only sets the message, but also marks
-        // the field as invalid. In order to see whether the field really is
-        // invalid, we have to remove the message first
-        textfield.setCustomValidity('');
-        
-        if (!textfield.validity.valid) {
-        textfield.setCustomValidity('Υποχρεωτικό πεδίο');  
-        }
-    });
-    $('#submit').on('click', function (event) {
-            if ($('#username').val() == "") {
-                console.log("Please give a valid username");
-                event.preventDefault();
-            }
-            else if ($('#password').val() == ""){
-                console.log("Please give a valid password");
-                event.preventDefault();
-            }
-            else {
-                console.log("OK");
-                event.preventDefault();
-                $.ajax({
-                url    : $('#login_form').attr('action'),
-                type   : $('#login_form').attr('method'),
-                data   : $('#login_form').serialize(),
-                success: function(data, status){
-                	//On ajax success do this
-                	alert("Status: " + status);
-                    console.log(data);
-                    if (data == "Redirect to user profile"){
-                        window.location.href = "profile.html";
-                    }
-                    else if (data == "Redirect to admin dashboard") {
-                        console.log("admin");
-                    }
-                    else {
-                        console.log("Λανθασμένα στοιχεία. Προσπαθήστε ξανά.");
-                    }
-                },
-                error: function(xhr, ajaxOptions, thrownError) {
-                	//On error do this
-                		if (xhr.status == 200) {
-                
-                			alert(ajaxOptions);
-                		}
-                		else {
-                			alert(xhr.status);
-                			alert(thrownError);
-                		}
-                }
-                });
-            }
-        
-        });
-    });
-</script>
+
 
 </body>
 </html>
