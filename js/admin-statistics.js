@@ -1,6 +1,10 @@
+$('#failureModal').modal({
+    show: false
+});
+
 $("aside").load("sidebar.txt", function(responseTxt, statusTxt, xhr){
     if(statusTxt != "success") {
-        // modal
+        $('#failureModal').modal('show');
     }
 });
 
@@ -32,8 +36,8 @@ activityXHR.done(function (data) {
         // Draw the chart and set the chart values
         function drawChart() {
             let chart_data = new google.visualization.DataTable();
-            chart_data.addColumn('string', 'Detected Activity Type');
-            chart_data.addColumn('number', '#Entries');
+            chart_data.addColumn('string', 'Τύπος Δραστηριότητας');
+            chart_data.addColumn('number', '#Εγγραφών');
             chart_data.addRow(['IN_VEHICLE', activity_data['IN_VEHICLE']]);
             chart_data.addRow(['ON_BICYCLE', activity_data['ON_BICYCLE']]);
             chart_data.addRow(['ON_FOOT', activity_data['ON_FOOT']]);
@@ -66,7 +70,28 @@ userXHR.done(function (data) {
         $('#user-chart').css("height", "5vh");
     }
     else {
-        
+        var user_data = JSON.parse(data);
+
+        // Load google charts
+        google.charts.load("current", {packages:["corechart"]});
+        google.charts.setOnLoadCallback(drawChart);
+
+        // Draw the chart and set the chart values
+        function drawChart() {
+            let chart_data = new google.visualization.DataTable();
+            chart_data.addColumn('string', 'Όνομα Χρήστη');
+            chart_data.addColumn('number', '#Εγγραφών');
+            for (const row of user_data) {
+                chart_data.addRow([row[0], row[1]]);
+            }
+
+            // Optional; add a title and set the width and height of the chart
+            var options = { 'width': '100%', 'height': '100%' };
+
+            // Display the chart inside the <div> element
+            var chart = new google.visualization.BarChart(document.getElementById("user-chart"));
+            chart.draw(chart_data, options);
+        }
     }
 });
 userXHR.fail(function () {

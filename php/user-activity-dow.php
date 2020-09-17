@@ -9,22 +9,22 @@ $conn = dbConnect();
 $userid = $_SESSION["userid"];
 
 // Build query string
-$stmt = "SELECT EXTRACT(DOW FROM timestampms) AS dayofweek, count(*) FROM events".
+$stmt = "SELECT EXTRACT(DOW FROM timestampunix) AS dayofweek, count(*) FROM events".
     " WHERE activity_type LIKE $1 AND userid = $2";
 
 if ($_GET["yearRange"] == "single"){
-    $stmt = $stmt." AND EXTRACT(YEAR FROM timestampms) = ".$_GET["startYear"];
+    $stmt = $stmt." AND EXTRACT(YEAR FROM timestampunix) = ".$_GET["startYear"];
 }
 elseif ($_GET["yearRange"] == "multiple") {
-    $stmt = $stmt." AND EXTRACT(YEAR FROM timestampms) BETWEEN ".$_GET["startYear"];
+    $stmt = $stmt." AND EXTRACT(YEAR FROM timestampunix) BETWEEN ".$_GET["startYear"];
     $stmt = $stmt." AND ".$_GET["endYear"];
 }
 
 if ($_GET["monthRange"] == "single"){
-    $stmt = $stmt." AND EXTRACT(MONTH FROM timestampms) = ".$_GET["startMonth"];
+    $stmt = $stmt." AND EXTRACT(MONTH FROM timestampunix) = ".$_GET["startMonth"];
 }
 elseif ($_GET["monthRange"] == "multiple") {
-    $stmt = $stmt." AND EXTRACT(MONTH FROM timestampms) BETWEEN ".$_GET["startMonth"];
+    $stmt = $stmt." AND EXTRACT(MONTH FROM timestampunix) BETWEEN ".$_GET["startMonth"];
     $stmt = $stmt." AND ".$_GET["endMonth"];
 }
 

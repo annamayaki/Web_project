@@ -4,7 +4,7 @@ require_once 'db_connect.php';
 
 $conn = dbConnect();
 
-$prep_stmt = "SELECT count(*) FROM events WHERE EXTRACT(YEAR FROM timestampms) = $1";
+$prep_stmt = "SELECT count(*) FROM events WHERE EXTRACT(YEAR FROM timestampunix) = $1";
 $years = array('2015', '2016', '2017', '2018', '2019', '2020');
 
 $result = pg_prepare($conn, "year_query", $prep_stmt) or die('communication error');

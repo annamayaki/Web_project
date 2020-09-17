@@ -33,18 +33,18 @@ CREATE TABLE IF NOT EXISTS users (
 DROP TABLE IF EXISTS events;
 CREATE TABLE IF NOT EXISTS events (
     userid VARCHAR NOT NULL,
-    -- username VARCHAR NOT NULL,
     heading INT,
     activity_type VARCHAR,
     activity_confidence INT,
-    activity_timestampms TIMESTAMP,
+    activity_timestampms BIGINT,
     verticalaccuracy INT,
     velocity INT,
     accuracy INT,
     longitude FLOAT NOT NULL,
     latitude FLOAT NOT NULL,
     altitude INT,
-    timestampms TIMESTAMP NOT NULL,
+    timestampms BIGINT NOT NULL,
+    timestampunix TIMESTAMP NOT NULL,
     PRIMARY KEY (userid, timestampms),
     CONSTRAINT ACTIVE_USER FOREIGN KEY (userid) REFERENCES users(userid)
     ON DELETE CASCADE ON UPDATE CASCADE
@@ -58,14 +58,14 @@ BEGIN
     FROM 
     (SELECT userid, count(*) as num
     FROM events
-    WHERE age(now(), timestampms) < interval '1 month'
+    WHERE age(now(), timestampunix) < interval '1 month'
     AND (activity_type = 'ON_BICYCLE' OR activity_type = 'ON_FOOT' 
     OR activity_type = 'RUNNING')
     GROUP BY userid) eco_activs
     INNER JOIN 
     (SELECT userid, count(*) as denom
     FROM events
-    WHERE age(now(), timestampms) < interval '1 month'
+    WHERE age(now(), timestampunix) < interval '1 month'
     GROUP BY userid) all_activs
     ON all_activs.userid = eco_activs.userid
     INNER JOIN users 
@@ -100,8 +100,6 @@ INSERT INTO users VALUES
 ('gjWZqr6e331PZno/2X0Qsu4Lx3Iom6Bw/HMemS4ec+k=', 'Mr', 'Boss', 
 'theBoss', 'theBoss@supertrouper.co',
 '$2y$10$ThuqNCD6T6RzcEwqAsgzZuvYSZpZImz910aO5vtucrYrtfAq7PgsS','admin');
-
-
 
 -------- original supertrouper stuff ----------
 ALTER TABLE users 

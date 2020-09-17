@@ -11,18 +11,22 @@ $_POST = json_decode($data_json, true);
 
 $userid = $_SESSION["userid"];
 
+// $prep_stmt = "INSERT INTO events 
+//     (userid, heading, activity_type, activity_confidence, activity_timestampms,
+//     verticalaccuracy, velocity, accuracy, longitude, latitude, altitude, timestampms)
+//     values ($1, $2, $3, $4, to_timestamp($5), $6, $7, $8, $9, $10, $11, to_timestamp($12))";
 $prep_stmt = "INSERT INTO events 
-    (userid, heading, activity_type, activity_confidence, activity_timestampms,
-    verticalaccuracy, velocity, accuracy, longitude, latitude, altitude, timestampms)
-    values ($1, $2, $3, $4, to_timestamp($5), $6, $7, $8, $9, $10, $11, to_timestamp($12))";
+(userid, heading, activity_type, activity_confidence, activity_timestampms,
+verticalaccuracy, velocity, accuracy, longitude, latitude, altitude, timestampms, timestampunix)
+values ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, to_timestamp($13))";
 $result = pg_prepare($conn, "new_file_query", $prep_stmt) or die('communication error');
 
 foreach ($_POST as $row){
     $arr = array($userid, $row["heading"], $row["activity_type"], 
-        $row["activity_confidence"], $row["activity_timestampMs"]/1000,
+        $row["activity_confidence"], $row["activity_timestampMs"],
         $row["verticalAccuracy"], $row["velocity"], $row["accuracy"],
         $row["longitude"], $row["latitude"], $row["altitude"],
-        $row["timestamp"]/1000);
+        $row["timestamp"], $row["timestamp"]/1000);
     $result = pg_execute($conn, "new_file_query", $arr) or die('communication error');
 }
 

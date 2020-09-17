@@ -1,6 +1,10 @@
+$('#failureModal').modal({
+    show: false
+});
+
 $("aside").load("sidebar.txt", function(responseTxt, statusTxt, xhr){
     if(statusTxt != "success") {
-        // modal
+        $('#failureModal').modal('show');
     }
 });
 

@@ -21,15 +21,15 @@ else {
     $dates["lastUplDate"] = 0;
 }
 
-$stmt = "SELECT DATE(timestampms) AS date FROM events WHERE userid = $1".
-"ORDER BY timestampms ASC LIMIT 1";
+$stmt = "SELECT DATE(timestampunix) AS date FROM events WHERE userid = $1".
+"ORDER BY timestampunix ASC LIMIT 1";
 $result = pg_prepare($conn, "start_date_query", $stmt) or die('communication error');
 $result = pg_execute($conn, "start_date_query", $userid);
 $arr = pg_fetch_all($result) or die('communication error');
 $dates["startDate"] = date("d-m-Y", strtotime($arr[0]["date"]));
 
-$stmt = "SELECT DATE(timestampms) AS date FROM events WHERE userid = $1".
-"ORDER BY timestampms DESC LIMIT 1";
+$stmt = "SELECT DATE(timestampunix) AS date FROM events WHERE userid = $1".
+"ORDER BY timestampunix DESC LIMIT 1";
 $result = pg_prepare($conn, "end_date_query", $stmt) or die('communication error');
 $result = pg_execute($conn, "end_date_query", $userid);
 $arr = pg_fetch_all($result) or die('communication error');

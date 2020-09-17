@@ -1,9 +1,10 @@
-
 $("aside").load("sidebar.txt", function(responseTxt, statusTxt, xhr){
-    if(statusTxt == "success")
-        console.log("External content loaded successfully!");
-    if(statusTxt == "error")
-        console.log("Error: " + xhr.status + ": " + xhr.statusText);
+    if(statusTxt != "success") {
+        failMsg = "Υπήρξε ένα πρόβλημα κατά τη μεταφορά απαραίτητων δεδομένων. Παρακαλούμε ";
+        failMsg = failMsg + "προσπαθήστε να φορτώσετε τη σελίδα και πάλι σε μερικά δευτερόλεπτα."
+        $('#failureModal .modal-body').html(failMsg);
+        $('#successModal').modal();
+    }
 });
 
 $('.overlay').on('click', function () {

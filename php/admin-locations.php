@@ -9,11 +9,11 @@ $stmt = "SELECT latitude, longitude FROM events";
 $addWhere = true;   // where clause inclusion between attributes
 
 if ($_GET["yearRange"] == "single"){
-    $stmt = $stmt." WHERE EXTRACT(YEAR FROM timestampms) = ".$_GET["startYear"];
+    $stmt = $stmt." WHERE EXTRACT(YEAR FROM timestampunix) = ".$_GET["startYear"];
     $addWhere = false;
 }
 elseif ($_GET["yearRange"] == "multiple") {
-    $stmt = $stmt." WHERE EXTRACT(YEAR FROM timestampms) BETWEEN ".$_GET["startYear"];
+    $stmt = $stmt." WHERE EXTRACT(YEAR FROM timestampunix) BETWEEN ".$_GET["startYear"];
     $stmt = $stmt." AND ".$_GET["endYear"];
     $addWhere = false;
 }
@@ -26,7 +26,7 @@ if ($_GET["monthRange"] == "single"){
         $stmt = $stmt." WHERE";
         $addWhere = false;
     }
-    $stmt = $stmt." EXTRACT(MONTH FROM timestampms) = ".$_GET["startMonth"];
+    $stmt = $stmt." EXTRACT(MONTH FROM timestampunix) = ".$_GET["startMonth"];
 }
 elseif ($_GET["monthRange"] == "multiple") {
     if (!$addWhere){
@@ -36,7 +36,7 @@ elseif ($_GET["monthRange"] == "multiple") {
         $stmt = $stmt." WHERE";
         $addWhere = false;
     }
-    $stmt = $stmt." EXTRACT(MONTH FROM timestampms) BETWEEN ".$_GET["startMonth"];
+    $stmt = $stmt." EXTRACT(MONTH FROM timestampunix) BETWEEN ".$_GET["startMonth"];
     $stmt = $stmt." AND ".$_GET["endMonth"];
 }
 
@@ -48,7 +48,7 @@ if ($_GET["dowRange"] == "single"){
         $stmt = $stmt." WHERE";
         $addWhere = false;
     }
-    $stmt = $stmt." EXTRACT(DOW FROM timestampms) = ".$_GET["startDow"];
+    $stmt = $stmt." EXTRACT(DOW FROM timestampunix) = ".$_GET["startDow"];
 }
 elseif ($_GET["dowRange"] == "multiple") {
     if (!$addWhere){
@@ -58,7 +58,7 @@ elseif ($_GET["dowRange"] == "multiple") {
         $stmt = $stmt." WHERE";
         $addWhere = false;
     }
-    $stmt = $stmt." EXTRACT(DOW FROM timestampms) BETWEEN ".$_GET["startDow"];
+    $stmt = $stmt." EXTRACT(DOW FROM timestampunix) BETWEEN ".$_GET["startDow"];
     $stmt = $stmt." AND ".$_GET["endDow"];
 }
 
@@ -70,7 +70,7 @@ if ($_GET["hourRange"] == "single"){
         $stmt = $stmt." WHERE";
         $addWhere = false;
     }
-    $stmt = $stmt." EXTRACT(HOUR FROM timestampms) = ".$_GET["startHour"];
+    $stmt = $stmt." EXTRACT(HOUR FROM timestampunix) = ".$_GET["startHour"];
 }
 elseif ($_GET["hourRange"] == "multiple") {
     if (!$addWhere){
@@ -80,7 +80,7 @@ elseif ($_GET["hourRange"] == "multiple") {
         $stmt = $stmt." WHERE";
         $addWhere = false;
     }
-    $stmt = $stmt." EXTRACT(HOUR FROM timestampms) BETWEEN ".$_GET["startHour"];
+    $stmt = $stmt." EXTRACT(HOUR FROM timestampunix) BETWEEN ".$_GET["startHour"];
     $stmt = $stmt." AND ".$_GET["endHour"];
 }
 

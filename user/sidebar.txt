@@ -5,32 +5,30 @@
             <a href="statistics.html">Επισκόπηση Στατιστικών</a>
         </li>
         <li>
-        <a
-            href="#homeSubmenu"
-            data-toggle="collapse"
-            aria-expanded="false"
-            class="dropdown-toggle">
-            Ανάλυση Δεδομένων 
+            <a
+                href="#homeSubmenu"
+                data-toggle="collapse"
+                aria-expanded="false"
+                class="dropdown-toggle">
+                Ανάλυση Δεδομένων 
             </a>
-        <ul class="collapse list-unstyled" id="homeSubmenu">
-            <li>
-            <a href="locations.html#">
-                Ποσοστό εγγραφών ανά δραστηριότητα
-                </a>
-            </li>
-            <li>
-            <a href="locations.html#">Εγγραφές ώρα</a>
-            </li>
-            <li>
-            <a href="locations.html#">Εγγραφές ημέρα</a>
-            </li>
-            <li>
-            <a href="locations.html#">Χάρτης Τοποθεσιών</a>
-            </li>
-        </ul>
+            <ul class="collapse list-unstyled" id="homeSubmenu">
+                <li>
+                <a href="locations.html#map">Χάρτης Τοποθεσιών</a>
+                </li>
+                <li>
+                <a href="locations.html#activity-chart">Ποσοστό Εγγραφών ανά Δραστηριότητα</a>
+                </li>
+                <li>
+                <a href="locations.html#dow-table-div">Δραστηριότητες στις Ημέρες</a>
+                </li>
+                <li>
+                <a href="locations.html#hour-table-div">Δραστηριότητες στις Ώρες</a>
+                </li>
+            </ul>
         </li>
         <li>
-        <a href="upload.html">Μεταφόρτωση δεδομένων</a>
+            <a href="upload.html">Μεταφόρτωση Δεδομένων</a>
         </li>
     </ul>
 </nav>

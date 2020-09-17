@@ -4,7 +4,7 @@ require_once 'db_connect.php';
 
 $conn = dbConnect();
 
-$prep_stmt = "SELECT count(*) FROM events WHERE EXTRACT(MONTH FROM timestampms) = $1";
+$prep_stmt = "SELECT count(*) FROM events WHERE EXTRACT(MONTH FROM timestampunix) = $1";
 $months = array('Jan', 'Feb', 'Mar', 'Apr',
 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
 

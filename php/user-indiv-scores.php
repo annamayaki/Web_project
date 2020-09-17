@@ -23,7 +23,7 @@ for ($i = 11; $i >= 0; $i--) {
 $scores = array();
 
 $stmt = "SELECT count(*) AS score FROM events WHERE userid = $1 AND".
-    " EXTRACT(MONTH FROM timestampms) = $2 AND EXTRACT(YEAR FROM timestampms) = $3".
+    " EXTRACT(MONTH FROM timestampunix) = $2 AND EXTRACT(YEAR FROM timestampunix) = $3".
     " AND (activity_type = 'ON_BICYCLE' OR activity_type = 'ON_FOOT' OR".
     " activity_type = 'RUNNING')";
 $result = pg_prepare($conn, "indiv_score_count_query", $stmt) or die('communication error');
@@ -42,7 +42,7 @@ for ($i = 0; $i < 12; $i++) {
 
 // Build query string
 $stmt = "SELECT count(*) AS score FROM events WHERE userid = $1 AND".
-    " EXTRACT(MONTH FROM timestampms) = $2 AND EXTRACT(YEAR FROM timestampms) = $3";
+    " EXTRACT(MONTH FROM timestampunix) = $2 AND EXTRACT(YEAR FROM timestampunix) = $3";
 
 $result = pg_prepare($conn, "indiv_score_denom_query", $stmt) or die('communication error');
 

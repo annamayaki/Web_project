@@ -4,7 +4,7 @@ require_once 'db_connect.php';
 
 $conn = dbConnect();
 
-$prep_stmt = "SELECT count(*) FROM events WHERE EXTRACT(DOW FROM timestampms) = $1";
+$prep_stmt = "SELECT count(*) FROM events WHERE EXTRACT(DOW FROM timestampunix) = $1";
 $days = array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');
 
 $result = pg_prepare($conn, "day_query", $prep_stmt) or die('communication error');

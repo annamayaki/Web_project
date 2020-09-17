@@ -1,31 +1,62 @@
 <!DOCTYPE html>
+
 <html>
 
 <head>
+
   <meta charset="utf-8" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-  <title>Collapsible sidebar using Bootstrap 4</title>
+  <title>Στοιχεία Τοποθεσίας | SuperTrouper</title>
 
-  <!-- Bootstrap CSS CDN -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" />
-  <!-- Leaflet CSS CDN -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-    crossorigin="" />
-  <!-- Our Custom CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
   <link rel="stylesheet" href="/css/admin-style.css">
   <link rel="stylesheet" href="/css/admin-locations.css">
-
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 </head>
 
 <body>
 
   <div class="container-fluid" id="content">
+    <div class="modal fade" id="failureModal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Σφάλμα</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Υπήρξε ένα πρόβλημα κατά τη μεταφορά απαραίτητων δεδομένων. Παρακαλούμε προσπαθήστε
+            πάλι σε μερικά δευτερόλεπτα.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="deleteDbModal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Διαγραφή Δεδομένων</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Είστε σίγουροι ότι επιθυμείτε τη διαγραφή όλων των δεδομένων από τη βάση;
+            Αυτή η ενέργεια είναι μη αναστρέψιμη.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" id="confirmBtn">Ναι, την επιθυμώ</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Επιστροφή</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="row" id="navbar-row">
       <nav class="navbar">
         <h2 class="navbar-brand">SuperTrouper.co</h2>
@@ -89,36 +120,36 @@
               <select class="custom-select form-group" id="startMonth">
                 <option value="" disabled selected>Μήνας</option>
                 <option value="all">Όλοι</option>
-                <option value="1">Ιαν</option>
-                <option value="2">Φεβ</option>
-                <option value="3">Μαρ</option>
-                <option value="4">Απρ</option>
-                <option value="5">Μαι</option>
-                <option value="6">Ιουν</option>
-                <option value="7">Ιουλ</option>
-                <option value="8">Αυγ</option>
-                <option value="9">Σεπ</option>
-                <option value="10">Οκτ</option>
-                <option value="11">Νοε</option>
-                <option value="12">Δεκ</option>
+                <option value="1">Ιανουάριος</option>
+                <option value="2">Φεβρουάριος</option>
+                <option value="3">Μάρτιος</option>
+                <option value="4">Απρίλιος</option>
+                <option value="5">Μάιος</option>
+                <option value="6">Ιούνιος</option>
+                <option value="7">Ιούλιος</option>
+                <option value="8">Αύγουστος</option>
+                <option value="9">Σεπτέμβριος</option>
+                <option value="10">Οκτώβριος</option>
+                <option value="11">Νοέμβριος</option>
+                <option value="12">Δεκέμβριος</option>
               </select>
             </div>
             <div class="col-sm-4">
               <label for="endMonth" class="monthLabels">Μέχρι</label>
               <select class="custom-select form-group" id="endMonth">
                 <option value="" disabled selected>Μήνας</option>
-                <option value="1">Ιαν</option>
-                <option value="2">Φεβ</option>
-                <option value="3">Μαρ</option>
-                <option value="4">Απρ</option>
-                <option value="5">Μαι</option>
-                <option value="6">Ιουν</option>
-                <option value="7">Ιουλ</option>
-                <option value="8">Αυγ</option>
-                <option value="9">Σεπ</option>
-                <option value="10">Οκτ</option>
-                <option value="11">Νοε</option>
-                <option value="12">Δεκ</option>
+                <option value="1">Ιανουάριος</option>
+                <option value="2">Φεβρουάριος</option>
+                <option value="3">Μάρτιος</option>
+                <option value="4">Απρίλιος</option>
+                <option value="5">Μάιος</option>
+                <option value="6">Ιούνιος</option>
+                <option value="7">Ιούλιος</option>
+                <option value="8">Αύγουστος</option>
+                <option value="9">Σεπτέμβριος</option>
+                <option value="10">Οκτώβριος</option>
+                <option value="11">Νοέμβριος</option>
+                <option value="12">Δεκέμβριος</option>
               </select>
             </div>
             <div class="col-sm-4">
@@ -271,10 +302,10 @@
               <button type="submit" class="btn btn-primary" id="submit">Εφαρμογή Κριτηρίων</button>
             </div>
             <div class="col-sm-3">
-              <button class="btn" id="exportJSON">Εξαγωγή σε JSON</button>
+              <input type="button" class="btn btn-success" id="exportJSON" value="Εξαγωγή σε JSON">
             </div>
             <div class="col-sm-3">
-              <button class="btn" id="clearDB">Διαγραφή Δεδομένων</button>
+              <input type="button" class="btn btn-danger" id="clearDB" value="Διαγραφή Δεδομένων">
             </div>
           </div>
         </form>
