@@ -25,17 +25,37 @@
 
 <body>
 
-  <!-- jQuery CDN -->
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-  <!-- Popper.JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
-    integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
-    crossorigin="anonymous"></script>
-  <!-- Bootstrap JS -->
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js"></script>
-
-  <!-- <div class="wrapper"> -->
   <div class="container-fluid" id="content">
+    <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Αποτέλεσμα Μεταφόρτωσης</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Τα δεδομένα σας μεταφορτώθηκαν και αποθηκεύθηκαν επιτυχώς!
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="failureModal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Αποτέλεσμα Μεταφόρτωσης</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Υπήρξε ένα πρόβλημα κατά τη μεταφόρτωση των δεδομένων. Παρακαλούμε προσπαθήστε ξανά.
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="row" id="navbar-row">
       <nav class="navbar">
         <h2 class="navbar-brand">SuperTrouper.co</h2>
@@ -85,6 +105,11 @@
     </div>
   </div>
 
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+    integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/3.8.4/dropzone.min.js"></script>
   <script src="/lib/prettysize.js"></script>
   <script src="/lib/oboe-browser.min.js"></script>

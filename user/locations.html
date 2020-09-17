@@ -8,36 +8,21 @@
 
     <title>Collapsible sidebar using Bootstrap 4</title>
 
-    <!-- Bootstrap CSS CDN -->
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css"
     />
-    <!-- Leaflet CSS CDN -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
       integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
       crossorigin=""/>
-    <!-- Our Custom CSS -->
-    <link rel="stylesheet" href="../css/user-style.css">
-    <link rel="stylesheet" href="../css/user-locations.css">
-    
+    <link rel="stylesheet" href="/css/user-style.css">
+    <link rel="stylesheet" href="/css/user-locations.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
 
   </head>
 
   <body>
-    <!-- jQuery CDN -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <!-- Popper.JS -->
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
-      integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
-      crossorigin="anonymous"
-    ></script>
-    <!-- Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
     <div class="container-fluid" id="content">
       <div class="row" id="navbar-row">
@@ -58,14 +43,38 @@
             <div class="row">
               <div id="map"></div>
             </div>
-            <!-- <div class="row"> -->
+            <div class="row charts">
+              <h3>Κατανομή Εγγραφών Δραστηριοτήτων</h3>
+            </div>
+            <div class="row justify-content-sm-center charts">
+              <div id="activity-chart"></div>
+            </div>
+            <div class="row charts">
+              <h3>Δραστηριότητες στις Ημέρες</h3>
+            </div>
+            <div class="row justify-content-sm-center charts">
+              <div id="hour-table-div"></div>
+            </div>
+            <div class="row charts">
+              <h3>Δραστηριότητες στις Ώρες</h3>
+            </div>
+            <div class="row justify-content-sm-center charts">
+              <div id="dow-table-div"></div>
+            </div>
+            <div class="row" id="invalid-form">
+              <p>Παρακαλούμε συμπληρώστε όλα τα πεδία!</p>
+            </div>
               <form id="refine-opts">
                 <div class="row justify-content-sm-center">
                   <div class="col-sm-4">
                     <label for="startYear" class="yearLabels">Από</label>
-                    <select class="custom-select form-group" id="startYear">
+                    <select class="custom-select form-group" id="startYear" required>
                       <option value="" disabled selected>Έτος</option>
                       <option value="all">Όλα</option>
+                      <option value="2015">2015</option>
+                      <option value="2016">2016</option>
+                      <option value="2017">2017</option>
+                      <option value="2018">2018</option>
                       <option value="2019">2019</option>
                       <option value="2020">2020</option>
                     </select>
@@ -74,6 +83,10 @@
                     <label for="endYear" class="yearLabels">Μέχρι </label>
                     <select class="custom-select form-group" id="endYear">
                       <option value="" disabled selected>Έτος</option>
+                      <option value="2015">2015</option>
+                      <option value="2016">2016</option>
+                      <option value="2017">2017</option>
+                      <option value="2018">2018</option>
                       <option value="2019">2019</option>
                       <option value="2020">2020</option>
                     </select>
@@ -88,7 +101,7 @@
                 <div class="row justify-content-sm-center">
                   <div class="col-sm-4">
                     <label for="startMonth" class="monthLabels">Από </label>
-                    <select class="custom-select form-group" id="startMonth">
+                    <select class="custom-select form-group" id="startMonth" required>
                       <option value="" disabled selected>Μήνας</option>
                       <option value="all">Όλοι</option>
                       <option value="1">Ιαν</option>
@@ -136,30 +149,14 @@
                   </div>
                 </div>
               </form>
-            <!-- </div> -->
-            <div class="row charts">
-              <h3>Κατανομή Εγγραφών Δραστηριοτήτων</h3>
-            </div>
-            <div class="row justify-content-sm-center charts">
-              <div id="activity-chart"></div>
-            </div>
-            <div class="row charts">
-              <h3>Κατανομή Δραστηριοτήτων</h3>
-            </div>
-            <div class="row justify-content-sm-center charts">
-              <div id="hour-table-div"></div>
-            </div>
-            <div class="row charts">
-              <h3>Κατανομή Δραστηριοτήτων</h3>
-            </div>
-            <div class="row justify-content-sm-center charts">
-              <div id="dow-table-div"></div>
-            </div>
             <div class="overlay"></div>
         </main>
       </div>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
     <script src="/lib/leaflet.heat.min.js"></script>
     <script src="/js/user-locations.js"></script>

@@ -4,20 +4,13 @@ session_start();
 
 require_once 'db_connect.php';
 
-// dummy
-$_SESSION["userId"] = "yHHFxIjbHDoylTLjMym6PA==";
-// $_GET["yearRange"] = "single";
-// $_GET["startYear"] = 2019;
-// $_GET["monthRange"] = "multiple";
-// $_GET["startMonth"] = 1;
-// $_GET["endMonth"] = 12;
-
 $conn = dbConnect();
 
+$userid = $_SESSION["userid"];
+
 // Build query string
-// $stmt = "SELECT count(*) FROM events WHERE activity_type LIKE $1 AND userId LIKE $2";
 $stmt = "SELECT EXTRACT(DOW FROM timestampms) AS dayofweek, count(*) FROM events".
-    " WHERE activity_type LIKE $1 AND username LIKE $2";
+    " WHERE activity_type LIKE $1 AND userid = $2";
 
 if ($_GET["yearRange"] == "single"){
     $stmt = $stmt." AND EXTRACT(YEAR FROM timestampms) = ".$_GET["startYear"];
@@ -44,9 +37,7 @@ $dow_names = array('Κυριακή', 'Δευτέρα', 'Τρίτη', 'Τετάρ
 $count_types = array();
 
 foreach ($activity_types as $type){
-    $result = pg_execute($conn, "activity_dow_query", 
-        // array($type, $_SESSION["userId"]));
-        array($type, "anna"));
+    $result = pg_execute($conn, "activity_dow_query", array($type, $userid));
     $arr = pg_fetch_all($result);
     if ($arr) {
         $count_types[$type] = $dow_names[(int)$arr[0]["dayofweek"]];

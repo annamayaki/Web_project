@@ -83,17 +83,10 @@ ul ul a {
 #page-header {
     padding-top: 0.5em;
     padding-left: 0;
+    font-size: 1.5em;
 }
 
 main {
-    /* position: fixed; */
-    /* margin-left: 15vw; */
-    /* width: 85vw;
-    max-width: 100vw !important; */
-    /* padding-left: 7.5vw !important;
-    padding-right: 7.5vw !important; */
-    /* align-items: stretch; */
-    /* padding-left: 5rem; */
     transition: all 0.3s ease-in-out;
 }
 
@@ -137,7 +130,6 @@ main {
         left: 0;
         z-index: 9999;
         width: 100vw;
-        height: 55vh;
     }
 
     #sidebar-title {
@@ -203,7 +195,6 @@ main {
         height: 90vh !important;
         max-height: 90vh !important;
         align-items: stretch;
-        /* transition: all 0.3s; */
     }
     
  }
@@ -255,7 +246,6 @@ main {
     #sidebar-title {
         padding: 0.75em;
         font-size: 4em;
-        /* text-align: center; */
     }
     
     #sidebar ul li a {
@@ -284,7 +274,6 @@ main {
     }
 
     #sidebar.active {
-        /* display: block; */
         overflow-y: auto;
         margin-left: 0;
     }
@@ -316,7 +305,6 @@ main {
         height: 88vh;
         max-height: 88vh;
         align-items: stretch;
-        /* transition: all 0.3s; */
     }
 
  }
@@ -366,7 +354,6 @@ main {
     #sidebar-title {
         padding: 0.75em;
         font-size: 3em;
-        /* text-align: center; */
     }
     
     #sidebar ul li a {
@@ -388,14 +375,12 @@ main {
     #sidebarCollapse {
         position: fixed;
         right: 2.5vw;
-        /* top: 3vh; */
         height: 3vh;
         width: 3vh;
         padding: 0;
     }
 
     #sidebar.active {
-        /* display: block; */
         overflow-y: auto;
         margin-left: 0;
     }
@@ -427,7 +412,6 @@ main {
         height: 94vh;
         max-height: 94vh;
         align-items: stretch;
-        /* transition: all 0.3s; */
     }
 
  }
@@ -472,13 +456,11 @@ main {
         z-index: 9999;
         width: 20vw;
         height: 90vh;
-        /* transition: all 0.3s ease-in-out; */
     }
 
     #sidebar-title {
         padding: 0.75em;
         font-size: 2.75em;
-        /* text-align: center; */
     }
     
     #sidebar ul li a {
@@ -507,7 +489,6 @@ main {
     }
 
     #sidebar.active {
-        /* display: block; */
         overflow-y: auto;
         margin-left: 0;
     }
@@ -527,21 +508,16 @@ main {
 
     .overlay.active {
         display: none;
-        /* display: block;
-        opacity: 1; */
     }
 
     main {
         position: fixed;
         left: 0 !important;
         top: 7.5vh;
-        /* right: 20 !important; */
         width: 100vw !important;
         max-width: 100vw ;
         height: 92.5vh;
         max-height: 92.5vh;
-        /* align-items: stretch; */
-        /* transition: all 0.3s  ease-in-out; */
     }
 
     main.active {
@@ -595,13 +571,11 @@ main {
         z-index: 9999;
         width: 15vw;
         height: 92.5vh;
-        /* transition: all 0.3s ease-in-out; */
     }
 
     #sidebar-title {
         padding: 0.75em;
         font-size: 1.5em;
-        /* text-align: center; */
     }
     
     #sidebar ul li a {
@@ -631,40 +605,24 @@ main {
 
     #sidebar.active {
         margin-left: -15vw;
-        /* display: block; */
         overflow-y: auto;
     }
 
     .overlay {
         display: none;
-        /* position: fixed;
-        left: 0;
-        top: 10vh;
-        width: 100vw;
-        height: 90vh;
-        background: rgba(0, 0, 0, 0.7);
-        z-index: 998;
-        opacity: 0;
-        transition: all 0.5s ease-in-out; */
     }
 
     .overlay.active {
         display: none;
-        /* display: block;
-        opacity: 1; */
     }
 
     main {
         position: fixed;
         left: 15vw !important;
         top: 7.5vh;
-        /* right: 20 !important; */
         width: 85vw !important;
-        /* max-width: 100vw ; */
         height: 92.5vh;
         max-height: 92.5vh;
-        /* align-items: stretch; */
-        /* transition: all 0.3s  ease-in-out; */
     }
 
     main.active {
@@ -673,8 +631,6 @@ main {
         margin-left: 0 !important;
         padding-right: 10vw;
         padding-left: 10vw;
-        /* padding-left: 5vw;
-        padding-right: 5vw; */
     }
 
  } 

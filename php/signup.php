@@ -10,10 +10,6 @@ session_start();
 require_once 'db_connect.php';
 $conn = dbConnect();
 
-// $user_info = array("firstname"=>"Κλέλια", "lastname"=>"Λ",
-// "username"=>"klelia", "email"=>"klelia@icloud.com", "password"=>"klelia1998");
-// $_POST = $user_info;
-
 // Encryption & hashing
 $cipher = "aes-128-cbc";
 // Silence empty IV warning

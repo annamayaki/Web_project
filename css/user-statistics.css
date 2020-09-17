@@ -1,6 +1,6 @@
-#page-header {
+/* #page-header {
     font-size: 1.5em;
-}
+} */
 
 .stat-descr {
     color: rgb(42, 77, 122);
@@ -140,7 +140,7 @@
     }
 
     #page-header.active {
-        padding-left: 5vw;
+        padding-left: 4.4vw;
     }
 
 }

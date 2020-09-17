@@ -91,7 +91,7 @@ $(document).ready(function () {
 
     $('#submitButton').on('click', function (event) {
 
-        event.preventDefault();
+        // event.preventDefault();
 
         $('#wrongInput').css("display", "none");
         $('#idTaken').css("display", "none");

@@ -1,0 +1,68 @@
+body {
+    will-change: auto !important;
+}
+
+.row {
+    padding-bottom: 2vh;
+}
+
+#stat-descr {
+    color: rgb(42, 77, 122);
+    padding-bottom: 0;
+}
+
+.chart-div {
+    position: relative;
+}
+
+.chart-header {
+    font-size: 1.25em;
+    padding-top: 2.5vh;
+    padding-bottom: 2.5vh;
+}
+
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+    .chart-div {
+        padding-right: 10vw;
+        padding-left: 10vw;
+        height: 60vh;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .chart-div.active {
+        width: 80%;
+        margin-left: 0;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    #stat-descr.active {
+        width: 80%;
+        margin-left: 0;
+        padding-right: 5vw;
+        padding-left: 5vw;
+    }
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+    .chart-div {
+        height: 50vh;
+        width: 80vw !important;
+        /* padding-right: 5vw;
+        padding-left: 5vw; */
+    }
+
+    .chart-div.active {
+        padding-right: 5vw;
+        padding-left: 7.5vw;
+        justify-content: center;
+    }
+
+} 

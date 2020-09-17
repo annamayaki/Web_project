@@ -2,13 +2,10 @@
 
 session_start();
 
-// $_SESSION["userId"] = "1234";
-// $_SESSION["type"] = "user";
+$_SESSION["userid"] = "1234";
+$_SESSION["type"] = "user";
 
-session_unset();
-session_destroy();
-
-if (isset($_SESSION["userId"]) && ($_SESSION["type"] == $_GET["type"])) {
+if (isset($_SESSION["userid"]) && ($_SESSION["type"] == $_GET["type"])) {
     header('HTTP/2 200 OK');
 }
 else {

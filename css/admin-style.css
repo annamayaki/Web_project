@@ -4,9 +4,6 @@
 }
 
 #sidebar {
-    /* position: fixed;
-    width: 15vw;
-    height: 100vh; */
     background: #7386D5;
     color: #fff;
     transition: all 0.3s ease-in-out;
@@ -36,14 +33,6 @@ body {
     max-height: 200vh !important;
 }
 
-/* p {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.1em;
-    font-weight: 300;
-    line-height: 1.7em;
-    color: #999;
-} */
-
 a, a:hover, a:focus {
     color: inherit;
     text-decoration: none;
@@ -52,8 +41,6 @@ a, a:hover, a:focus {
 
 #sidebar ul li a {
     color: #fff;
-    /* padding: 1em;
-    font-size: 1.1em; */
     display: block;
 }
 
@@ -74,26 +61,17 @@ ul ul a {
 
 #sidebar-title {
     color: #fff;
-    /* padding: 1.5em;
-    font-size: 1.5em; */
 }
 
 #sidebarCollapse {
     background-color: #233476;
     border-color: #233476;
-    /* margin-left: 2rem; */
 }
 
 #navbar-row {
     padding-top: 0 !important;
     background-color: #233476;
-    /* height: 7.5vh !important; */
 }
-
-/* #page-header {
-    padding-left: 1em;
-    padding-top: 0.5em;
-} */
 
 .navbar-brand {
     padding-top: 0 !important;
@@ -102,15 +80,13 @@ ul ul a {
     color: #fff;
 }
 
+#page-header {
+    padding-top: 0.5em;
+    padding-left: 0;
+    font-size: 1.5em;
+}
+
 main {
-    /* position: fixed; */
-    /* margin-left: 15vw; */
-    /* width: 85vw;
-    max-width: 100vw !important; */
-    /* padding-left: 7.5vw !important;
-    padding-right: 7.5vw !important; */
-    /* align-items: stretch; */
-    /* padding-left: 5rem; */
     transition: all 0.3s ease-in-out;
 }
  
@@ -130,10 +106,6 @@ main {
     .pre-scrollable {
         max-height: 92.5vh !important;
         max-width: 100vw !important;
-    }
-
-    #sidebarCollapseIcon { 
-        font-size: 36px;
     }
 
     #navbar-row {
@@ -158,18 +130,16 @@ main {
         z-index: 9999;
         width: 20vw;
         height: 90vh;
-        /* transition: all 0.3s ease-in-out; */
     }
 
     #sidebar-title {
         padding: 0.75em;
-        font-size: 2.75em;
-        /* text-align: center; */
+        font-size: 2.5em;
     }
     
     #sidebar ul li a {
         padding: 0.75em;
-        font-size: 2em;
+        font-size: 1.75em;
         display: block;
     }
     
@@ -177,6 +147,10 @@ main {
         font-size: 1.5em;
         padding-top: 0.75em;
         padding-left: 1.5em;
+    }
+
+    .material-icons {
+        font-size: 36px !important;
     }
     
     #sidebarCollapse {
@@ -189,27 +163,35 @@ main {
     }
 
     #sidebar.active {
-        /* display: block; */
         overflow-y: auto;
         margin-left: 0;
     }
-    
-    #page-header {
-        padding-left: 1em;
-        padding-top: 0.5em;
+
+    .overlay {
+        display: none;
+        position: fixed;
+        left: 0;
+        top: 10vh;
+        width: 100vw;
+        height: 90vh;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 998;
+        opacity: 0;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .overlay.active {
+        display: none;
     }
 
     main {
         position: fixed;
         left: 0 !important;
         top: 7.5vh;
-        /* right: 20 !important; */
         width: 100vw !important;
         max-width: 100vw ;
         height: 92.5vh;
         max-height: 92.5vh;
-        /* align-items: stretch; */
-        /* transition: all 0.3s  ease-in-out; */
     }
 
     main.active {
@@ -231,8 +213,8 @@ main {
     }
     
     .row {
-        margin-left: 0;
-        margin-right: 0;
+        margin-left: 5vw;
+        margin-right: 5vw;
         padding-right: 0;
         padding-left: 0;
     }
@@ -240,10 +222,6 @@ main {
     .pre-scrollable {
         max-height: 92.5vh !important;
         max-width: 100vw !important;
-    }
-
-    #sidebarCollapseIcon { 
-        font-size: 36px;
     }
 
     #navbar-row {
@@ -267,13 +245,11 @@ main {
         z-index: 9999;
         width: 15vw;
         height: 92.5vh;
-        /* transition: all 0.3s ease-in-out; */
     }
 
     #sidebar-title {
         padding: 0.75em;
         font-size: 1.5em;
-        /* text-align: center; */
     }
     
     #sidebar ul li a {
@@ -287,6 +263,10 @@ main {
         padding-top: 0.75em;
         padding-left: 1.5em;
     }
+
+    .material-icons {
+        font-size: 36px !important;
+    }
     
     #sidebarCollapse {
         position: fixed;
@@ -299,26 +279,24 @@ main {
 
     #sidebar.active {
         margin-left: -15vw;
-        /* display: block; */
         overflow-y: auto;
     }
-    
-    #page-header {
-        padding-left: 1em;
-        padding-top: 0.5em;
+
+    .overlay {
+        display: none;
+    }
+
+    .overlay.active {
+        display: none;
     }
 
     main {
         position: fixed;
         left: 15vw !important;
         top: 7.5vh;
-        /* right: 20 !important; */
         width: 85vw !important;
-        /* max-width: 100vw ; */
         height: 92.5vh;
         max-height: 92.5vh;
-        /* align-items: stretch; */
-        /* transition: all 0.3s  ease-in-out; */
     }
 
     main.active {
@@ -327,8 +305,6 @@ main {
         margin-left: 0 !important;
         padding-right: 10vw;
         padding-left: 10vw;
-        /* padding-left: 5vw;
-        padding-right: 5vw; */
     }
 
  } 

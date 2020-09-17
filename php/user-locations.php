@@ -4,13 +4,10 @@ session_start();
 
 require_once 'db_connect.php';
 
-// dummy
-$_SESSION["userId"] = "yHHFxIjbHDoylTLjMym6PA==";
-
 $conn = dbConnect();
 
 // Build query string
-$stmt = "SELECT latitude, longitude FROM events WHERE userId = '".$_SESSION["userId"]."'";
+$stmt = "SELECT latitude, longitude FROM events WHERE userid = '".$_SESSION["userid"]."'";
 
 if ($_GET["yearRange"] == "single"){
     $stmt = $stmt." AND EXTRACT(YEAR FROM timestampms) = ".$_GET["startYear"];

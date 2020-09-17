@@ -4,8 +4,6 @@ require_once 'db_connect.php';
 
 $conn = dbConnect();
 
-// print_r($_GET);
-
 // Build query string
 $stmt = "SELECT latitude, longitude FROM events";
 $addWhere = true;   // where clause inclusion between attributes

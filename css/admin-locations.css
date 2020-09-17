@@ -2,28 +2,45 @@ body {
     will-change: auto !important;
 }
 
+.row {
+    padding-bottom: 2vh;
+}
+
 #map {
     position: relative;
+    /* padding-right: 5vw;
+    padding-left: 5vw; */
+}
+
+#invalid-form {
+    color: red;
+    display: none;
+    padding-top: 2.5vh;
+}
+
+#invalid-form p {
+    margin-bottom: 0;
 }
  
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
 
+
+    main {
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+
     #map {
         height: 60vh;
         width: 80vw;
-        /* padding-right: 5vw;
-        padding-left: 5vw; */
     }
 
     #map.active {
         width: 70vw;
-        /* padding-right: 5vw;
-        padding-left: 5vw; */
     }
 
     main.active #refine-opts {
-        margin-right: 0;
         width: 80vw;
         max-width: 80vw ;
         padding-left: 0;
@@ -36,16 +53,15 @@ body {
 @media only screen and (min-width: 1200px) {
 
     #map {
+        margin-right: 0;
+        margin-left: 0;
         height: 60vh;
         width: 75vw !important;
-        /* padding-right: 5vw;
-        padding-left: 5vw; */
     }
 
     #map.active {
-        width: 80vw !important;
-        /* padding-right: 5vw;
-        padding-left: 5vw; */
+        margin-right: 0;
+        width: 85vw !important;
     }
 
 } 
@@ -58,11 +74,6 @@ body {
 #endYear {
     visibility: hidden;
 }
-
-
-/* #endYear {
-    display: none;
-} */
 
 .yearLabels {
     visibility: hidden;
@@ -104,7 +115,3 @@ body {
     padding-left: 1rem !important;
     padding-top: 1rem !important;
 }
-
-/* #btnRow {
-    padding-top: 1rem !important;
-} */

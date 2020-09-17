@@ -8,6 +8,8 @@ body {
 
 #map {
     position: relative;
+    padding-right: 5vw;
+    padding-left: 5vw;
 }
 
 .charts {
@@ -38,14 +40,22 @@ body {
     height: 30vh;
 }
 
+#invalid-form {
+    color: red;
+    display: none;
+    padding-top: 2.5vh;
+}
+
+#invalid-form p {
+    margin-bottom: 0;
+}
+
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
 
     #map {
         height: 60vh;
         width: 90vw;
-        padding-right: 5vw;
-        padding-left: 5vw;
     }
 
     #btnRow .col-sm-3 {
@@ -61,8 +71,6 @@ body {
     #map {
         height: 60vh;
         width: 90vw;
-        padding-right: 5vw;
-        padding-left: 5vw;
     }
 
     #btnRow .col-sm-3 {
@@ -78,8 +86,6 @@ body {
     #map {
         height: 60vh;
         width: 90vw;
-        padding-right: 5vw;
-        padding-left: 5vw;
     }
 
     #btnRow .col-sm-3 {
@@ -95,14 +101,10 @@ body {
     #map {
         height: 60vh;
         width: 80vw;
-        /* padding-right: 5vw;
-        padding-left: 5vw; */
     }
 
     #map.active {
         width: 70vw;
-        /* padding-right: 5vw;
-        padding-left: 5vw; */
     }
 
     main.active #refine-opts {
@@ -121,14 +123,10 @@ body {
     #map {
         height: 60vh;
         width: 75vw !important;
-        /* padding-right: 5vw;
-        padding-left: 5vw; */
     }
 
     #map.active {
         width: 80vw !important;
-        /* padding-right: 5vw;
-        padding-left: 5vw; */
     }
 
 } 
