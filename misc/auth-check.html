@@ -5,15 +5,17 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <style>
-        body {
+        /* body {
             display: none;
-        }
+        } */
     </style>
 </head>
 
 <body>
+
+    <!-- <?php echo "<div>hello!</div>" ?> -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script>
+    <!-- <script>
 
         $.ajax({
 			url    : "http://localhost:4000/php/auth-check.php?",
@@ -29,12 +31,19 @@
             }
         });
 
-    </script>
+    </script> -->
+
+    <?php
+echo "Hello, World!";
+?>
 
     <img class="logo" src="logo1.png" alt="SuperTrouper Inc.">
     <button class="logIn_button" onclick="openSignIn()">Log in</button>
     <br></br>
     <button class="signUp_button" onclick="alert('Hello world!')">Sign up</button>
+    <?php
+echo "<b>Hello, World!</b>";
+?>
 </body>
 
 </html>

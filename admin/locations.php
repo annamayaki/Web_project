@@ -1,3 +1,10 @@
+<?php
+
+require_once __DIR__.'\\..\\php\\auth-check.php';
+authCheck("admin");
+
+?>
+
 <!DOCTYPE html>
 
 <html>

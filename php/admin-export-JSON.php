@@ -7,7 +7,7 @@ $conn = dbConnect();
 // Create file
 date_default_timezone_set('Europe/Athens');
 $fileName = "db_export_".time().".JSON";
-$filePath = __DIR__."\\temp\\".$fileName;
+$filePath = __DIR__."\\..\\temp\\".$fileName;
 $file = fopen($filePath, "w");
 // echo $_SERVER['QUERY_STRING']."\n";
 

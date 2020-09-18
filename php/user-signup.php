@@ -2,11 +2,6 @@
 
 session_start();
 
-// if (isset($_SESSION["userId"])) {
-//     echo "Session set";
-//     return;
-// }
-
 require_once 'db_connect.php';
 $conn = dbConnect();
 

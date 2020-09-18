@@ -2,7 +2,7 @@
     <ul class="list-unstyled components">
         <h3 id="sidebar-title">Admin Dashboard</h3>
         <li>
-            <a href="statistics.html">Επισκόπηση Στατιστικών</a>
+            <a href="statistics.php">Επισκόπηση Στατιστικών</a>
         </li>
         <li>
             <a
@@ -14,21 +14,21 @@
             </a>
             <ul class="collapse list-unstyled" id="homeSubmenu">
                 <li>
-                <a href="locations.html#map">Χάρτης Τοποθεσιών</a>
+                <a href="locations.php">Χάρτης Τοποθεσιών</a>
                 </li>
                 <li>
-                <a href="locations.html#activity-chart">Ποσοστό Εγγραφών ανά Δραστηριότητα</a>
+                <a href="locations.php#activity-chart">Ποσοστό Εγγραφών ανά Δραστηριότητα</a>
                 </li>
                 <li>
-                <a href="locations.html#dow-table-div">Δραστηριότητες στις Ημέρες</a>
+                <a href="locations.php#dow-table-div">Δραστηριότητες στις Ημέρες</a>
                 </li>
                 <li>
-                <a href="locations.html#hour-table-div">Δραστηριότητες στις Ώρες</a>
+                <a href="locations.php#hour-table-div">Δραστηριότητες στις Ώρες</a>
                 </li>
             </ul>
         </li>
         <li>
-            <a href="upload.html">Μεταφόρτωση Δεδομένων</a>
+            <a href="upload.php">Μεταφόρτωση Δεδομένων</a>
         </li>
     </ul>
 </nav>

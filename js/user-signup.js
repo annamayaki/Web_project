@@ -79,19 +79,9 @@ $(document).ready(function () {
 
     });
 
-    // no need to implement this!!
-    // $('#email').on('keyup', function () {
-    //   if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($("#email").val())){
-    //     console.log("true");
-    //   }
-    //   else {
-    //     console.log("false");
-    //   }
-    // });
-
     $('#submitButton').on('click', function (event) {
 
-        // event.preventDefault();
+        event.preventDefault();
 
         $('#wrongInput').css("display", "none");
         $('#idTaken').css("display", "none");
@@ -118,7 +108,7 @@ $(document).ready(function () {
                 password: $("#password").val()
             }
             $.ajax({
-                url    : "/php/signup.php",
+                url    : "/php/user-signup.php",
                 type   : "POST",
                 data   : user,
                 success: function(data, status){

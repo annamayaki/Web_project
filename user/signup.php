@@ -1,3 +1,10 @@
+<?php
+
+require_once __DIR__.'\\..\\php\\session-check.php';
+sessionCheck();
+
+?>
+
 <!DOCTYPE html>
 
 <html>
