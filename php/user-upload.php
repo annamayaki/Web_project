@@ -11,10 +11,6 @@ $_POST = json_decode($data_json, true);
 
 $userid = $_SESSION["userid"];
 
-// $prep_stmt = "INSERT INTO events 
-//     (userid, heading, activity_type, activity_confidence, activity_timestampms,
-//     verticalaccuracy, velocity, accuracy, longitude, latitude, altitude, timestampms)
-//     values ($1, $2, $3, $4, to_timestamp($5), $6, $7, $8, $9, $10, $11, to_timestamp($12))";
 $prep_stmt = "INSERT INTO events 
 (userid, heading, activity_type, activity_confidence, activity_timestampms,
 verticalaccuracy, velocity, accuracy, longitude, latitude, altitude, timestampms, timestampunix)

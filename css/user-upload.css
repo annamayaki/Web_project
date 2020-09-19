@@ -15,26 +15,31 @@ img {
     padding-bottom: 0.5em;
 }
 
-/* Extra small devices (phones, 600px and down) */
-/* @media only screen and (max-width: 600px) {
+#instrBtn {
+    margin-bottom: 0.5em;
+}
 
-    
+#showInstr {
+    display: inline;
+}
 
-} */
+#showInstr.active {
+    display: none;
+}
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
-/* @media only screen and (min-width: 600px) {
+#hideInstr {
+    display: none;
+}
 
-    
+#hideInstr.active {
+    display: inline;
+}
 
-} */
-
-/* Medium devices (landscape tablets, 768px and up) */
-/* @media only screen and (min-width: 768px) {
-
-    
-
-} */
+.card {
+    background: #fafafa;
+    border-color: #fafafaee;
+    border-radius: 2px;
+}
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
@@ -49,10 +54,3 @@ img {
     }
 
 }
-
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-/* @media only screen and (min-width: 1200px) {
-    
-    
-
-} */

@@ -1,0 +1,28 @@
+.logo {
+    text-align: center;
+    width: 70%;
+}
+
+.text {
+    font-size: 18px;
+    color: #2968aa;
+    text-align: justify;
+}
+.col-sm-5 {
+    text-align: center !important;
+}
+
+.row {
+    text-align: center !important;
+}
+
+button {
+    color: white !important;
+    background-color: #2968aa !important;
+    padding: 10px 20px;
+    margin-top: 3%;
+    display: block;
+    border: none;
+    cursor: pointer;
+    width: 60%;
+}

@@ -1,34 +1,33 @@
 <nav id="sidebar">
-    <ul class="list-unstyled components">
-        <h3 id="sidebar-title">Admin Dashboard</h3>
+  <ul class="list-unstyled components">
+    <h3 id="sidebar-title">Πλοήγηση</h3>
+    <li>
+      <a href="statistics.php">Επισκόπηση Στατιστικών</a>
+    </li>
+    <li>
+      <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+        Ανάλυση Δεδομένων 
+      </a>
+      <ul class="collapse list-unstyled" id="homeSubmenu">
         <li>
-            <a href="statistics.php">Επισκόπηση Στατιστικών</a>
+        <a href="locations.php">Χάρτης Τοποθεσιών</a>
         </li>
         <li>
-            <a
-                href="#homeSubmenu"
-                data-toggle="collapse"
-                aria-expanded="false"
-                class="dropdown-toggle">
-                Ανάλυση Δεδομένων 
-            </a>
-            <ul class="collapse list-unstyled" id="homeSubmenu">
-                <li>
-                <a href="locations.php">Χάρτης Τοποθεσιών</a>
-                </li>
-                <li>
-                <a href="locations.php#activity-chart">Ποσοστό Εγγραφών ανά Δραστηριότητα</a>
-                </li>
-                <li>
-                <a href="locations.php#dow-table-div">Δραστηριότητες στις Ημέρες</a>
-                </li>
-                <li>
-                <a href="locations.php#hour-table-div">Δραστηριότητες στις Ώρες</a>
-                </li>
-            </ul>
+        <a href="locations.php#activity-chart">Ποσοστό Εγγραφών ανά Δραστηριότητα</a>
         </li>
         <li>
-            <a href="upload.php">Μεταφόρτωση Δεδομένων</a>
+        <a href="locations.php#dow-table-div">Δραστηριότητες στις Ημέρες</a>
         </li>
-    </ul>
+        <li>
+        <a href="locations.php#hour-table-div">Δραστηριότητες στις Ώρες</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="upload.php">Μεταφόρτωση Δεδομένων</a>
+    </li>
+    <li>
+      <a href="/php/common-logout.php">Αποσύνδεση</a>
+    </li>
+  </ul>
 </nav>

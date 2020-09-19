@@ -12,8 +12,7 @@ authCheck("user");
 <head>
 
   <meta charset="utf-8" />
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <title>Μεταφόρτωση Δεδομένων | SuperTrouper</title>
 
@@ -93,24 +92,59 @@ authCheck("user");
               ένα πολύγωνο πάνω στον χάρτη.
             </div>
           </div>
+        </form>
           <div class="row justify-content-sm-center">
-            <div id="takeout">
-              [Google Takeout Stuff] Δεδομένα που δεν αφορούν την πόλη της Πάτρας
-              δεν θα εισάγονται στο σύστημα. Επιπλέον, για την προστασία της ιδιωτικότητάς σας, έχετε τη
-              δυνατότητα να περιορίσετε τα δεδομένα τοποθεσίας πριν το ανέβασμα του αρχείου, σχηματίζοντας 
-              ένα πολύγωνο πάνω στον χάρτη.
+            <div>
+              <button class="btn btn-primary" id="instrBtn" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                <span id="showInstr">Εμφάνιση Οδηγιών</span>
+                <span id="hideInstr">Απόκρυψη Οδηγιών</span>
+              </button>
+            </div>
+            <div class="collapse" id="collapseExample">
+              <div class="card card-body">
+                <ol>
+                  <li>
+                    Μεταβείτε στη σελίδα της υπηρεσίας 
+                    <a id="gTakeoutLink" href="https://takeout.google.com/" target="_blank">
+                      <u>Google Takeout</u>
+                    </a>.
+                  </li>
+                  <li>
+                    Εισάγετε τα στοιχεία του Google Λογαριασμού σας. 
+                  </li>
+                  <li>
+                    Στη σελίδα που θα εμφανιστεί, φροντίστε να μαρκάρετε την επιλογή 
+                    "Ιστορικό τοποθεσίας". Πατώντας το κουμπί "Πολλές επιλογές" που 
+                    της αντιστοιχεί, επιλέξτε ο τύπος αρχείου για το "Ιστορικό τοποθεσίας"
+                    να είναι "JSON".
+                  </li>
+                  <li>
+                    Προχωρήστε μέχρι το τέλος της σελίδας και κάντε κλικ στο "Επόμενο βήμα".
+                  </li>
+                  <li>
+                    Στην επόμενη σελίδα αφήστε τις ρυθμίσεις ως έχουν και επιλέξτε "Δημιουργία 
+                    εξαγωγής" και επιβεβαιώστε ξανά κάνοντας κλικ στο κουμπί "Δημιουργία 
+                    νέας εξαγωγής".
+                  </li>
+                  <li>
+                    Επιλέξτε "Λήψη" στη νέα σελίδα που θα εμφανιστεί και αποθηκεύστε το 
+                    συμπιεσμένο (.zip) αρχείο.
+                  </li>
+                  <li>
+                    Εντοπίστε το αρχείο "Ιστορικό τοποθεσίας.json" μέσα στο συμπιεσμένο
+                    αρχείο και επιλέξτε το για μεταφόρτωση στην ιστοσελίδα μας.
+                  </li>
+                </ol>
+              </div>
             </div>
           </div>
-        </form>
         <div class="overlay"></div>
       </main>
     </div>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
-    integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
-    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/3.8.4/dropzone.min.js"></script>
   <script src="/lib/prettysize.js"></script>
@@ -120,40 +154,3 @@ authCheck("user");
 </body>
 
 </html>
-
-<!-- <form>
-  <div class="form-group">
-      <label for="userFileUpload">Εισαγωγή δεδομένων χρήστη</label>
-      <input type="file" class="form-control-file" id="userFileUpload" onchange="Filevalidation()"
-          aria-describedby="dataInfo">
-      <small id="dataInfo" class="form-text text-muted">Δεδομένα που δεν αφορούν την πόλη της Πάτρας
-          δεν θα εισάγωνατι στο σύστημα. Επιπλέον, για την προστασία τησ ιδιωτικότητας σας, έχετε την
-          δυνατότητα να περιορίσετε τα δεδομένα τοποθεσίας πριν το ανέβασμα του αρχείου με ένα απλό
-          click.</small>
-  </div>
-  <button type="submit" class="btn btn-primary">Ανέβασμα αρχέιου</button>
-</form> -->
-<!-- <script >
-Filevalidation = () => { 
-const fi = document.getElementById('userFileUpload'); 
-// Check if any file is selected. 
-if (fi.files.length > 0) { 
-for (const i = 0; i <= fi.files.length - 1; i++) { 
-
-const fsize = fi.files.item(i).size; 
-const file = Math.round((fsize / 1024)); 
-// The size of the file. 
-if (file >= 4096) { 
-  alert( 
-    "File too Big, please select a file less than 4mb"); 
-} else if (file < 2048) { 
-  alert( 
-    "File too small, please select a file greater than 2mb"); 
-} else { 
-  document.getElementById('size').innerHTML = '<b>'
-  + file + '</b> KB'; 
-} 
-} 
-} 
-} 
-</script> -->

@@ -65,10 +65,4 @@ for ($i = 0; $i < 12; $i++) {
 header('Content-Type: text/html; charset=utf-8');
 echo json_encode(array($labels, $scores));
 
-
-
-// for ($i = 0; $i < 12; $i++) {
-//     print $months[$i]." ".$years[$i]."\n";
-// }
-
 ?>

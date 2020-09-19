@@ -11,7 +11,8 @@ authCheck("user");
 
 <head>
 
-  <meta charset="utf-8" />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <title>Επισκόπηση Στατιστικών | SuperTrouper</title>
 
@@ -63,8 +64,9 @@ authCheck("user");
             Στο γράφημα που ακολουθεί μπορείτε να εξετάσετε το σκορ των οικολογικών σας
             μετακινήσεων και τις μεταβολές του για τους τελευταίους 12 μήνες. Οικολογικές
             θεωρούνται οι μετακινήσεις μέσω δραστηριότητας σώματος, όπως η ποδηλασία. Ο τύπος
-            μετακίνησης ανιχνεύεται μαζίμε τα υπόλοιπα δεδομένα τοποθεσίας από λογισμικό
-            της υπηρεσίας <a href="https://www.google.com/maps/">Google Maps</a>.
+            μετακίνησης ανιχνεύεται μαζίμε τα υπόλοιπα δεδομένα τοποθεσίας από λογισμικό της 
+            υπηρεσίας <a id="gMapsLink" href="https://www.google.com/maps/" target="_blank">
+            <u>Google Maps</u></a>.
           </div>
         </div>
         <div class="row justify-content-sm-center">
@@ -73,11 +75,7 @@ authCheck("user");
         <div class="row justify-content-sm-center">
           <div class="stat-descr">
             Ακολουθεί η κατάταξη (top-3) των χρηστών με τα υψηλότερα σκορ οικολογικής
-            μετακίνησης για τον τελευταίο μήνα. <span id="pers-rank-msg">
-              <!-- <span id="pers-rank-msg">Συνεχίστε την προσπάθεια μέχρι να βρεθείτε στην κορυφή!</span>
-                <span id="pers-rank-msg">Συγχαρητήρια! Το περιβάλλον σας ευγνωμονεί, 
-                  συνεχίστε την καλή προσπάθεια!</span> -->
-            </span>
+            μετακίνησης για τον τελευταίο μήνα. <span id="pers-rank-msg"></span>
           </div>
         </div>
         <div class="row justify-content-sm-center">

@@ -12,8 +12,9 @@ sessionCheck();
 <head>
 
   <meta charset="utf-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Εγγραφή | SuperTrouper</title>
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/user-signup.css">
@@ -24,11 +25,24 @@ sessionCheck();
 <body>
 
   <div class="container">
-    <div class="row justify-content-sm-center" id="logoRow">
-      <div class="col-sm-4" id="logoCol">
-        <img class="justify-content-sm-center" id="logoImg" src="/img/logo_img.png"
-          alt="SuperTrouper.co logo (icon only)">
+    <div class="modal fade" id="failureModal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Σφάλμα</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Υπήρξε ένα πρόβλημα κατά τη μεταφορά απαραίτητων δεδομένων. Παρακαλούμε προσπαθήστε
+            πάλι σε μερικά δευτερόλεπτα.
+          </div>
+        </div>
       </div>
+    </div>
+    <div class="row justify-content-sm-center" id="logoRow">
+        <img class="justify-content-sm-center" id="logo" src="/img/logo.png" alt="SuperTrouper.co">
     </div>
     <div class="row justify-content-sm-center">
       <div class="col-sm-4" id="formCol">
@@ -43,15 +57,15 @@ sessionCheck();
             <input class="form-control" id="lastname" placeholder="Μηλόσπορος" minlength="1" required>
           </div>
           <div class="form-group">
-            <label for="username">Όνομα χρήστη</label>
+            <label for="username">Όνομα Χρήστη</label>
             <input class="form-control" id="username" placeholder="jAppleseed" minlength="1" required>
           </div>
           <div class="form-group">
-            <label for="email">Διεύθυνση email</label>
+            <label for="email">Διεύθυνση Email</label>
             <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
           </div>
           <div class="form-group">
-            <label for="password">Κωδικός χρήστη</label>
+            <label for="password">Κωδικός Χρήστη</label>
             <input type="password" class="form-control" id="password" placeholder="Κωδικός"
               pattern="(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}"
               title="Ο κωδικός πρέπει να αποτελείται από τουλάχιστον 8 χαρακτήρες και να περιέχει τουλάχιστον ένα κεφαλαίο γράμμα και ένα σύμβολο."
@@ -74,19 +88,17 @@ sessionCheck();
           </div>
           <div class="form-group form-text" id="idTaken">
             Ουπς! Τα στοιχεία που δώσατε αντιστοιχούν σε ήδη υπάρχοντα λογαριασμό. Μήπως πρέπει να συνδεθείτε; Αν είστε
-            σίγουροι
-            ότι δεν έχετε ήδη εγγραφεί, παρακαλούμε προσπαθήστε πάλι.
+            σίγουροι ότι δεν έχετε ήδη εγγραφεί, παρακαλούμε προσπαθήστε πάλι.
           </div>
         </form>
         <div id="loginLink">
-          Έχετε ήδη κάνει εγγραφή; Συνδεθείτε <a href="/login.html">εδώ</a>.
+          Έχετε ήδη κάνει εγγραφή; Συνδεθείτε <a href="/login.php">εδώ</a>.
         </div>
       </div>
     </div>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js"></script>
   <script src="/js/user-signup.js"></script>
 

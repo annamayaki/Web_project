@@ -146,7 +146,6 @@ $('#submit').on('click', function (event) {
                 $('#map').css("color", "red");
             }
             else {
-                console.log(data);
                 locations_arr = JSON.parse(data);
                 // render heat layer
                 heat = L.heatLayer(locations_arr, heatOptions).addTo(map);

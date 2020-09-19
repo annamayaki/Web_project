@@ -9,19 +9,15 @@ $("aside").load("sidebar.txt", function(responseTxt, statusTxt, xhr){
 });
 
 const datesXHR = $.get("/php/user-stats-dates.php?");
-
 datesXHR.then(function(data, textStatus) {
-
     if (textStatus != "success" ) {
-        // modal
+        $('#failureModal').modal('show');
     }
     else if (data.includes("communication error")) {
-        // modal
-        console.log("communication error");
+        $('#failureModal').modal('show');
     }
     else {
         dates = JSON.parse(data);
-        // console.log(dates);
         if (dates.lastUplDate) {
             hasUploadedData = true;
             $('#start-date').html(dates.startDate);
@@ -29,78 +25,69 @@ datesXHR.then(function(data, textStatus) {
             $('#last-upload-date').html(dates.lastUplDate);
 
             const indivScoreXHR = $.get("/php/user-indiv-scores.php?");
-            const scoreRanksXHR = $.get("/php/eco-score-rank.php?");
+            const scoreRanksXHR = $.get("/php/user-score-rank.php?");
 
             indivScoreXHR.done(function(indivScoreData) { 
                 var php_data = JSON.parse(indivScoreData);
                 var labels = php_data[0];
                 var scores = php_data[1];
-                console.log(labels);
-                console.log(scores);
 
+                // Load google charts
                 google.charts.load('current', {packages: ['corechart', 'bar']});
                 google.charts.setOnLoadCallback(drawBasic);
 
+                // Draw the chart and set the chart values
                 function drawBasic() {
 
-                    var data = new google.visualization.DataTable();
-                    data.addColumn('timeofday', 'Time of Day');
-                    data.addColumn('number', 'Motivation Level');
+                    var chart_data = new google.visualization.DataTable();
+                    chart_data.addColumn('string', 'Μήνας');
+                    chart_data.addColumn('number', 'Σκορ (%)');
+                    for (let i=0; i<12; i++) {
+                        chart_data.addRow([labels[i], scores[i]]);
+                    }
 
-                    data.addRows([
-                        [{v: [8, 0, 0], f: '8 am'}, 1],
-                        [{v: [9, 0, 0], f: '9 am'}, 2],
-                        [{v: [10, 0, 0], f:'10 am'}, 3],
-                        [{v: [11, 0, 0], f: '11 am'}, 4],
-                        [{v: [12, 0, 0], f: '12 pm'}, 5],
-                        [{v: [13, 0, 0], f: '1 pm'}, 6],
-                        [{v: [14, 0, 0], f: '2 pm'}, 7],
-                        [{v: [15, 0, 0], f: '3 pm'}, 8],
-                        [{v: [16, 0, 0], f: '4 pm'}, 9],
-                        [{v: [17, 0, 0], f: '5 pm'}, 10],
-                    ]);
+                    // Optional; add a title and set the width and height of the chart
+                    var options = { 'width': '100%', 'height': '100%' };
 
-                    var options = {
-                        title: 'Motivation Level Throughout the Day',
-                        hAxis: {
-                        title: 'Time of Day',
-                        format: 'h:mm a',
-                        viewWindow: {
-                            min: [7, 30, 0],
-                            max: [17, 30, 0]
-                        }
-                        },
-                        vAxis: {
-                        title: 'Rating (scale of 1-10)'
-                        }
-                    };
-
-                    var chart = new google.visualization.ColumnChart(
-                        document.getElementById('eco-score-chart'));
-
-                    chart.draw(data, options);
+                    // Display the chart inside the <div> element
+                    var chart = new google.visualization.ColumnChart(document.getElementById('eco-score-chart'));
+                    chart.draw(chart_data, options);
                 }
             });
 
             scoreRanksXHR.done(function(scoreRanksData) { 
+                rank_data = JSON.parse(scoreRanksData);
+                names = rank_data[0];
+                scores = rank_data[1];
+
+                if (names[3] == names[0] || names[3] == names[1] || names[3] == names[2]) {
+                    $('#pers-rank-msg').html("Συγχαρητήρια! Συνεχίστε την καλή προσπάθεια!");
+                }
+                else {
+                    $('#pers-rank-msg').html("Συνεχίστε την προσπάθεια μέχρι να βρεθείτε στην κορυφή!");
+                }
+
+                // Load google charts
                 google.charts.load('current', {'packages':['table']});
                 google.charts.setOnLoadCallback(drawTable);
 
+                // Draw the chart and set the chart values
                 function drawTable() {
-                    var data = new google.visualization.DataTable();
-                    data.addColumn('string', 'Name');
-                    data.addColumn('number', 'Salary');
-                    data.addColumn('boolean', 'Full Time Employee');
-                    data.addRows([
-                        ['Mike',  {v: 10000, f: '$10,000'}, true],
-                        ['Jim',   {v:8000,   f: '$8,000'},  false],
-                        ['Alice', {v: 12500, f: '$12,500'}, true],
-                        ['Bob',   {v: 7000,  f: '$7,000'},  true]
-                    ]);
+                    var chart_data = new google.visualization.DataTable();
+                    chart_data.addColumn('string', 'Κατάταξη');
+                    chart_data.addColumn('string', 'Όνομα Χρήστη');
+                    chart_data.addColumn('number', 'Σκορ (%)');
+                    chart_data.addRow(["1", names[0], scores[0]]);
+                    chart_data.addRow(["2", names[1], scores[1]]);
+                    chart_data.addRow(["3", names[2], scores[2]]);
+                    chart_data.addRow(["Εσείς", names[3], scores[3]]);
 
+                    // Optional; add a title and set the width and height of the chart
+                    var options = {'showRowNumber': false, 'width': '100%', 'height': '100%'};
+
+                    // Display the chart inside the <div> element
                     var table = new google.visualization.Table(document.getElementById('eco-score-rankings'));
-
-                    table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+                    table.draw(chart_data, options);
                 }
             });
 

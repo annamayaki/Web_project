@@ -19,6 +19,11 @@ $('#sidebarCollapse').on('click', function () {
     $('.overlay').toggleClass('active');
 });
 
+$('#instrBtn').on('click', function () {
+    $('#showInstr').toggleClass('active');
+    $('#hideInstr').toggleClass('active');
+});
+
 // Prepare modals
 $('#successModal').modal({
     show: false
@@ -130,7 +135,7 @@ function processFile(file) {
             contentType:'application/json; charset=utf-8',
             data   : JSON.stringify(locations_arr)
         });
-        jqXHR.done(function(){
+        jqXHR.done(function(data) {
             if (data.includes("communication error")) {
                 $('#failureModal').modal('show');
             }

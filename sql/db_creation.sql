@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS events (
     altitude INT,
     timestampms BIGINT NOT NULL,
     timestampunix TIMESTAMP NOT NULL,
-    PRIMARY KEY (userid, timestampms),
+    PRIMARY KEY (userid, timestampunix),
     CONSTRAINT ACTIVE_USER FOREIGN KEY (userid) REFERENCES users(userid)
     ON DELETE CASCADE ON UPDATE CASCADE
 );

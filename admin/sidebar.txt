@@ -7,34 +7,37 @@
       </a>
       <ul class="collapse list-unstyled show" id="homeSubmenu">
         <li>
-          <a href="statistics.html">
+          <a href="statistics.php">
             Επισκόπηση
           </a>
         </li>
         <li>
-          <a href="statistics.html#activity">
+          <a href="statistics.php#activity">
             Ποσοστό εγγραφών ανά δραστηριότητα
           </a>
         </li>
         <li>
-          <a href="statistics.html#user">Πλήθος εγγραφών ανά χρήστη</a>
+          <a href="statistics.php#user">Πλήθος εγγραφών ανά χρήστη</a>
         </li>
         <li>
-          <a href="statistics.html#year">Πλήθος εγγραφών ανά έτος</a>
+          <a href="statistics.php#year">Πλήθος εγγραφών ανά έτος</a>
         </li>
         <li>
-          <a href="statistics.html#month">Πλήθος εγγραφών ανά μήνα</a>
+          <a href="statistics.php#month">Πλήθος εγγραφών ανά μήνα</a>
         </li>
         <li>
-          <a href="statistics.html#dow">Πλήθος εγγραφών ανά ημέρα</a>
+          <a href="statistics.php#dow">Πλήθος εγγραφών ανά ημέρα</a>
         </li>
         <li>
-          <a href="statistics.html#hour">Πλήθος εγγραφών ανά ώρα</a>
+          <a href="statistics.php#hour">Πλήθος εγγραφών ανά ώρα</a>
         </li>
       </ul>
     </li>
     <li>
-      <a href="locations.html">Στοιχεία Τοποθεσίας</a>
+      <a href="locations.php">Στοιχεία Τοποθεσίας</a>
+    </li>
+    <li>
+        <a href="/php/common-logout.php">Αποσύνδεση</a>
     </li>
   </ul>
 </nav>

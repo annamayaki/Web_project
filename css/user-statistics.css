@@ -1,11 +1,11 @@
-/* #page-header {
-    font-size: 1.5em;
-} */
-
 .stat-descr {
     color: rgb(42, 77, 122);
     font-size: 1em;
     text-align: justify;
+}
+
+#gMapsLink {
+    color: rgb(77, 13, 138);
 }
 
 /* Extra small devices (phones, 600px and down) */
@@ -131,7 +131,7 @@
     }
 
     #eco-score-rankings {
-        width: 50vw;
+        width: 35vw;
         height: 20vh;
     }
 
