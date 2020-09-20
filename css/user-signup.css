@@ -1,3 +1,7 @@
+body {
+    font-family: 'Noto Sans', Helvetica, sans-serif !important;
+}
+
 #logo {
     display: block;
     margin-left: auto;

@@ -1,3 +1,24 @@
+-------- original supertrouper stuff ----------
+ALTER TABLE users 
+    ADD COLUMN userid VARCHAR UNIQUE,
+    ADD COLUMN firstname VARCHAR NOT NULL DEFAULT 'fname',
+    ADD COLUMN lastname VARCHAR NOT NULL DEFAULT 'lname',
+    ADD COLUMN email VARCHAR NOT NULL  DEFAULT 'mail';
+
+ALTER TABLE events 
+    ADD COLUMN userid VARCHAR;
+
+UPDATE users SET 
+    userid = 'WuROtp3cuC1XpCGd4/8yv0kNzMy33Mt54SPwmBB036w=',
+    email = 'klelia@icloud.com',
+    firstname = 'Κλέλια',
+    lastname = 'Λ'
+WHERE username = 'klelia';
+
+UPDATE events SET 
+    userid = 'yHHFxIjbHDoylTLjMym6PA=='
+WHERE username = 'anna';
+
 select count(*) from events where activity_type like 'IN_VEHICLE';
 select count(*) from events where activity_type like 'ON_BICYCLE';
 select count(*) from events where activity_type like 'ON_FOOT';

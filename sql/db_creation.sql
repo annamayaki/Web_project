@@ -11,8 +11,6 @@ CREATE DATABASE supertrouper
 
 \c supertrouper;
 
--- CREATE EXTENSION postgis;
-
 CREATE TYPE site_user_type AS ENUM('user', 'admin');
 
 DROP TABLE IF EXISTS users;
@@ -26,9 +24,6 @@ CREATE TABLE IF NOT EXISTS users (
     user_type site_user_type DEFAULT 'user' NOT NULL,
     last_upload_date DATE DEFAULT NULL
 );
-
--- CREATE TYPE detected_activity_type AS ENUM('IN_VEHICLE', 'ON_BICYCLE',
--- 'ON_FOOT', 'RUNNING', 'STILL', 'TILTING', 'UNKNOWN', 'WALKING');
 
 DROP TABLE IF EXISTS events;
 CREATE TABLE IF NOT EXISTS events (
@@ -75,8 +70,6 @@ BEGIN
 END;
 $$ LANGUAGE 'plpgsql';
 
--- SELECT * FROM calc_eco_score_rank();
-
 CREATE OR REPLACE FUNCTION geog_dist()
 RETURNS trigger AS $$
 BEGIN
@@ -100,24 +93,3 @@ INSERT INTO users VALUES
 ('gjWZqr6e331PZno/2X0Qsu4Lx3Iom6Bw/HMemS4ec+k=', 'Mr', 'Boss', 
 'theBoss', 'theBoss@supertrouper.co',
 '$2y$10$ThuqNCD6T6RzcEwqAsgzZuvYSZpZImz910aO5vtucrYrtfAq7PgsS','admin');
-
--------- original supertrouper stuff ----------
-ALTER TABLE users 
-    ADD COLUMN userid VARCHAR UNIQUE,
-    ADD COLUMN firstname VARCHAR NOT NULL DEFAULT 'fname',
-    ADD COLUMN lastname VARCHAR NOT NULL DEFAULT 'lname',
-    ADD COLUMN email VARCHAR NOT NULL  DEFAULT 'mail';
-
-ALTER TABLE events 
-    ADD COLUMN userid VARCHAR;
-
-UPDATE users SET 
-    userid = 'WuROtp3cuC1XpCGd4/8yv0kNzMy33Mt54SPwmBB036w=',
-    email = 'klelia@icloud.com',
-    firstname = 'Κλέλια',
-    lastname = 'Λ'
-WHERE username = 'klelia';
-
-UPDATE events SET 
-    userid = 'yHHFxIjbHDoylTLjMym6PA=='
-WHERE username = 'anna';

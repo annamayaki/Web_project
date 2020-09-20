@@ -19,9 +19,10 @@ authCheck("user");
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css"/>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans&subset=greek">
   <link rel="stylesheet" href="/css/user-style.css">
   <link rel="stylesheet" href="/css/user-locations.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
   </head>
 
@@ -63,19 +64,19 @@ authCheck("user");
               <div id="map"></div>
             </div>
             <div class="row charts">
-              <h3>Κατανομή Εγγραφών Δραστηριοτήτων</h3>
+              <h4>Κατανομή Εγγραφών Δραστηριοτήτων</h4>
             </div>
             <div class="row justify-content-sm-center charts">
               <div id="activity-chart"></div>
             </div>
             <div class="row charts">
-              <h3>Δραστηριότητες στις Ημέρες</h3>
+              <h4>Δραστηριότητες στις Ημέρες</h4>
             </div>
             <div class="row justify-content-sm-center charts">
               <div id="dow-table-div"></div>
             </div>
             <div class="row charts">
-              <h3>Δραστηριότητες στις Ώρες</h3>
+              <h4>Δραστηριότητες στις Ώρες</h4>
             </div>
             <div class="row justify-content-sm-center charts">
               <div id="hour-table-div"></div>

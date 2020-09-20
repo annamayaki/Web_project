@@ -26,7 +26,7 @@ a[data-toggle="collapse"] {
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Noto Sans', Helvetica, sans-serif !important;
     background: #fafafa;
     max-height: 200vh !important;
 }

@@ -26,7 +26,7 @@ a[data-toggle="collapse"] {
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Noto Sans', Helvetica, sans-serif !important;
     background: #fafafa;
     max-height: 200vh !important;
 }
@@ -246,7 +246,7 @@ main {
     }
 
     #sidebar-title {
-        padding: 0.75em;
+        padding: 0.5em;
         font-size: 1.5em;
     }
     

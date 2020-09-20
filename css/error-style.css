@@ -1,0 +1,19 @@
+body {
+    font-family: 'Noto Sans', Helvetica, sans-serif !important;
+    overflow: hidden;
+    text-align: center;
+}
+
+#sessionSet {
+    align-items: center !important;
+    margin-top: 20%;
+    margin-bottom: 40%;
+}
+
+#pic {
+    display: block;
+    margin-top: 7.5vh;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+}

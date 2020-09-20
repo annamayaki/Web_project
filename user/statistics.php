@@ -17,9 +17,10 @@ authCheck("user");
   <title>Επισκόπηση Στατιστικών | SuperTrouper</title>
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans&subset=greek">
   <link rel="stylesheet" href="/css/user-style.css">
   <link rel="stylesheet" href="/css/user-statistics.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 </head>
 
@@ -64,7 +65,7 @@ authCheck("user");
             Στο γράφημα που ακολουθεί μπορείτε να εξετάσετε το σκορ των οικολογικών σας
             μετακινήσεων και τις μεταβολές του για τους τελευταίους 12 μήνες. Οικολογικές
             θεωρούνται οι μετακινήσεις μέσω δραστηριότητας σώματος, όπως η ποδηλασία. Ο τύπος
-            μετακίνησης ανιχνεύεται μαζίμε τα υπόλοιπα δεδομένα τοποθεσίας από λογισμικό της 
+            μετακίνησης ανιχνεύεται μαζί με τα υπόλοιπα δεδομένα τοποθεσίας από λογισμικό της 
             υπηρεσίας <a id="gMapsLink" href="https://www.google.com/maps/" target="_blank">
             <u>Google Maps</u></a>.
           </div>
