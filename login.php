@@ -26,7 +26,7 @@ sessionCheck();
 <body>
 
   <div class="container">
-    <div class="modal fade" id="failureModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal fade" id="failureModal" tabindex="-1" role="dialog" aria-hidden="true"> <--!Bootstrap-->
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
