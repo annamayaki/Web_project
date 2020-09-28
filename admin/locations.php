@@ -2,7 +2,7 @@
 
 require_once __DIR__.'\\..\\php\\auth-check.php';
 authCheck("admin");
-
+// function to check if admin from auth-check.php file
 ?>
 
 <!DOCTYPE html>
